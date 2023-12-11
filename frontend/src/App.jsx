@@ -1,4 +1,5 @@
 import Accueil from "./components/accueil/Accueil";
+import Apropos from "./pages/A_propos/Apropos";
 import "./App.css";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Accueil />
+        <Apropos />
       </header>
     </div>
   );
