@@ -5,6 +5,7 @@
 /* eslint-disable no-multi-assign */
 import React, { useEffect, useRef } from "react";
 import "./Carousel.scss";
+import Granim from "granim";
 
 function HoverCarousel(elm) {
   this.DOM = {
@@ -140,5 +141,26 @@ function Carousel({ images }) {
     </div>
   );
 }
+
+const granimInstance = new Granim({
+  element: "#canvas-image-blending",
+  direction: "radial",
+  isPausedWhenNotInView: true,
+  states: {
+    "default-state": {
+      gradients: [
+        ["#3d3d3d", "#F4F1D6"],
+        ["#020202", "#F4F1D6"],
+        ["#3d3d3d", "#4f4f4f"],
+        ["#3d3d3d", "#F4F1D6"],
+        ["#020202", "#F4F1D6"],
+        ["#faf8ec", "#3d3d3d"],
+      ],
+      transitionSpeed: 6000,
+    },
+  },
+});
+
+granimInstance.addColorTransition("default-state", ["#000000", "#ffffff"]);
 
 export default Carousel;
