@@ -33,10 +33,7 @@
     "lint-staged": "^13.2.3"
   },
   "dependencies": {
-    "sass": "^1.69.5"
-    "lint-staged": "^13.2.3",
-  },
-  "dependencies": {
+    "sass": "^1.69.5",
     "prop-types": "^15.8.1"
   }
 }
