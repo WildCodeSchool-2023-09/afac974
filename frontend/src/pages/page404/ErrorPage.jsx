@@ -1,7 +1,17 @@
+import { useEffect } from "react";
+import Parallax from "parallax-js";
 import "./ErrorPage.scss";
 import { Link } from "react-router-dom";
 
 function ErrorPage() {
+  useEffect(() => {
+    const scene = document.getElementById("scene");
+    const parallax = new Parallax(scene);
+
+    return () => {
+      parallax.disable();
+    };
+  }, []);
   return (
     <div className="errorPage">
       <section className="wrapper">
