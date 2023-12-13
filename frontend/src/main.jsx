@@ -3,22 +3,21 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App";
-import Accueil from "./components/accueil/Accueil";
+import Accueil from "./pages/accueil/Accueil";
 import Apropos from "./pages/A_propos/Apropos";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "accueil/",
-    element: <Accueil />,
-  },
-  {
-    path: "apropos/",
-    element: <Apropos />,
+    children: [
+      {
+        path: "/",
+        element: <Accueil />,
+      },
+      {
+        path: "/apropos",
+        element: <Apropos />,
+      },
+    ],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

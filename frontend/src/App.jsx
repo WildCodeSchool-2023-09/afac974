@@ -1,4 +1,4 @@
-import Accueil from "./components/accueil/Accueil";
+import Accueil from "./pages/accueil/Accueil";
 import "./App.css";
 
 function App() {
