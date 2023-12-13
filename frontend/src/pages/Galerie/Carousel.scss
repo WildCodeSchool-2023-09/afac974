@@ -1,19 +1,16 @@
 @use "sass:math";
 
 .carousel {
-  $scrollbarHeight: 4px;
-  $scrollbarColor: #d82b6a;
-  $carouselHeight: 150px;
+  $carouselHeight: 180px;
   $fadeWidth: 50px;
-  $padding: 20px;
+  $padding: 15px;
   $radius: 8px;
-  $bg: white;
+  $bg: rgba(255, 255, 255, 0);
 
   display: block;
   font-size: 0;
   border-radius: $radius;
   padding: $padding;
-  box-shadow: 0 4px 10px rgba(black, 0.15);
   background: $bg;
   transform: translateZ(0);
   height: $carouselHeight;
@@ -24,9 +21,10 @@
   bottom: 0;
   left: 0;
   width: 80%;
-  max-width: 900px;
-  min-width: 550px;
+  max-width: 100%;
+  min-width: 650px;
   margin: auto;
+  margin-top: 1rem;
 
   .touch & {
     overflow: auto;
@@ -46,32 +44,6 @@
     }
   }
 
-  // scrollbar
-  &::after {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    z-index: 4;
-    bottom: -4px;
-    left: 0;
-    background: $scrollbarColor;
-    height: $scrollbarHeight;
-    border-radius: $scrollbarHeight;
-    opacity: 0;
-    width: var(--scrollWidth, 0);
-    left: var(--scrollLleft, 0);
-    transition:
-      opacity 0.2s,
-      bottom 0.2s;
-  }
-
-  &:hover {
-    &::after {
-      opacity: 1;
-      bottom: -10px;
-    }
-  }
-
   > .wrap {
     overflow: hidden;
     border-radius: calc($radius - math.div($padding, 2));
@@ -86,16 +58,16 @@
       bottom: 0;
       z-index: 2;
       width: $fadeWidth;
-      font-size: 80px;
+      font-size: 50px;
       text-indent: -30px;
       line-height: $carouselHeight;
       font-family: monospace;
-      color: #555;
+      color: #fcfcfc;
       font-weight: bold;
       border-radius: $radius;
       pointer-events: none;
       transition: 0.2s ease-out;
-      background: linear-gradient(to right, white 20%, transparent);
+      background: linear-gradient(to right, rgb(255, 255, 255) 5%, transparent);
     }
 
     &::after {
@@ -113,7 +85,7 @@
         display: inline-block;
         vertical-align: middle;
         height: 100%;
-        margin: 0 0 0 5px;
+        margin: 0 0 0 10px;
         position: relative;
         overflow: hidden;
         transition: 0.25s ease-out;
