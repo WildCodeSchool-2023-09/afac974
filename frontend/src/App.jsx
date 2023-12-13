@@ -1,5 +1,4 @@
 import Accueil from "./pages/accueil/Accueil";
-
 import "./App.css";
 
 function App() {
