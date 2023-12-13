@@ -1,15 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./pages/page404/ErrorPage";
+
+import Accueil from "./pages/accueil/Accueil";
 import Galerie from "./pages/Galerie/Galerie";
 
 const router = createBrowserRouter([
   {
-    path: "/galerie",
-    element: <Galerie />,
+    children: [
+      {
+        path: "/",
+        element: <Accueil />,
+      },
+      {
+        path: "/galerie",
+        element: <Galerie />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
+    ],
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
