@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import Galerie from "./pages/Galerie/Galerie";
 import App from "./App";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/galerie",
+    element: <Galerie />,
   },
 ]);
 
