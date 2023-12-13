@@ -1,13 +1,11 @@
 import Accueil from "./pages/accueil/Accueil";
-
-import "./App.css";
+import Galerie from "./pages/Galerie/Galerie";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Accueil />
-      </header>
+    <div>
+      <Accueil />
+      <Galerie />
     </div>
   );
 }
