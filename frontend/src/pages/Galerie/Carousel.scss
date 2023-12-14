@@ -67,7 +67,11 @@
       border-radius: $radius;
       pointer-events: none;
       transition: 0.2s ease-out;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0.208) 5%, transparent);
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.208) 5%,
+        transparent
+      );
     }
 
     &::after {
