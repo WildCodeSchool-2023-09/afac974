@@ -4,7 +4,9 @@ import "./Apropos.scss";
 function Apropos() {
   return (
     <div className="global">
-      <h1>A propos de l' *LOGO*</h1>
+      <h1>
+        A propos de l' <img src="./src/assets/logoBlanc.png" alt="logo" />
+      </h1>
       <div>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat quas
