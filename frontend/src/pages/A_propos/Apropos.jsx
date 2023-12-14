@@ -1,9 +1,10 @@
+import React from "react";
+import "./Apropos.scss";
+
 function Apropos() {
   return (
-    <div>
-      <section id="apropos">
-        <h1>A propos</h1>
-      </section>
+    <div className="global">
+      <h1>A propos de l' *LOGO*</h1>
       <body>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat quas
