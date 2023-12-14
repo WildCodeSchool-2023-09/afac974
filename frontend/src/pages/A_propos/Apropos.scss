@@ -9,8 +9,14 @@
     font-size: 6rem;
     color: white;
     background-image: url("/public/tableaux/tableau1.jpeg");
-    width: 100%;
-    padding: 10%;
+    background-size: cover;
+    padding: 5%;
+  }
+
+  p {
+    color: white;
+    display: block;
+    justify-content: space-around;
   }
 }
 

@@ -5,7 +5,7 @@ function Apropos() {
   return (
     <div className="global">
       <h1>A propos de l' *LOGO*</h1>
-      <body>
+      <div>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat quas
           ex delectus fuga a asperiores tempora iure, eos exercitationem
@@ -30,7 +30,7 @@ function Apropos() {
           ea! Odio nemo est nihil repellendus blanditiis, illo assumenda
           obcaecati.
         </p>
-      </body>
+      </div>
     </div>
   );
 }
