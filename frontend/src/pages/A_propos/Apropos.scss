@@ -1,0 +1,25 @@
+* {
+  text-decoration: none;
+}
+
+.global {
+  h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 6rem;
+    color: White;
+    background-image: url("/public/tableaux/tableau1.jpeg");
+    background-size: cover;
+    padding: 5%;
+  }
+
+  p {
+    color: white;
+    font-size: 1.3rem;
+    display: flex;
+    padding: 30px;
+  }
+}
+
+// @media screen {
+// }
