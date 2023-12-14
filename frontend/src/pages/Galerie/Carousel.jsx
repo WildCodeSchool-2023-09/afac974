@@ -132,8 +132,20 @@ function Carousel({ images }) {
       <div className="wrap">
         <ul>
           {images.map((image, index) => (
-            <li key={index}>
-              <img src={image} alt={`Image ${index}`} />
+            <li key={index} className="carousel-item">
+              <img src={image.src} alt={`Image ${index}`} />
+              <div className="overlay">
+                <div className="items head">
+                  <p>{image.title}</p>
+                  <hr />
+                </div>
+                <div className="items artiste">
+                  <p className="artiste">{image.artiste}</p>
+                </div>
+                <div className="items price">
+                  <p className="new">{image.price}</p>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
