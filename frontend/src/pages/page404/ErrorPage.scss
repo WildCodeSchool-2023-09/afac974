@@ -3,15 +3,16 @@
 $font-01: "Barlow", sans-serif;
 $font-02: "Barlow Condensed", sans-serif;
 
-$m-01: #fb8a8a;
-$m-02: #ffedc0;
+$m-01: #00000097;
 
-$bg-01: #695681;
-$bg-02: #36184f;
-$bg-03: #32243e;
+$bg-01: #000000;
+$bg-02: #bccded;
+$bg-03: #ffffff;
 
-$g-01: linear-gradient(90deg, #ffedc0 0%, #ff9d87 100%);
-$g-02: linear-gradient(90deg, #8077ea 13.7%, #eb73ff 94.65%);
+$g-01: linear-gradient(90deg, #f4f1d6e0 0%, #020202ce 100%);
+$g-02:
+  linear-gradient(90deg, #333df1b3 25%, #ff9100ba 100%),
+  #fffb0acf 55%;
 
 $cubic: cubic-bezier(0.4, 0.35, 0, 1.53);
 $cubic2: cubic-bezier(0.18, 0.89, 0.32, 1.15);
@@ -32,6 +33,10 @@ $circleShadow:
   @media screen and (max-height: 660px) {
     @content;
   }
+}
+
+body {
+  overflow: hidden;
 }
 
 p,
@@ -56,7 +61,12 @@ input,
   padding: 0;
   height: auto;
   font-family: $font-01;
-  background: $bg-01;
+}
+
+@media (max-width: 767px) {
+  #canvas-image-blending {
+    transform: translateY(10%);
+  }
 }
 
 .wrapper {
@@ -65,7 +75,7 @@ input,
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 
   .container {
     margin: 0 auto;
@@ -209,7 +219,7 @@ input,
         }
 
         p {
-          color: white;
+          color: rgb(82, 75, 75);
           font-size: 18px;
           letter-spacing: 0.6px;
           margin-bottom: 40px;
@@ -224,7 +234,7 @@ input,
           box-shadow: 0px 15px 20px rgba($bg-02, 0.5);
           z-index: 3;
           color: $bg-01;
-          background-color: white;
+          background-color: rgba(255, 255, 255, 0.468);
           text-transform: uppercase;
           font-weight: 600;
           font-size: 12px;
@@ -234,7 +244,7 @@ input,
             box-shadow: 0px 10px 10px -10px rgba($bg-02, 0.5);
             transform: translateY(5px);
             background: $m-01;
-            color: white;
+            color: #f4f1d6;
           }
         }
       }
