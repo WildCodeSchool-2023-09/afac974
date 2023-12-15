@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Accueil.scss";
+import { Link } from "react-router-dom";
 
 const images = [
   "/public/tableaux/tableau1.jpeg",
@@ -48,9 +49,11 @@ function Carousel1() {
           </div>
         ))}
       </Slider>
-      <button type="button" className="visite">
-        Commencer la visite
-      </button>
+      <Link to="/galerie">
+        <button type="button" className="visite">
+          Commencer la visite
+        </button>
+      </Link>
       <p className="paragraphe">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dicta
         commodi rem molestias! Aperiam eaque velit consequuntur, voluptatibus
