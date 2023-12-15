@@ -21,5 +21,24 @@
   }
 }
 
-// @media screen {
-// }
+@media screen and (max-width: 600px) {
+  .global {
+    display: inline-block;
+  }
+
+  .global {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  .global {
+    img {
+      width: 20%;
+    }
+  }
+  .global {
+    p {
+      font-size: 1rem;
+    }
+  }
+}
