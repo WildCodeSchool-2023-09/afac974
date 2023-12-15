@@ -5,7 +5,8 @@ function Apropos() {
   return (
     <div className="global">
       <h1>
-        A propos de l' <img src="./src/assets/logoBlanc.png" alt="logo" />
+        À propos de l'
+        <img className="bgh1" src="./src/assets/logoBlanc.png" alt="logo" />
       </h1>
       <div>
         <p>
