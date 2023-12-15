@@ -21,10 +21,31 @@
     display: block;
     color: white;
     font-size: 1.3rem;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     padding: 3%;
   }
+}
+
+.p1 {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.p2 {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.p3 {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 @media screen and (max-width: 600px) {
