@@ -1,5 +1,9 @@
+@import url("https://fonts.google.com/specimen/Montserrat");
+
 * {
   text-decoration: none;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 .global {
@@ -14,12 +18,54 @@
   }
 
   p {
+    display: block;
     color: white;
     font-size: 1.3rem;
-    display: flex;
-    padding: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 3%;
   }
 }
 
-// @media screen {
-// }
+.p1 {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.p2 {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.p3 {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .global {
+    display: inline-block;
+  }
+
+  .global {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  .global {
+    img {
+      width: 20%;
+    }
+  }
+  .global {
+    p {
+      font-size: 1rem;
+    }
+  }
+}
