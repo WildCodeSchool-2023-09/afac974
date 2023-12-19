@@ -1,6 +1,7 @@
 @import url("https://fonts.google.com/specimen/Montserrat");
 
 * {
+  list-style: none;
   text-decoration: none;
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -46,6 +47,10 @@
   border-radius: 20px;
   margin-left: 100px;
   margin-right: 100px;
+}
+
+button {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,3 +1,5 @@
+@import url("https://fonts.google.com/specimen/Montserrat");
+
 .slick-prev {
   left: 100px;
   z-index: 10;
@@ -30,7 +32,7 @@
   padding: 1rem 1rem 1rem 1rem;
   color: black;
   background-color: #ffffff5b;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
 }
 .paragraphe {
@@ -43,7 +45,7 @@
   background-color: #ffffff5b;
   z-index: 1;
   border-radius: 2rem;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
 }
 
