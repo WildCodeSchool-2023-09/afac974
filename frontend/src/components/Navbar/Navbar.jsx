@@ -32,7 +32,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/favori">
+            <NavLink to="/favoris">
               <button
                 type="button"
                 className="navButton"

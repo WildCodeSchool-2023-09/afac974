@@ -40,10 +40,30 @@ function Galerie() {
       price: "1099€",
       artiste: "dall-e",
     },
-    "/public/tableaux/tableau8.jpeg",
-    "/public/tableaux/tableau9.jpeg",
-    "/public/tableaux/tableau10.jpeg",
-    "/public/tableaux/tableau11.jpeg",
+    {
+      src: "/public/tableaux/tableau8.jpeg",
+      title: "Titre du Tableau 8",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau9.jpeg",
+      title: "Titre du Tableau 9",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau10.jpeg",
+      title: "Titre du Tableau 10",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau11.jpeg",
+      title: "Titre du Tableau 11",
+      price: "1099€",
+      artiste: "dall-e",
+    },
   ];
 
   const imagesCarousel2 = [
@@ -88,10 +108,30 @@ function Galerie() {
       price: "1099€",
       artiste: "dall-e",
     },
-    "/public/tableaux/tableau19.jpeg",
-    "/public/tableaux/tableau20.jpeg",
-    "/public/tableaux/tableau21.jpeg",
-    "/public/tableaux/tableau22.jpeg",
+    {
+      src: "/public/tableaux/tableau19.jpeg",
+      title: "Titre du Tableau 19",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau20.jpeg",
+      title: "Titre du Tableau 20",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau21.jpeg",
+      title: "Titre du Tableau 21",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau22.jpeg",
+      title: "Titre du Tableau 22",
+      price: "1099€",
+      artiste: "dall-e",
+    },
   ];
 
   const imagesCarousel3 = [
@@ -137,10 +177,30 @@ function Galerie() {
       price: "1099€",
       artiste: "dall-e",
     },
-    "/public/tableaux/tableau30.jpeg",
-    "/public/tableaux/tableau31.jpeg",
-    "/public/tableaux/tableau32.jpeg",
-    "/public/tableaux/tableau33.jpeg",
+    {
+      src: "/public/tableaux/tableau30.jpeg",
+      title: "Titre du Tableau 30",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau31.jpeg",
+      title: "Titre du Tableau 31",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau32.jpeg",
+      title: "Titre du Tableau 32",
+      price: "1099€",
+      artiste: "dall-e",
+    },
+    {
+      src: "/public/tableaux/tableau33.jpeg",
+      title: "Titre du Tableau 33",
+      price: "1099€",
+      artiste: "dall-e",
+    },
   ];
   return (
     <div>
