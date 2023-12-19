@@ -9,13 +9,12 @@
   z-index: 10;
 }
 .backgroungFull {
-  height: 100vh;
-  width: 100vw;
+  object-fit: contain;
+  height: 80vh;
+  width: 100%;
 
   img {
-    object-fit: fill;
     width: 100%;
-    height: auto;
   }
 }
 .carousel-container {
@@ -25,7 +24,7 @@
   display: flex;
   border-radius: 2rem;
   position: absolute;
-  top: 50vh;
+  top: 25vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -37,7 +36,7 @@
 }
 .paragraphe {
   position: absolute;
-  top: 60vh;
+  top: 50vh;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
