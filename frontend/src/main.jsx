@@ -5,6 +5,7 @@ import ErrorPage from "./pages/Page404/ErrorPage";
 import Accueil from "./pages/Accueil/Accueil";
 import Galerie from "./pages/Galerie/Galerie";
 import Apropos from "./pages/A_propos/Apropos";
+import Artiste from "./pages/Artiste/Artiste";
 import App from "./App";
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/galerie",
         element: <Galerie />,
+      },
+      {
+        path: "/artiste",
+        element: <Artiste />,
       },
       {
         path: "/apropos",

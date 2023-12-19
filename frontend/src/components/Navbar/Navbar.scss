@@ -19,7 +19,7 @@
   );
   padding: 0 2vw;
   img {
-    width: 15rem;
+    width: 10rem;
   }
 }
 
@@ -49,7 +49,7 @@
 
 .navButton::before {
   content: attr(data-description);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #f4f1d676;
   color: #fff;
   padding: 5px;
   border-radius: 50%;
@@ -67,8 +67,12 @@
 }
 
 .navButton img:hover {
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #f4f1d6;
   transition: box-shadow 0.3s;
   border-radius: 50%;
-  z-index: 3;
+}
+
+.diamond-icon {
+  width: 1rem;
+  height: auto;
 }

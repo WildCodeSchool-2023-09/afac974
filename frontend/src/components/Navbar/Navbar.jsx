@@ -8,6 +8,16 @@ function Navbar() {
         <Link to="/">
           <img src="src/assets/logoBlanc50.png" alt="logo" />
         </Link>
+        <img
+          src="src/assets/diamondTop.svg"
+          alt="diamond"
+          style={{
+            width: "40px",
+            height: "auto",
+            marginLeft: "18rem",
+            marginTop: "3.6rem",
+          }}
+        />
         <ul className="iconListe">
           <li>
             <NavLink to="/artiste">
