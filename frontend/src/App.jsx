@@ -1,11 +1,13 @@
-import Accueil from "./pages/accueil/Accueil";
-import Galerie from "./pages/Galerie/Galerie";
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div>
-      <Accueil />
-      <Galerie />
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
 }

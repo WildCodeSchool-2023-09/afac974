@@ -1,0 +1,17 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(16, 17, 16, 0.629);
+  background: linear-gradient(
+    25deg,
+    rgba(0, 0, 0, 0.579) 0%,
+    rgba(36, 38, 36, 0.665) 50%,
+    rgba(77, 80, 78, 0.627) 100%
+  );
+  padding: 0 2vw;
+}
+
+button {
+  cursor: pointer;
+}
