@@ -35,10 +35,6 @@ $circleShadow:
   }
 }
 
-body {
-  overflow: hidden;
-}
-
 p,
 button,
 input,
@@ -50,6 +46,7 @@ input,
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
 
   &:focus {
     outline: 0;

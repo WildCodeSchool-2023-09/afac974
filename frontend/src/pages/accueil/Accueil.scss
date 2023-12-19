@@ -11,9 +11,9 @@
   width: 100vw;
 
   img {
-    object-fit: cover;
+    object-fit: fill;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 }
 .carousel-container {
@@ -45,4 +45,8 @@
   border-radius: 2rem;
   font-family: "Montserrat";
   font-size: 20px;
+}
+
+button {
+  cursor: pointer;
 }

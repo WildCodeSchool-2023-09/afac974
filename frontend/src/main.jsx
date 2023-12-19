@@ -5,9 +5,11 @@ import ErrorPage from "./pages/page404/ErrorPage";
 import Accueil from "./pages/accueil/Accueil";
 import Galerie from "./pages/Galerie/Galerie";
 import Apropos from "./pages/A_propos/Apropos";
+import App from "./App";
 
 const router = createBrowserRouter([
   {
+    element: <App />,
     children: [
       {
         path: "/",
@@ -28,6 +30,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
