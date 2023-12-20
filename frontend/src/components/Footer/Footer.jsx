@@ -6,7 +6,12 @@ function Footer() {
     <footer>
       <div>
         <Link to="/apropos">
-          <button type="button" className="transparent-button">
+          <button type="button" className="button-apropos">
+            A propos
+          </button>
+        </Link>
+        <Link to="/apropos">
+          <button type="button" className="button-vogue">
             © Vogue Merry
           </button>
         </Link>
@@ -17,7 +22,7 @@ function Footer() {
             width: "40px",
             height: "auto",
             marginTop: "2.1rem",
-            marginLeft: "37.3rem",
+            marginLeft: "33.3rem",
           }}
         />{" "}
       </div>
