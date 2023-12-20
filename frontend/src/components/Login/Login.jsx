@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 import "./Login.scss";
 
 function Login({ closeLogin }) {
@@ -55,11 +57,13 @@ function Login({ closeLogin }) {
         </div>
         <div className="btn">
           <button type="button" className="button1">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Login
           </button>
-          <button type="button" className="button2">
-            Sign Up
-          </button>
+          <Link to="/inscription">
+            <button type="button" className="button2">
+              Sign Up
+            </button>
+          </Link>
         </div>
         <button type="button" className="button3">
           Forgot Password
