@@ -15,11 +15,13 @@ function Footer() {
             © Vogue Merry
           </button>
         </Link>
-        <img
-          src="src/assets/diamondBottom.svg"
-          alt="diamond"
-          className="diamond"
-        />
+        <div className="diamond-container">
+          <img
+            src="src/assets/diamondBottom.svg"
+            alt="diamond"
+            className="diamond"
+          />
+        </div>
       </div>
     </footer>
   );

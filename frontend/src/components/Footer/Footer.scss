@@ -2,6 +2,8 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -17,23 +19,29 @@ footer {
   font-size: 20px;
   display: flex;
   color: white;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .button-apropos {
   background-color: transparent;
   color: white;
   padding: 5px;
-  justify-content: space-between;
-  align-items: center;
 }
 .button-vogue {
   background-color: transparent;
   color: white;
 }
 
+.diamond-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .diamond {
   width: 40px;
   height: auto;
-  margin-bottom: 0rem;
-  margin-left: 32.3rem;
+  margin-left: 44.2rem;
+  margin-top: -3.9rem;
 }
