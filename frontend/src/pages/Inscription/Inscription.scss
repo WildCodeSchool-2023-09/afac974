@@ -1,15 +1,14 @@
-body {
-  margin: 0;
-}
-
 .inscription {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 350px;
   padding: 20px;
-  height: auto;
+  border-radius: 20px;
+  position: relative;
   background-color: #1a1a1a;
   color: #fff;
+  border: 1px solid #333;
 }
 
 .title {
@@ -20,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   padding-left: 30px;
-  color: #00bfff;
+  color: #639caf;
 }
 
 .title::before {
@@ -42,7 +41,7 @@ body {
   width: 16px;
   border-radius: 50%;
   left: 0px;
-  background-color: #00bfff;
+  background-color: #8a6f93;
 }
 
 .message,
@@ -56,7 +55,7 @@ body {
 }
 
 .signin a:hover {
-  text-decoration: underline royalblue;
+  text-decoration: underline#8a6f93;
 }
 
 .signin a {
@@ -93,9 +92,14 @@ body {
   transition: 0.3s ease;
 }
 
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
 .form label .input:focus + span,
 .form label .input:valid + span {
-  color: #00bfff;
+  color: #8a6f93;
   top: 0px;
   font-size: 0.7em;
   font-weight: 600;
@@ -113,11 +117,11 @@ body {
   color: #fff;
   font-size: 16px;
   transform: 0.3s ease;
-  background-color: #00bfff;
+  background-color: #648dbf;
 }
 
 .submit:hover {
-  background-color: #00bfff96;
+  background-color: #8a6f93;
 }
 
 @keyframes pulse {
