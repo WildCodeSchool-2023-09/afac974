@@ -55,7 +55,7 @@ function Login({ closeLogin }) {
         </div>
         <div className="btn">
           <button type="button" className="button1">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Login
           </button>
           <button type="button" className="button2">
             Sign Up
