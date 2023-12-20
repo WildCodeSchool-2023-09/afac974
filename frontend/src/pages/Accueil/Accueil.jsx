@@ -44,7 +44,7 @@ function Carousel1() {
         pauseOnHover={sliderSettings.pauseOnHover}
       >
         {images.map((image, index) => (
-          <div key={image} className="backgroungFull">
+          <div key={image} className="backgroundFull">
             <img src={image} alt={`Slide ${index + 1}`} />
           </div>
         ))}
@@ -55,10 +55,10 @@ function Carousel1() {
         </button>
       </Link>
       <p className="paragraphe">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dicta
-        commodi rem molestias! Aperiam eaque velit consequuntur, voluptatibus
-        quasi assumenda architecto deleniti nihil in laborum itaque repudiandae
-        eius debitis aut.
+        L'Association des Familles Amies de Capeline 974 développe une galerie
+        virtuelle pour les Journées Européennes du Patrimoine 2023, mettant en
+        valeur le patrimoine artistique de l'Océan Indien à travers une
+        sélection d'aquarelles et de dessins.
       </p>
     </div>
   );
