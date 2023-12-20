@@ -8,6 +8,11 @@
   right: 100px;
   z-index: 10;
 }
+
+.slick-dots {
+  bottom: 2vh;
+}
+
 .backgroundFull {
   object-fit: contain;
   height: 80vh;
@@ -34,6 +39,13 @@
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
 }
+
+.visite:hover {
+  background-color: #f4f1d6cf;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .paragraphe {
   position: absolute;
   top: 50vh;
@@ -46,6 +58,7 @@
   border-radius: 2rem;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
+  padding: 0.5rem;
 }
 
 button {
