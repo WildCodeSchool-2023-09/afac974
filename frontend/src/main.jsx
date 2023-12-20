@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./pages/Page404/ErrorPage";
-import Accueil from "./pages/Accueil/Accueil";
+import ErrorPage from "./pages/Page404aze/ErrorPage";
+import Accueil from "./pages/Accueilaze/Accueil";
 import Galerie from "./pages/Galerie/Galerie";
 import Apropos from "./pages/A_propos/Apropos";
 import Artiste from "./pages/Artiste/Artiste";
