@@ -6,6 +6,7 @@ main {
 
 footer {
   margin-top: auto;
+  padding: 0.97rem;
   background: rgba(4, 4, 4, 0.412);
   background: linear-gradient(
     45deg,
@@ -28,4 +29,11 @@ footer {
 .button-vogue {
   background-color: transparent;
   color: white;
+}
+
+.diamond {
+  width: 40px;
+  height: auto;
+  margin-bottom: 0rem;
+  margin-left: 32.3rem;
 }

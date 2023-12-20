@@ -18,13 +18,8 @@ function Footer() {
         <img
           src="src/assets/diamondBottom.svg"
           alt="diamond"
-          style={{
-            width: "40px",
-            height: "auto",
-            marginTop: "2.1rem",
-            marginLeft: "33.3rem",
-          }}
-        />{" "}
+          className="diamond"
+        />
       </div>
     </footer>
   );
