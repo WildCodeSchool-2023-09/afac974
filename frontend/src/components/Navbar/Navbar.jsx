@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import "./Navbar.scss";
+import Login from "../Login/Login";
 
 function Navbar() {
+  const [openLogin, setOpenLogin] = useState(false);
   return (
     <nav>
       <div className="navBar">
@@ -53,16 +56,18 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/compte">
-              <button
-                type="button"
-                className="navButton"
-                data-description="Compte 👤"
-              >
-                <img src="src/assets/compte.png" alt="login" />
-              </button>
-            </NavLink>
+            <button
+              type="button"
+              className="navButton"
+              data-description="Compte 👤"
+              onClick={() => {
+                setOpenLogin(true);
+              }}
+            >
+              <img src="src/assets/compte.png" alt="login" />
+            </button>
           </li>
+          {openLogin && <Login closeLogin={setOpenLogin} />}
         </ul>
       </div>
     </nav>
