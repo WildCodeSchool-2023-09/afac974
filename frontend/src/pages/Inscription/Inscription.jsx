@@ -1,6 +1,8 @@
+import "./Inscription.scss";
+
 function Inscription() {
   return (
-    <form className="form">
+    <div className="inscription">
       <p className="title">Register</p>
       <p className="message">Signup now and get full access to our app.</p>
       <div className="flex">
@@ -35,7 +37,7 @@ function Inscription() {
         Already have an account?
         <button type="button">Signin</button>
       </p>
-    </form>
+    </div>
   );
 }
 

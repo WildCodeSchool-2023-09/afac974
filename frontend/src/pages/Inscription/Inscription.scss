@@ -1,14 +1,15 @@
-.form {
+body {
+  margin: 0;
+}
+
+.inscription {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 350px;
   padding: 20px;
-  border-radius: 20px;
-  position: relative;
+  height: auto;
   background-color: #1a1a1a;
   color: #fff;
-  border: 1px solid #333;
 }
 
 .title {
@@ -90,11 +91,6 @@
   font-size: 0.9em;
   cursor: text;
   transition: 0.3s ease;
-}
-
-.form label .input:placeholder-shown + span {
-  top: 12.5px;
-  font-size: 0.9em;
 }
 
 .form label .input:focus + span,
