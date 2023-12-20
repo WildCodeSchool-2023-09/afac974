@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+.artist-content {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+
+  .artist-profile {
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    p {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+    }
+  }
+
+  .artist-gallery {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+
+    img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+}

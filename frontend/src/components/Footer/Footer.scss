@@ -1,4 +1,11 @@
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 footer {
+  margin-top: auto;
   background: rgba(4, 4, 4, 0.412);
   background: linear-gradient(
     45deg,
@@ -6,14 +13,7 @@ footer {
     rgba(54, 51, 51, 0.606) 22%,
     rgba(45, 39, 39, 0.583) 70%
   );
-  width: 100%;
-  height: 4.7vh;
-  font-weight: bold;
   font-size: 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: white;
-  margin-top: auto;
-  top: 100%;
 }
