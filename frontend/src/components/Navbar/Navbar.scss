@@ -7,6 +7,7 @@
 }
 
 .navBar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +31,7 @@
   margin: 1vw;
 
   img {
-    width: 3rem;
+    width: 2.2rem;
     background: linear-gradient(
       25deg,
       rgba(0, 0, 0, 0.579) 0%,
@@ -43,22 +44,23 @@
 .navButton {
   border-radius: 50%;
   background-color: transparent;
-  border: none;
   cursor: pointer;
+  position: relative;
 }
 
 .navButton::before {
   content: attr(data-description);
-  background-color: #f4f1d676;
   color: #fff;
   padding: 5px;
-  border-radius: 50%;
   font-size: 14px;
   z-index: 1;
   transition: opacity 0.2s;
   opacity: 0;
   position: absolute;
-  left: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  white-space: nowrap;
 }
 
 .navButton:hover::before {
@@ -67,7 +69,7 @@
 }
 
 .navButton img:hover {
-  box-shadow: 0 0 10px #f4f1d6;
+  box-shadow: 5px 10px 20px #f4f1d6;
   transition: box-shadow 0.3s;
   border-radius: 50%;
 }
