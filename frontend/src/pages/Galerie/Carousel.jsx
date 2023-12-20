@@ -1,9 +1,5 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable consistent-return */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-multi-assign */
 import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import "./Carousel.scss";
 import Granim from "granim";
 
@@ -49,7 +45,8 @@ HoverCarousel.prototype = {
   },
 
   onMouseEnter(e) {
-    this.nextMore = this.prevMore = false;
+    this.nextMore = false;
+    this.prevMore = false;
 
     this.containerWidth = this.DOM.wrap.clientWidth;
     this.scrollWidth = this.DOM.wrap.scrollWidth;
@@ -120,20 +117,25 @@ function Carousel({ images }) {
 
   useEffect(() => {
     const carouselElm = carouselRef.current;
-    if (!carouselElm) return;
+    if (!carouselElm) return undefined;
 
     const hoverCarousel = new HoverCarousel(carouselElm);
 
-    return () => hoverCarousel.destroy();
+    return () => {
+      hoverCarousel.destroy();
+    };
   }, []);
 
   return (
     <div className="carousel" ref={carouselRef}>
       <div className="wrap">
         <ul>
-          {images.map((image, index) => (
-            <li key={index} className="carousel-item">
-              <img src={image.src} alt={`Image ${index}`} />
+          {images.map((image) => (
+            <li key={image.id} className="carousel-item">
+              <img
+                src={image.src}
+                alt={image.title || `Œuvre de ${image.artiste}`}
+              />
               <div className="overlay">
                 <div className="items head">
                   <p>{image.title}</p>
@@ -153,6 +155,18 @@ function Carousel({ images }) {
     </div>
   );
 }
+
+Carousel.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      artiste: PropTypes.string,
+      price: PropTypes.string,
+    })
+  ).isRequired,
+};
 
 function initGranim() {
   return new Granim({
