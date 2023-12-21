@@ -6,17 +6,17 @@ import "./Accueil.scss";
 import { Link } from "react-router-dom";
 
 const images = [
-  "/public/tableaux/tableau1.jpeg",
-  "/public/tableaux/tableau2.jpeg",
-  "/public/tableaux/tableau3.jpeg",
-  "/public/tableaux/tableau4.jpeg",
-  "/public/tableaux/tableau5.jpeg",
-  "/public/tableaux/tableau6.jpeg",
-  "/public/tableaux/tableau7.jpeg",
-  "/public/tableaux/tableau8.jpeg",
-  "/public/tableaux/tableau9.jpeg",
-  "/public/tableaux/tableau10.jpeg",
-  "/public/tableaux/tableau11.jpeg",
+  "/tableaux/tableau1.jpeg",
+  "/tableaux/tableau2.jpeg",
+  "/tableaux/tableau3.jpeg",
+  "/tableaux/tableau4.jpeg",
+  "/tableaux/tableau5.jpeg",
+  "/tableaux/tableau6.jpeg",
+  "/tableaux/tableau7.jpeg",
+  "/tableaux/tableau8.jpeg",
+  "/tableaux/tableau9.jpeg",
+  "/tableaux/tableau10.jpeg",
+  "/tableaux/tableau11.jpeg",
 ];
 
 const sliderSettings = {
