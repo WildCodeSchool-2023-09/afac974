@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { useEffect } from "react";
 import Parallax from "parallax-js";
 import "./ErrorPage.scss";
