@@ -1,0 +1,47 @@
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  margin-top: auto;
+  padding: 0.97rem;
+  background: rgba(4, 4, 4, 0.412);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.582) 13%,
+    rgba(54, 51, 51, 0.606) 22%,
+    rgba(45, 39, 39, 0.583) 70%
+  );
+  font-size: 20px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-apropos {
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+}
+.button-vogue {
+  background-color: transparent;
+  color: white;
+}
+
+.diamond-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diamond {
+  width: 40px;
+  height: auto;
+  margin-left: 44.2rem;
+  margin-top: -3.9rem;
+}
