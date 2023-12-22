@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.scss";
 import Login from "../Login/Login";
+import Chevalet from "../../assets/chevalet.png";
 
 function Navbar() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -40,7 +41,7 @@ function Navbar() {
                 className="navButton"
                 data-description="Galerie 🖼️"
               >
-                <img src="src/assets/chevalet.png" alt="galerie" />
+                <img src={Chevalet} alt="galerie" />
               </button>
             </NavLink>
           </li>
