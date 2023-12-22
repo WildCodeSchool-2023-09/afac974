@@ -1,14 +1,12 @@
 import "./Artiste.scss";
 
+import Artiste1 from "../../assets/artiste1.png";
+
 function Artiste() {
   return (
     <main className="artist-content">
       <section className="artist-profile">
-        <img
-          src="/assets/artiste1.png"
-          alt="Nom Artiste"
-          className="profile-image"
-        />{" "}
+        <img src={Artiste1} alt="Nom Artiste" className="profile-image" />{" "}
         <h1>Nom Artiste</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
       </section>
