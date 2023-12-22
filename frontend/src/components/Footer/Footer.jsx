@@ -10,6 +10,11 @@ function Footer() {
             A propos
           </button>
         </Link>
+        <Link to="/mentionslegales">
+          <button type="button" className="button-apropos">
+            Mentions legales
+          </button>
+        </Link>
         <Link to="/apropos">
           <button type="button" className="button-vogue">
             © Vogue Merry
