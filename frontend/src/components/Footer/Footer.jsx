@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 
+import DiamondBottom from "../../assets/diamondBottom.svg";
+
 function Footer() {
   return (
     <footer>
@@ -16,11 +18,7 @@ function Footer() {
           </button>
         </Link>
         <div className="diamond-container">
-          <img
-            src="src/assets/diamondBottom.svg"
-            alt="diamond"
-            className="diamond"
-          />
+          <img src={DiamondBottom} alt="diamond" className="diamond" />
         </div>
       </div>
     </footer>
