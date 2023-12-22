@@ -7,7 +7,6 @@ import Galerie from "./pages/Galerie/Galerie";
 import Apropos from "./pages/A_propos/Apropos";
 import Mentions from "./pages/Mentions_legales/Mentions";
 import Artiste from "./pages/Artiste/Artiste";
-import Inscription from "./pages/Inscription/Inscription";
 import App from "./App";
 
 const router = createBrowserRouter([
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
       {
         path: "/mentionslegales",
         element: <Mentions />,
-      },
-      {
-        path: "/inscription",
-        element: <Inscription />,
       },
     ],
   },
