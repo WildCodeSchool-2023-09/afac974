@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.scss";
 import Login from "../Login/Login";
-import Chevalet from "../../assets/chevalet.png";
 
 import Chevalet from "../../assets/chevalet.png";
 import Artiste from "../../assets/artiste.png";
