@@ -1,12 +1,5 @@
 @import url("https://fonts.google.com/specimen/Montserrat");
 
-* {
-  list-style: none;
-  text-decoration: none;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-}
-
 .global {
   h1 {
     display: flex;
@@ -30,6 +23,48 @@
     margin-bottom: 60px;
     padding: 3%;
   }
+}
+
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-block1 {
+  font-weight: bold;
+  margin: 2rem;
+  width: 25%;
+  font-size: 1.5rem;
+  background: whitesmoke;
+  color: black;
+  border-radius: 1rem;
+  padding: 8%;
+  background-image: url("/public/tableaux/tableau9.jpeg");
+}
+
+.event-block2 {
+  font-weight: bold;
+  margin: 3.2rem;
+  width: 25%;
+  font-size: 1.5rem;
+  background: whitesmoke;
+  color: black;
+  border-radius: 1rem;
+  padding: 8%;
+  background-image: url("/public/tableaux/tableau41.jpeg");
+}
+
+.event-block3 {
+  font-weight: bold;
+  margin: 2rem;
+  width: 25%;
+  font-size: 1.5rem;
+  background: whitesmoke;
+  color: black;
+  border-radius: 1rem;
+  padding: 8%;
+  background-image: url("/public/tableaux/tableau23.jpeg");
 }
 
 @media screen and (max-width: 600px) {
