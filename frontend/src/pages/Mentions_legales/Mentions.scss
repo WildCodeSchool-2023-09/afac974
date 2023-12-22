@@ -1,0 +1,20 @@
+.globalmention {
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    display: block;
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.375);
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 3%;
+  }
+}

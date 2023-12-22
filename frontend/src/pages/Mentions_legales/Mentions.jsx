@@ -3,7 +3,7 @@ import React from "react";
 function Mentions() {
   return (
     <div>
-      <div>
+      <div className="globalmention">
         <h1>Mentions Légales</h1>
         <h3>Propriété du site :</h3>
         <p>
