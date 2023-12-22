@@ -34,7 +34,7 @@ function FormRegister({ isLogin, modal }) {
             <div className="field">
               <svg
                 className="input-icon"
-                xmlns="http://www.w3.org/2000/svg"
+                src="./assets/compte.png"
                 width="16"
                 height="16"
                 fill="currentColor"
@@ -83,7 +83,7 @@ function FormRegister({ isLogin, modal }) {
                 </path>
               </svg>
               <input
-                placeholder="Password"
+                placeholder="Mot de passe"
                 className="input-field"
                 type="password"
               />
@@ -102,25 +102,25 @@ function FormRegister({ isLogin, modal }) {
                 </path>
               </svg>
               <input
-                placeholder="Confirm Password"
+                placeholder="Confirmer mot de passe"
                 className="input-field"
                 type="password"
               />
             </div>
-            <div className="btn">
+            <div className="btn2">
               <button
                 type="button"
                 className="button1"
                 onClick={() => isLogin(true)}
               >
-                Login
+                Connexion
               </button>
               <button
                 type="button"
                 className="button2"
                 onClick={() => isLogin(false)}
               >
-                Sign Up
+                Inscription
               </button>
             </div>
           </form>
@@ -138,7 +138,7 @@ function FormLogin({ isLogin, modal }) {
           <button className="closeLogin" type="button" onClick={modal}>
             <p> X </p>
           </button>
-          <p className="heading">Login</p>
+          <p className="heading">Connexion</p>
           <div className="field">
             <svg
               className="input-icon"
@@ -154,7 +154,7 @@ function FormLogin({ isLogin, modal }) {
             </svg>
             <input
               autoComplete="off"
-              placeholder="Username"
+              placeholder="Identifiant"
               className="input-field"
               type="text"
             />
@@ -173,30 +173,27 @@ function FormLogin({ isLogin, modal }) {
               </path>
             </svg>
             <input
-              placeholder="Password"
+              placeholder="Mot de passe"
               className="input-field"
               type="password"
             />
           </div>
-          <div className="btn">
+          <div className="btn2">
             <button
               type="button"
               className="button1"
               onClick={() => isLogin(true)}
             >
-              Login
+              Connexion
             </button>
             <button
               type="button"
               className="button2"
               onClick={() => isLogin(false)}
             >
-              Sign Up
+              Inscription
             </button>
           </div>
-          <button type="button" className="button3">
-            Forgot Password
-          </button>
         </form>
       </div>
     </div>
