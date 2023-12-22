@@ -25,6 +25,48 @@
   }
 }
 
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-block1 {
+  font-weight: bold;
+  margin: 2rem;
+  width: 25%;
+  font-size: 1.5rem;
+  background: whitesmoke;
+  color: black;
+  border-radius: 1rem;
+  padding: 8%;
+  background-image: url("/public/tableaux/tableau9.jpeg");
+}
+
+.event-block2 {
+  font-weight: bold;
+  margin: 3.2rem;
+  width: 25%;
+  font-size: 1.5rem;
+  background: whitesmoke;
+  color: black;
+  border-radius: 1rem;
+  padding: 8%;
+  background-image: url("/public/tableaux/tableau41.jpeg");
+}
+
+.event-block3 {
+  font-weight: bold;
+  margin: 2rem;
+  width: 25%;
+  font-size: 1.5rem;
+  background: whitesmoke;
+  color: black;
+  border-radius: 1rem;
+  padding: 8%;
+  background-image: url("/public/tableaux/tableau23.jpeg");
+}
+
 @media screen and (max-width: 600px) {
   .global {
     display: inline-block;
