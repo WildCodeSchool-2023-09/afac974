@@ -4,16 +4,23 @@ import "./Navbar.scss";
 import Login from "../Login/Login";
 import Chevalet from "../../assets/chevalet.png";
 
+import Chevalet from "../../assets/chevalet.png";
+import Artiste from "../../assets/artiste.png";
+import Favori from "../../assets/favori.png";
+import Compte from "../../assets/compte.png";
+import LogoBlanc50 from "../../assets/logoBlanc50.png";
+import DiamondTop from "../../assets/diamondTop.svg";
+
 function Navbar() {
   const [openLogin, setOpenLogin] = useState(false);
   return (
     <nav>
       <div className="navBar">
         <Link to="/">
-          <img src="src/assets/logoBlanc50.png" alt="logo" />
+          <img src={LogoBlanc50} alt="logo" />
         </Link>
         <img
-          src="src/assets/diamondTop.svg"
+          src={DiamondTop}
           alt="diamond"
           style={{
             width: "40px",
@@ -30,7 +37,7 @@ function Navbar() {
                 className="navButton"
                 data-description="Artistes 🎨"
               >
-                <img src="src/assets/artiste.png" alt="artiste" />
+                <img src={Artiste} alt="artiste" />
               </button>
             </NavLink>
           </li>
@@ -52,7 +59,7 @@ function Navbar() {
                 className="navButton"
                 data-description="Favoris 🤍"
               >
-                <img src="src/assets/favori.png" alt="favorite" />
+                <img src={Favori} alt="favorite" />
               </button>
             </NavLink>
           </li>
@@ -65,7 +72,7 @@ function Navbar() {
                 setOpenLogin(true);
               }}
             >
-              <img src="src/assets/compte.png" alt="login" />
+              <img src={Compte} alt="login" />
             </button>
           </li>
           {openLogin && <Login closeLogin={setOpenLogin} />}
