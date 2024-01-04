@@ -12,9 +12,16 @@ function Footer() {
             A propos
           </button>
         </Link>
+
         <Link to="/mentionslegales">
-          <button type="button" className="button-apropos">
+          <button type="button" className="button-mentionslegales">
             Mentions legales
+          </button>
+        </Link>
+
+        <Link to="/politiquedeconfidentialite">
+          <button type="button" className="button-rgpd">
+            Politique de Confidentialité
           </button>
         </Link>
         <Link to="/apropos">

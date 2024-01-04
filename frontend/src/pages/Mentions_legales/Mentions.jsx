@@ -31,12 +31,6 @@ function Mentions() {
         documents téléchargeables et les représentations iconographiques et
         photographiques.
       </p>
-      <h2>Utilisation des images :</h2>
-      <p>
-        Les images présentes sur ce site ne sont pas libres de droit. Toute
-        reproduction ou utilisation sans autorisation préalable de l'auteur est
-        strictement interdite et pourra faire l'objet de poursuites judiciaires.
-      </p>
       <h2>Protection des données personnelles :</h2>
       <p>
         Conformément à la loi "Informatique et Libertés" du 6 janvier 1978
