@@ -1,9 +1,9 @@
 @use "sass:math";
 
 .carousel {
-  $carouselHeight: 180px;
-  $fadeWidth: 40px;
-  $padding: 10px;
+  $carouselHeight: 20vh;
+  $fadeWidth: 4vh;
+  $padding: 2vh;
   $radius: 8px;
   $bg: rgba(255, 255, 255, 0);
 
@@ -20,15 +20,15 @@
   right: 0;
   bottom: 0;
   left: 0;
-  width: 80%;
+  width: 150vh;
   max-width: 100%;
   min-width: 650px;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   .carousel-item {
-    width: 300px;
-    height: 400px;
+    width: 15vw;
+    height: 80%;
     position: absolute;
     cursor: pointer;
 
@@ -162,7 +162,7 @@
       bottom: 0;
       z-index: 2;
       width: $fadeWidth;
-      font-size: 40px;
+      font-size: 4vw;
       text-indent: -30px;
       line-height: $carouselHeight;
       font-family: monospace;
