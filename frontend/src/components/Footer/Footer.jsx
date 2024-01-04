@@ -14,7 +14,7 @@ function Footer() {
         </Link>
 
         <Link to="/mentionslegales">
-          <button type="button" className="button-mentionslegales">
+          <button type="button" className="button-mentions">
             Mentions legales
           </button>
         </Link>
