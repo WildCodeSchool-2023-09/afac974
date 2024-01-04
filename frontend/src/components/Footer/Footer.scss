@@ -1,7 +1,5 @@
 footer {
-  margin-top: auto;
-  padding: 0.97rem;
-  background: rgba(4, 4, 4, 0.412);
+  padding: 1.7rem;
   background: linear-gradient(
     45deg,
     rgba(0, 0, 0, 0.582) 13%,
@@ -11,42 +9,61 @@ footer {
   font-size: 20px;
   display: flex;
   color: white;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.button-apropos {
-  background-color: transparent;
-  color: white;
-  padding: 5px;
-}
-
-.button-mentions {
-  background-color: transparent;
-  color: white;
-  padding: 5px;
-}
-
+.button-apropos,
+.button-vogue,
+.button-mentions,
 .button-rgpd {
   background-color: transparent;
   color: white;
   padding: 5px;
 }
 
-.button-vogue {
-  background-color: transparent;
-  color: white;
-}
-
 .diamond-container {
+  position: absolute;
+  left: 50%;
+  bottom: 3.66rem;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .diamond {
   width: 40px;
   height: auto;
-  margin-left: 44.2rem;
-  margin-top: -3.9rem;
+}
+
+@media (max-width: 768px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
+
+  footer {
+    padding: 1rem;
+    font-size: 16px;
+  }
+
+  .button-apropos,
+  .button-vogue,
+  .button-mentions,
+  .button-rgpd {
+    padding: 3px;
+  }
+
+  .diamond-container {
+    top: 0.5rem;
+  }
+
+  .diamond {
+    width: 30px;
+  }
 }
