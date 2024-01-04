@@ -3,7 +3,7 @@ import "./Mentions.scss";
 
 function Mentions() {
   return (
-    <div className="globalmention">
+    <div className="globalmentions">
       <h1>Mentions Légales</h1>
       <h2>Propriété du site :</h2>
       <p>
