@@ -3,7 +3,7 @@ import "./Mentions.scss";
 
 function Mentions() {
   return (
-    <div className="globalmention">
+    <div className="globalmentions">
       <h1>Mentions Légales</h1>
       <h2>Propriété du site :</h2>
       <p>
@@ -30,12 +30,6 @@ function Mentions() {
         Tous les droits de reproduction sont réservés, y compris pour les
         documents téléchargeables et les représentations iconographiques et
         photographiques.
-      </p>
-      <h2>Utilisation des images :</h2>
-      <p>
-        Les images présentes sur ce site ne sont pas libres de droit. Toute
-        reproduction ou utilisation sans autorisation préalable de l'auteur est
-        strictement interdite et pourra faire l'objet de poursuites judiciaires.
       </p>
       <h2>Protection des données personnelles :</h2>
       <p>
