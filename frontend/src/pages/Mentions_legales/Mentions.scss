@@ -30,3 +30,21 @@
     padding: 2%;
   }
 }
+
+@media screen and (max-width: 834px) {
+  .globalmentions h1 {
+    font-size: 2.4rem;
+    padding: 3%;
+  }
+
+  .globalmentions h2 {
+    margin-left: 4rem;
+    font-size: 1.7rem;
+  }
+
+  .globalmentions p {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 1.2rem;
+  }
+}
