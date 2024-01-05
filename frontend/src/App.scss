@@ -17,12 +17,6 @@ body {
     transform: translateY(24%);
     z-index: -1;
   }
-
-  @media (max-width: 767px) {
-    #canvas-image-blending {
-      transform: translateY(10%);
-    }
-  }
 }
 
 main {

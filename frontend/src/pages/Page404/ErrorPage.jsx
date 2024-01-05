@@ -55,10 +55,10 @@ function ErrorPage() {
 
           <div className="text">
             <article>
-              <p>Uh oh! Looks like you got lost.</p>
-              <p> Go back to the homepage if you dare!</p>
+              <p>Zot la perdi chemin ! La page zot i cherche,</p>
+              <p>li la envolé comme un papangue dans le ciel !</p>
               <Link to="/">
-                <button type="button">i dare!</button>
+                <button type="button">Go a la case !</button>
               </Link>
             </article>
           </div>

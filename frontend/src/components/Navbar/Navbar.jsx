@@ -16,18 +16,8 @@ function Navbar() {
     <nav>
       <div className="navBar">
         <Link to="/">
-          <img src={LogoBlanc50} alt="logo" />
+          <img src={LogoBlanc50} alt="logo" className="logoAfac" />
         </Link>
-        <img
-          src={DiamondTop}
-          alt="diamond"
-          style={{
-            width: "40px",
-            height: "auto",
-            marginLeft: "18rem",
-            marginTop: "3.6rem",
-          }}
-        />
         <ul className="iconListe">
           <li>
             <NavLink to="/artiste">
@@ -76,6 +66,9 @@ function Navbar() {
           </li>
           {openLogin && <Login closeLogin={setOpenLogin} />}
         </ul>
+        <div className="diamondTop-container">
+          <img src={DiamondTop} alt="diamond" className="diamondTop" />
+        </div>
       </div>
     </nav>
   );
