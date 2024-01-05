@@ -4,7 +4,7 @@
     justify-content: center;
     font-size: 6rem;
     color: rgb(255, 255, 255);
-    background-image: url("/public/tableaux/tableau23.jpeg");
+    background-image: url("/tableaux/tableau23.jpeg");
     background-size: cover;
     padding: 5%;
   }
@@ -28,5 +28,23 @@
     margin-top: 30px;
     margin-bottom: 60px;
     padding: 2%;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .globalmentions h1 {
+    font-size: 2.4rem;
+    padding: 3%;
+  }
+
+  .globalmentions h2 {
+    margin-left: 4rem;
+    font-size: 1.6rem;
+  }
+
+  .globalmentions p {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 1.2rem;
   }
 }

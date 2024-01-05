@@ -160,7 +160,7 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 834px) {
   .slick-prev {
     left: 25px;
   }
@@ -172,20 +172,18 @@ button {
   }
   .visite {
     top: 15vh;
-    font-size: 16px;
     padding: 0.6rem;
   }
   .paragraphe {
-    top: 35vh;
-    font-size: 16px;
+    top: 26vh;
     padding: 0.3rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 834px) {
   .backgroundFull,
   .backgroundFull img {
-    margin: 2rem;
+    margin-top: 2rem;
     max-width: 100%;
     height: auto;
     object-fit: cover;
@@ -194,7 +192,7 @@ button {
   .visite,
   .paragraphe {
     max-width: 50%;
-    font-size: smaller;
+    font-size: 13px;
     padding: 10px;
   }
 }

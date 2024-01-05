@@ -6,7 +6,7 @@ import DiamondBottom from "../../assets/diamondBottom.svg";
 function Footer() {
   return (
     <footer>
-      <div>
+      <div className="container">
         <Link to="/apropos">
           <button type="button" className="button-apropos">
             A propos
@@ -29,8 +29,8 @@ function Footer() {
             © Vogue Merry
           </button>
         </Link>
-        <div className="diamond-container">
-          <img src={DiamondBottom} alt="diamond" className="diamond" />
+        <div className="diamondBottom-container">
+          <img src={DiamondBottom} alt="diamond" className="diamondBottom" />
         </div>
       </div>
     </footer>
