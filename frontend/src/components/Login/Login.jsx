@@ -12,7 +12,7 @@ function FormRegister({ isLogin, modal }) {
             <button className="closeLogin" type="button" onClick={modal}>
               <p> X </p>
             </button>
-            <p className="heading">Sign up</p>
+            <p className="heading">Inscription</p>
             <div className="field">
               <svg
                 className="input-icon"
