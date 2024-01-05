@@ -15,6 +15,12 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: auto;
+}
+
+.container {
+  display: flex;
+  height: 4vh;
 }
 
 .button-apropos,
@@ -24,24 +30,25 @@ footer {
   background-color: transparent;
   color: white;
   padding: 5px;
+  margin-left: 1rem;
 }
 
-.diamond-container {
+.diamondBottom-container {
   position: absolute;
   left: 50%;
-  bottom: 3.66rem;
+  top: 0;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.diamond {
+.diamondBottom {
   width: 40px;
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 834px) {
   body,
   html {
     overflow-x: hidden;
@@ -49,7 +56,10 @@ footer {
 
   footer {
     padding: 1rem;
-    font-size: 16px;
+  }
+
+  .container {
+    height: 14vh;
   }
 
   .button-apropos,
@@ -57,13 +67,22 @@ footer {
   .button-mentions,
   .button-rgpd {
     padding: 3px;
+    margin-top: 1rem;
+    font-size: 12px;
   }
 
-  .diamond-container {
-    top: 0.5rem;
+  .diamondBottom-container {
+    top: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .diamond {
+  .diamondBottom {
     width: 30px;
+    height: auto;
   }
 }
