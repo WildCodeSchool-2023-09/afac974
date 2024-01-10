@@ -13,22 +13,20 @@
 .slick-dots {
   bottom: 2vh;
 }
-
+.carousel-container {
+  height: 84vh;
+}
 .backgroundFull {
   object-fit: fil;
-  height: 80vh;
-  width: auto;
+  height: 84vh;
 
   img {
     width: 100%;
     height: 100%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
   }
 }
 .carousel-container {
   position: relative;
-  margin-bottom: 1.1rem;
 }
 
 @mixin btn-border-drawing(
