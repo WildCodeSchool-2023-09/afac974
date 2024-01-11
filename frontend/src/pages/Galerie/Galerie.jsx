@@ -4,7 +4,7 @@ import "./Carousel.scss";
 
 function Galerie() {
   return (
-    <div>
+    <div className="main-galerie">
       <Carousel />
     </div>
   );
