@@ -13,22 +13,20 @@
 .slick-dots {
   bottom: 2vh;
 }
-
+.carousel-container {
+  height: 84vh;
+}
 .backgroundFull {
   object-fit: fil;
-  height: 80vh;
-  width: auto;
+  height: 84vh;
 
   img {
     width: 100%;
     height: 100%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
   }
 }
 .carousel-container {
   position: relative;
-  margin-bottom: 1.1rem;
 }
 
 @mixin btn-border-drawing(
@@ -108,7 +106,7 @@
   z-index: 1;
   padding: 1rem;
   color: #101112;
-  background-color: #ffffff5b;
+  background-color: #ffffffcc;
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
 
@@ -126,7 +124,7 @@
   transform: translateX(-50%);
   text-align: center;
   color: black;
-  background-color: #ffffff5b;
+  background-color: #ffffffcc;
   z-index: 1;
   border-radius: 2rem;
   font-family: "Montserrat", sans-serif;
