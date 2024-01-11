@@ -9,7 +9,7 @@ function Footer() {
       <div className="container">
         <Link to="/apropos">
           <button type="button" className="button-apropos">
-            A propos
+            À propos
           </button>
         </Link>
 

@@ -6,15 +6,23 @@ import "./Accueil.scss";
 import { Link } from "react-router-dom";
 
 const images = [
+  "/tableaux/tableau55.jpeg",
   "/tableaux/tableau1.jpeg",
+  "/tableaux/tableau78.jpeg",
   "/tableaux/tableau2.jpeg",
+  "/tableaux/tableau67.jpeg",
   "/tableaux/tableau3.jpeg",
+  "/tableaux/tableau45.jpeg",
   "/tableaux/tableau4.jpeg",
+  "/tableaux/tableau85.jpeg",
   "/tableaux/tableau5.jpeg",
+  "/tableaux/tableau55.jpeg",
   "/tableaux/tableau6.jpeg",
+  "/tableaux/tableau68.jpeg",
   "/tableaux/tableau7.jpeg",
-  "/tableaux/tableau8.jpeg",
+  "/tableaux/tableau80.jpeg",
   "/tableaux/tableau9.jpeg",
+  "/tableaux/tableau83.jpeg",
   "/tableaux/tableau10.jpeg",
   "/tableaux/tableau11.jpeg",
 ];
