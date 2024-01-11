@@ -1,11 +1,12 @@
 .frame {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   width: 500px;
   height: 500px;
-  margin-top: -200px;
-  margin-left: -200px;
+  /*   margin-top: -200px;
+ */ /*   margin-left: -200px;
+ */
   border-radius: 2px;
   box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -13,6 +14,9 @@
   color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-top: 2.8rem;
+  margin-left: -15rem;
+  margin-bottom: 3rem;
 }
 
 .box-galery {
