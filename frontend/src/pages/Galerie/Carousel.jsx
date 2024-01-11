@@ -21,7 +21,7 @@ function Carousel() {
   return (
     <div className="frame">
       <div className="box-galery">
-        {[...Array(30)].map((_, index) => {
+        {[...Array(80)].map((_, index) => {
           const imageId = `tableau${index + 1}`;
           const imagePath = `/tableaux/tableau${index + 1}.jpeg`;
 
