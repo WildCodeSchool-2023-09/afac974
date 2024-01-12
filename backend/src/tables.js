@@ -3,10 +3,10 @@
 /* ************************************************************************* */
 
 // Import the manager modules responsible for handling data operations on the tables
-// const UserManager = require("./models/UserManager");
+const UserManager = require("./models/UserManager");
 
 const managers = [
-  // UserManager,
+  UserManager,
   // Add other managers here
 ];
 
