@@ -14,6 +14,7 @@ services:
       APP_PORT: 3310
       APP_SECRET: ${APP_SECRET:-123456789}
       FRONTEND_URL: "https://${PROJECT_NAME}.${HOST}"
+      VITE_BACKEND_URL: ""
       DB_HOST: ${DATABASE_SUBDOMAIN_NAME}-db
       DB_PORT: 3306
       DB_USER: ${USER_NAME}
