@@ -1,6 +1,6 @@
 const AbstractManager = require("./AbstractManager");
 
-class ItemManager extends AbstractManager {
+class UserManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
     // and pass the table name "item" as configuration
@@ -9,11 +9,11 @@ class ItemManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create(user) {
+  async create(user, avatar) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, email, password, image) values (?, ?, ?, ?, ?)`,
-      [user.firstname, user.lastname, user.email, user.password]
+      [user.firstname, user.lastname, user.email, user.password, avatar]
     );
 
     // Return the ID of the newly inserted item
@@ -21,17 +21,6 @@ class ItemManager extends AbstractManager {
   }
 
   // The Rs of CRUD - Read operations
-
-  async read(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
-      [id]
-    );
-
-    // Return the first row of the result, which represents the item
-    return rows[0];
-  }
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
@@ -41,6 +30,25 @@ class ItemManager extends AbstractManager {
     return rows;
   }
 
+  async readUserByEmail(email) {
+    const [[row]] = await this.database.query(
+      `select * from ${this.table} where email = ? LIMIT 1`,
+      [email]
+    );
+
+    return row;
+  }
+
+  async readUserById(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [[rows]] = await this.database.query(
+      `select * from ${this.table} where id = ? LIMIT 1`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
@@ -56,4 +64,4 @@ class ItemManager extends AbstractManager {
   // }
 }
 
-module.exports = ItemManager;
+module.exports = UserManager;
