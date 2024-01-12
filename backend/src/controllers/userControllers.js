@@ -7,7 +7,7 @@ const tables = require("../tables");
 
 const browse = async (req, res, next) => {
   try {
-    // Fetch all items from the database
+    // Fetch all users from the database
     const users = await tables.user.readAll();
 
     // Respond with the users in JSON format
@@ -21,15 +21,15 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific item from the database based on the provided ID
-    const item = await tables.user.readAll(req.params.id);
+    // Fetch a specific user from the database based on the provided ID
+    const user = await tables.user.readAll(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the item in JSON format
-    if (item == null) {
+    // If the user is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the user in JSON format
+    if (user == null) {
       res.sendStatus(404);
     } else {
-      res.json(item);
+      res.json(user);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -39,11 +39,28 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
+const edit = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const result = await tables.user.update(id, req.body);
+    console.info(result);
+
+    if (result == null) {
+      res.sendStatus(404);
+    } else {
+      res.json({ message: "User updated successfully" });
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const item = req.body;
+  // Extract the user data from the request body
+  const user = req.body;
   let newName = `public/profile/default.png`;
 
   if (req.file !== undefined) {
@@ -54,10 +71,10 @@ const add = async (req, res, next) => {
   }
 
   try {
-    // Insert the item into the database
-    const insertId = await tables.user.create(item, newName);
+    // Insert the user into the database
+    const insertId = await tables.user.create(user, newName);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted user
     res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -67,7 +84,23 @@ const add = async (req, res, next) => {
 
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
-
+const destroy = async (req, res, next) => {
+  try {
+    // Fetch a specific user from the database based on the provided ID
+    const user = await tables.user.delete(req.params.id);
+    console.info(user);
+    // If the user is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the user in JSON format
+    if (user == null) {
+      res.sendStatus(404);
+    } else {
+      res.json({ message: "user delete" });
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 // Ready to export the controller functions
 // eslint-disable-next-line consistent-return
 const createUser = async (req, res, next) => {
@@ -136,7 +169,9 @@ const refresh = async (req, res, next) => {
 module.exports = {
   browse,
   read,
+  edit,
   add,
+  destroy,
   createUser,
   login,
   refresh,

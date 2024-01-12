@@ -26,6 +26,14 @@ router.post("/users", upload.single("avatar"), verifyToken, userController.add);
 router.post("/register", hashPwd, userController.createUser);
 router.post("/login", verifyPwd, userController.login);
 
+router.put(
+  "/users/:id",
+  upload.single("avatar"),
+  // verifyToken,
+  userController.edit
+);
+router.delete("/users/:id", userController.destroy);
+
 router.get("/refresh", userController.refresh);
 
 /* ************************************************************************* */
