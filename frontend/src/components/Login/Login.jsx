@@ -1,14 +1,42 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-
+import instance from "../../services/axios";
+import { success, error } from "../../services/toast";
 import "./Login.scss";
 
 function FormRegister({ isLogin, modal }) {
+  const [register, setRegister] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const hChange = (e) => {
+    setRegister({ ...register, [e.target.name]: e.target.value });
+  };
+
+  const hSubmit = (e) => {
+    e.preventDefault();
+
+    instance
+      .post("/register", register)
+      .then((res) => {
+        if (res.status === 200) {
+          success("Vous êtes bien enregistré");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        error("Une erreur est survenu");
+      });
+  };
+
   return (
     <div className="field">
       <div>
         <div className="modal-overlay">
-          <form className="form">
+          <form className="form" onSubmit={hSubmit}>
             <button className="closeLogin" type="button" onClick={modal}>
               <p> X </p>
             </button>
@@ -38,6 +66,7 @@ function FormRegister({ isLogin, modal }) {
                 placeholder="Prénom"
                 className="input-field"
                 type="text"
+                onChange={hChange}
               />
             </div>
             <div className="field">
@@ -65,6 +94,7 @@ function FormRegister({ isLogin, modal }) {
                 placeholder="NOM"
                 className="input-field"
                 type="text"
+                onChange={hChange}
               />
             </div>
             <div className="field">
@@ -85,6 +115,7 @@ function FormRegister({ isLogin, modal }) {
                 placeholder="Email"
                 className="input-field"
                 type="text"
+                onChange={hChange}
               />
             </div>
             <div className="field">
@@ -104,6 +135,7 @@ function FormRegister({ isLogin, modal }) {
                 placeholder="Mot de passe"
                 className="input-field"
                 type="password"
+                onChange={hChange}
               />
             </div>
             <div className="field">
@@ -134,7 +166,7 @@ function FormRegister({ isLogin, modal }) {
                 Connexion
               </button>
               <button
-                type="button"
+                type="submit"
                 className="button2"
                 onClick={() => isLogin(false)}
               >
