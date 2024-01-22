@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import instance from "../../services/axios";
+import Instance from "../../services/axios";
 import { success, error } from "../../services/toast";
+
 import "./Login.scss";
 
 function FormRegister({ isLogin, modal }) {
@@ -19,8 +20,7 @@ function FormRegister({ isLogin, modal }) {
   const hSubmit = (e) => {
     e.preventDefault();
 
-    instance
-      .post("/register", register)
+    Instance.post("/register", register)
       .then((res) => {
         if (res.status === 200) {
           success("Vous êtes bien enregistré");
@@ -62,6 +62,7 @@ function FormRegister({ isLogin, modal }) {
                 />
               </svg>
               <input
+                name="firstname"
                 autoComplete="off"
                 placeholder="Prénom"
                 className="input-field"
@@ -90,6 +91,7 @@ function FormRegister({ isLogin, modal }) {
                 />
               </svg>
               <input
+                name="lastname"
                 autoComplete="off"
                 placeholder="NOM"
                 className="input-field"
@@ -111,6 +113,7 @@ function FormRegister({ isLogin, modal }) {
                 </path>
               </svg>
               <input
+                name="email"
                 autoComplete="off"
                 placeholder="Email"
                 className="input-field"
@@ -132,6 +135,7 @@ function FormRegister({ isLogin, modal }) {
                 </path>
               </svg>
               <input
+                name="password"
                 placeholder="Mot de passe"
                 className="input-field"
                 type="password"
@@ -165,6 +169,7 @@ function FormRegister({ isLogin, modal }) {
               >
                 Connexion
               </button>
+
               <button
                 type="submit"
                 className="button2"
@@ -181,10 +186,36 @@ function FormRegister({ isLogin, modal }) {
 }
 
 function FormLogin({ isLogin, modal }) {
+  // const { setUser } = useUser();
+
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
+
+  const hChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+
+  const hSubmit = (e) => {
+    e.preventDefault();
+
+    Instance.post("/login", login)
+      .then((res) => {
+        console.info(res.data.user);
+        // setUser(res.data.user);
+        success("Vous êtes bien loggé");
+      })
+      .catch((err) => {
+        console.error(err);
+        error(err.response.data.error);
+      });
+  };
+
   return (
     <div className="field">
       <div className="modal-overlay">
-        <form className="form">
+        <form className="form" onSubmit={hSubmit}>
           <button className="closeLogin" type="button" onClick={modal}>
             <p> X </p>
           </button>
@@ -207,6 +238,7 @@ function FormLogin({ isLogin, modal }) {
               placeholder="Identifiant"
               className="input-field"
               type="text"
+              onChange={hChange}
             />
           </div>
           <div className="field">
@@ -226,6 +258,7 @@ function FormLogin({ isLogin, modal }) {
               placeholder="Mot de passe"
               className="input-field"
               type="password"
+              onChange={hChange}
             />
           </div>
           <div className="btn2">
@@ -237,7 +270,7 @@ function FormLogin({ isLogin, modal }) {
               Connexion
             </button>
             <button
-              type="button"
+              type="submit"
               className="button2"
               onClick={() => isLogin(false)}
             >
@@ -278,12 +311,12 @@ function Login({ closeLogin }) {
 }
 
 FormRegister.propTypes = {
-  isLogin: PropTypes.bool.isRequired,
+  isLogin: PropTypes.func.isRequired,
   modal: PropTypes.func.isRequired,
 };
 
 FormLogin.propTypes = {
-  isLogin: PropTypes.bool.isRequired,
+  isLogin: PropTypes.func.isRequired,
   modal: PropTypes.func.isRequired,
 };
 
