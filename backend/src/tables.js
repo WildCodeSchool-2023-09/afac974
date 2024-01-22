@@ -5,7 +5,16 @@
 // Import the manager modules responsible for handling data operations on the tables
 const UserManager = require("./models/UserManager");
 
+const RoleManager = require("./models/RoleManager");
+
+const ArtworkManager = require("./models/ArtworkManager");
+
+const FavoriteManager = require("./models/FavoriteManager");
+
 const managers = [
+  FavoriteManager,
+  ArtworkManager,
+  RoleManager,
   UserManager,
   // Add other managers here
 ];
