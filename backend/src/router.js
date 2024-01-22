@@ -4,6 +4,33 @@ const multer = require("multer");
 const upload = multer({ dest: "public/uploads" });
 const router = express.Router();
 
+const favoriteControllers = require("./controllers/favoriteControllers");
+const validateFavorite = require("./validators/validateFavorite");
+
+router.get("/favorites", favoriteControllers.browse);
+router.get("/favorites/:id", favoriteControllers.read);
+router.post("/favorites", validateFavorite, favoriteControllers.add);
+// router.put("/favorites/:id", validateFavorite, favoriteControllers.edit);
+// router.delete("/favorites/:id", favoriteControllers.destroy);
+
+const artworkControllers = require("./controllers/artworkControllers");
+// const validateArtwork = require("./validators/validateArtwork");
+
+router.get("/artworks", artworkControllers.browse);
+router.get("/artworks/:id", artworkControllers.read);
+router.post("/artworks", artworkControllers.add);
+// router.put("/artworks/:id", validateArtwork, artworkControllers.edit);
+// router.delete("/artworks/:id", artworkControllers.destroy);
+
+const roleControllers = require("./controllers/roleControllers");
+// const validateRole = require("./validators/validateRole");
+
+router.get("/roles", roleControllers.browse);
+router.get("/roles/:id", roleControllers.read);
+// router.post("/roles", validateRole, roleControllers.add);
+// router.put("/roles/:id", validateRole, roleControllers.edit);
+// router.delete("/roles/:id", roleControllers.destroy);
+
 const { hashPwd, verifyPwd } = require("./services/argon");
 
 /* ************************************************************************* */

@@ -26,7 +26,7 @@ CREATE TABLE `artwork` (
   `date` date NOT NULL,
   `style` varchar(50) DEFAULT NULL,
   `format` varchar(50) NOT NULL,
-  `certified` tinyint(1) NOT NULL,
+  `certified` tinyint(4) UNSIGNED,
   `id_user` INT,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id_user`) REFERENCES user(id)
