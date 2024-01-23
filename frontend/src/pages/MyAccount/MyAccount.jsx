@@ -4,11 +4,15 @@ import "./MyAccount.scss";
 function MyAccount() {
   return (
     <div>
-      <h1>Mon Compte</h1>
-      <section>
+      <div>
+        <h1>Mon Compte</h1>
         <p className="myaccount-name">Bienvenue, NAME </p>
-        <img src="{Compte} " alt="" />
-      </section>
+      </div>
+      <div>
+        <p>Mes oeuvres préférées</p>
+        <p>Ajouter/Supprimer un utilisateur</p>
+        <p>Ajouter/Supprimer une oeuvre</p>
+      </div>
     </div>
   );
 }
