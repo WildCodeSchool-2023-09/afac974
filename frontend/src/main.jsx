@@ -8,6 +8,7 @@ import Apropos from "./pages/A_propos/Apropos";
 import Mentions from "./pages/Mentions_legales/Mentions";
 import Rgpd from "./pages/Rgpd/Rgpd";
 import Artiste from "./pages/Artiste/Artiste";
+import MyAccount from "./pages/MyAccount/MyAccount";
 import App from "./App";
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/politiquedeconfidentialite",
         element: <Rgpd />,
+      },
+      {
+        path: "/moncompte",
+        element: <MyAccount />,
       },
     ],
   },
