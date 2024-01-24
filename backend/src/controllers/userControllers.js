@@ -111,19 +111,6 @@ const createUser = async (req, res, next) => {
       return res.status(401).json({ error: "user is already exist" });
     }
 
-    /**
-     * Pour rappel, dans le modele UserManager:
-     *
-     * create(user){...}
-     *
-     * req.body doit FORCÉMENT posseder les cles suivantes :
-     * - firstname
-     * - lastname
-     * - email
-     * - password
-     * - id_role
-     */
-
     req.body.image = "/profile/default.png";
     const user = await tables.user.create(req.body);
     return res.json({ user });
