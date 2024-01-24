@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { UserProvider } from "./Contexts/ContextUser";
 import ErrorPage from "./pages/Page404/ErrorPage";
 import Accueil from "./pages/Accueil/Accueil";
 import Galerie from "./pages/Galerie/Galerie";
@@ -52,6 +53,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
