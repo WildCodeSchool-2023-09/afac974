@@ -2,12 +2,11 @@ const jwt = require("jsonwebtoken");
 
 const tables = require("../tables");
 
-// eslint-disable-next-line consistent-return
 const verifyToken = async (req, res, next) => {
   const { token } = req.cookies;
 
   if (!token) {
-    return res.status(401).json({ error: "Token non fournie" });
+    res.status(401).json({ error: "Token non fournie" });
   }
 
   try {
@@ -16,7 +15,7 @@ const verifyToken = async (req, res, next) => {
     console.info({ user });
     next();
   } catch (err) {
-    return res.status(401).json({ error: "Token invalide" });
+    res.status(401).json({ error: "Token invalide" });
   }
 };
 
