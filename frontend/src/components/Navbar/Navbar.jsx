@@ -65,8 +65,9 @@ function Navbar() {
           </li>
           <li>
             {user !== null ? (
-              <button type="button" onClick={hLogout}>
-                Se déconnecter
+              <button type="button" className="navButton" onClick={hLogout}>
+                Se <br />
+                déconnecter
               </button>
             ) : (
               <button

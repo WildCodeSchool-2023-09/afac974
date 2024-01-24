@@ -6,16 +6,16 @@ const verifyToken = async (req, res, next) => {
   const { token } = req.cookies;
 
   if (!token) {
-    res.status(401).json({ error: "Token non fournie" });
+    return res.status(401).json({ error: "Token non fournie" });
   }
 
   try {
     const decoded = jwt.verify(token, process.env.APP_SECRET);
     const user = await tables.user.readUserById(decoded.id);
     console.info({ user });
-    next();
+    return next();
   } catch (err) {
-    res.status(401).json({ error: "Token invalide" });
+    return res.status(401).json({ error: "Token invalide" });
   }
 };
 
