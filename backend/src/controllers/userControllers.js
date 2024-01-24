@@ -142,6 +142,7 @@ const login = async (req, res, next) => {
 
     res.cookie("token", token, { httpOnly: true });
     res.cookie("refreshToken", refreshToken, { httpOnly: true });
+
     res.json({ user: req.user });
   } catch (err) {
     next(err);
@@ -166,6 +167,16 @@ const refresh = async (req, res, next) => {
   }
 };
 
+const logout = async (req, res, next) => {
+  try {
+    res.clearCookie("token");
+    res.clearCookie("refreshToken");
+    res.end();
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   browse,
   read,
@@ -175,4 +186,5 @@ module.exports = {
   createUser,
   login,
   refresh,
+  logout,
 };
