@@ -111,19 +111,6 @@ const createUser = async (req, res, next) => {
       return res.status(401).json({ error: "user is already exist" });
     }
 
-    /**
-     * Pour rappel, dans le modele UserManager:
-     *
-     * create(user){...}
-     *
-     * req.body doit FORCÉMENT posseder les cles suivantes :
-     * - firstname
-     * - lastname
-     * - email
-     * - password
-     * - id_role
-     */
-
     req.body.image = "/profile/default.png";
     const user = await tables.user.create(req.body);
     return res.json({ user });
@@ -142,6 +129,7 @@ const login = async (req, res, next) => {
 
     res.cookie("token", token, { httpOnly: true });
     res.cookie("refreshToken", refreshToken, { httpOnly: true });
+
     res.json({ user: req.user });
   } catch (err) {
     next(err);
@@ -166,6 +154,16 @@ const refresh = async (req, res, next) => {
   }
 };
 
+const logout = async (req, res, next) => {
+  try {
+    res.clearCookie("token");
+    res.clearCookie("refreshToken");
+    res.end();
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   browse,
   read,
@@ -175,4 +173,5 @@ module.exports = {
   createUser,
   login,
   refresh,
+  logout,
 };

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.scss";
 import Login from "../Login/Login";
@@ -9,9 +9,20 @@ import Favori from "../../assets/favori.png";
 import Compte from "../../assets/compte.png";
 import LogoBlanc50 from "../../assets/logoBlanc50.png";
 import DiamondTop from "../../assets/diamondTop.svg";
+import { useUser } from "../../Contexts/ContextUser";
+import Instance from "../../services/axios";
 
 function Navbar() {
+  const { user, setUser } = useUser();
+  const nav = useNavigate();
   const [openLogin, setOpenLogin] = useState(false);
+
+  const hLogout = () => {
+    Instance.delete("/logout");
+    setUser(null);
+    nav("/");
+  };
+
   return (
     <nav>
       <div className="navBar">
@@ -53,16 +64,22 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <button
-              type="button"
-              className="navButton"
-              data-description="Compte 👤"
-              onClick={() => {
-                setOpenLogin(true);
-              }}
-            >
-              <img src={Compte} alt="login" />
-            </button>
+            {user !== null ? (
+              <button type="button" onClick={hLogout}>
+                Se déconnecter
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="navButton"
+                data-description="Compte 👤"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+              >
+                <img src={Compte} alt="login" />
+              </button>
+            )}
           </li>
           {openLogin && <Login closeLogin={setOpenLogin} />}
         </ul>

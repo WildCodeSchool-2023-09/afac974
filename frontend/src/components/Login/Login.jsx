@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import Instance from "../../services/axios";
-import { success, error } from "../../services/toast";
+
 import { useUser } from "../../Contexts/ContextUser";
 
 import "./Login.scss";
@@ -12,6 +13,7 @@ function FormRegister({ isLogin, modal }) {
     lastname: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const hChange = (e) => {
@@ -24,13 +26,11 @@ function FormRegister({ isLogin, modal }) {
     Instance.post("/register", register)
       .then((res) => {
         if (res.status === 200) {
-          success("Vous êtes bien enregistré");
           isLogin(true);
         }
       })
       .catch((err) => {
         console.error(err);
-        error("Une erreur est survenu");
       });
   };
 
@@ -158,11 +158,21 @@ function FormRegister({ isLogin, modal }) {
                 </path>
               </svg>
               <input
+                name="confirmPassword"
+                onChange={hChange}
                 placeholder="Confirmer mot de passe"
                 className="input-field"
                 type="password"
               />
             </div>
+            {register.password !== register.confirmPassword ? (
+              <div className="errormessage">
+                Les mots de passe ne correspondent pas
+              </div>
+            ) : (
+              ""
+            )}
+
             <div className="btn2">
               <button
                 type="button"
@@ -188,6 +198,8 @@ function FormRegister({ isLogin, modal }) {
 }
 
 function FormLogin({ isLogin, modal }) {
+  const nav = useNavigate();
+
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -203,13 +215,12 @@ function FormLogin({ isLogin, modal }) {
 
     Instance.post("/login", login)
       .then((res) => {
-        console.info(res.data.user);
         setUser(res.data.user);
-        success("Vous êtes bien loggé");
+        modal();
+        nav("/moncompte");
       })
       .catch((err) => {
         console.error(err);
-        error(err.response.data.error);
       });
   };
 
@@ -239,6 +250,7 @@ function FormLogin({ isLogin, modal }) {
               placeholder="Identifiant"
               className="input-field"
               type="text"
+              name="email"
               onChange={hChange}
             />
           </div>
@@ -259,6 +271,7 @@ function FormLogin({ isLogin, modal }) {
               placeholder="Mot de passe"
               className="input-field"
               type="password"
+              name="password"
               onChange={hChange}
             />
           </div>

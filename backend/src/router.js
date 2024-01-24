@@ -41,6 +41,12 @@ const { hashPwd, verifyPwd } = require("./services/argon");
 const userController = require("./controllers/userControllers");
 const { verifyToken } = require("./services/jwt");
 
+router.post("/register", hashPwd, userController.createUser);
+router.post("/login", verifyPwd, userController.login);
+
+// WALL AUTH
+router.use(verifyToken);
+
 // Route to get a list of items
 router.get("/users", userController.browse);
 
@@ -48,20 +54,17 @@ router.get("/users", userController.browse);
 router.get("/users/:id", userController.read);
 
 // Route to add a new item
-router.post("/users", upload.single("avatar"), verifyToken, userController.add);
+router.post("/users", upload.single("avatar"), userController.add);
 
-router.post("/register", hashPwd, userController.createUser);
-router.post("/login", verifyPwd, userController.login);
-
-router.put(
-  "/users/:id",
-  upload.single("avatar"),
-  // verifyToken,
-  userController.edit
-);
+router.put("/users/:id", upload.single("avatar"), userController.edit);
 router.delete("/users/:id", userController.destroy);
 
 router.get("/refresh", userController.refresh);
+
+/* ************************************************************************* */
+// Logout
+
+router.delete("/logout", userController.logout);
 
 /* ************************************************************************* */
 
