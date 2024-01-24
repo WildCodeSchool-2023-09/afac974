@@ -80,16 +80,6 @@ function Navbar() {
                 <img src={Compte} alt="login" />
               </button>
             )}
-            {/* <button
-              type="button"
-              className="navButton"
-              data-description="Compte 👤"
-              onClick={() => {
-                setOpenLogin(true);
-              }}
-            >
-              <img src={Compte} alt="login" />
-            </button> */}
           </li>
           {openLogin && <Login closeLogin={setOpenLogin} />}
         </ul>

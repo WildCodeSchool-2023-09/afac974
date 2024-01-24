@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import Instance from "../../services/axios";
-import { success, error } from "../../services/toast";
+
 import { useUser } from "../../Contexts/ContextUser";
 
 import "./Login.scss";
@@ -26,13 +26,11 @@ function FormRegister({ isLogin, modal }) {
     Instance.post("/register", register)
       .then((res) => {
         if (res.status === 200) {
-          success("Vous êtes bien enregistré");
           isLogin(true);
         }
       })
       .catch((err) => {
         console.error(err);
-        error("Une erreur est survenu");
       });
   };
 
@@ -215,8 +213,6 @@ function FormLogin({ isLogin, modal }) {
   const hSubmit = (e) => {
     e.preventDefault();
 
-    console.info(login);
-
     Instance.post("/login", login)
       .then((res) => {
         setUser(res.data.user);
@@ -225,7 +221,6 @@ function FormLogin({ isLogin, modal }) {
       })
       .catch((err) => {
         console.error(err);
-        error(err.response.data.error);
       });
   };
 
