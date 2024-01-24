@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Instance from "../../services/axios";
 import { success, error } from "../../services/toast";
@@ -188,6 +189,7 @@ function FormRegister({ isLogin, modal }) {
 }
 
 function FormLogin({ isLogin, modal }) {
+  const navigate = useNavigate();
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -206,6 +208,7 @@ function FormLogin({ isLogin, modal }) {
         console.info(res.data.user);
         setUser(res.data.user);
         success("Vous êtes bien loggé");
+        navigate("/moncompte");
       })
       .catch((err) => {
         console.error(err);
