@@ -12,7 +12,7 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
-  `email` varchar(75) NOT NULL,
+  `email` varchar(75) UNIQUE NOT NULL,
   `password` varchar(255) NOT NULL,
   `image` VARCHAR(255), 
   `id_role` INT,
@@ -26,7 +26,7 @@ CREATE TABLE `artwork` (
   `date` date NOT NULL,
   `style` varchar(50) DEFAULT NULL,
   `format` varchar(50) NOT NULL,
-  `certified` tinyint(1) NOT NULL,
+  `certified` BOOLEAN DEFAULT false,
   `id_user` INT,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id_user`) REFERENCES user(id)

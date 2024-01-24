@@ -111,6 +111,10 @@
   background-color: black;
   color: white;
 }
+.errormessage {
+  display: flex;
+  justify-content: center;
+}
 
 @media (max-width: 768px) {
   .btn2 {

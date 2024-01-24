@@ -10,26 +10,10 @@ class UserManager extends AbstractManager {
   // The C of CRUD - Create operation
 
   async create(user) {
-    /**
-     * user est un objet, et il possede les cles
-     * - firstname
-     * - lastname
-     * - email
-     * - password
-     * - image
-     * - id_role
-     */
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, email, password, image, id_role) values (?, ?, ?, ?, ?, ?)`,
-      [
-        user.firstname,
-        user.lastname,
-        user.email,
-        user.password,
-        user.image,
-        user.id_role,
-      ]
+      [user.firstname, user.lastname, user.email, user.password, user.image, 1]
     );
 
     // Return the ID of the newly inserted item
@@ -68,23 +52,42 @@ class UserManager extends AbstractManager {
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
-  async updateUser() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
-
-    // Return the array of items
-    return rows;
-  }
   // async update(item) {
   //   ...
   // }
+  async update(id, user) {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [result] = await this.database.query(
+      `update ${this.table} set firstname=?, lastname=?, email=?, password=?, image=?, id_role=? where id=?`,
+      [
+        user.firstname,
+        user.lastname,
+        user.email,
+        user.password,
+        user.image,
+        user.id_role,
+        id,
+      ]
+    );
 
+    // Return the array of items
+    return result;
+  }
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an item by its ID
 
   // async delete(id) {
   //   ...
   // }
-}
+  // Execute the SQL SELECT query to retrieve all items from the "item" table
 
+  async delete(id) {
+    const [rows] = await this.database.query(
+      `delete from ${this.table} where id = ? `,
+      [id]
+    );
+    // Return the array of items
+    return rows;
+  }
+}
 module.exports = UserManager;
