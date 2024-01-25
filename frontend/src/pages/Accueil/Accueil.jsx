@@ -5,26 +5,48 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Accueil.scss";
 import { Link } from "react-router-dom";
 
+import tableau55 from "../../assets/tableaux/tableau55.jpeg";
+import tableau1 from "../../assets/tableaux/tableau1.jpeg";
+import tableau78 from "../../assets/tableaux/tableau78.jpeg";
+import tableau2 from "../../assets/tableaux/tableau2.jpeg";
+import tableau67 from "../../assets/tableaux/tableau67.jpeg";
+import tableau3 from "../../assets/tableaux/tableau3.jpeg";
+import tableau45 from "../../assets/tableaux/tableau45.jpeg";
+import tableau4 from "../../assets/tableaux/tableau4.jpeg";
+import tableau85 from "../../assets/tableaux/tableau85.jpeg";
+import tableau5 from "../../assets/tableaux/tableau5.jpeg";
+import tableau56 from "../../assets/tableaux/tableau56.jpeg";
+import tableau6 from "../../assets/tableaux/tableau6.jpeg";
+import tableau68 from "../../assets/tableaux/tableau68.jpeg";
+import tableau7 from "../../assets/tableaux/tableau7.jpeg";
+import tableau80 from "../../assets/tableaux/tableau80.jpeg";
+import tableau9 from "../../assets/tableaux/tableau9.jpeg";
+import tableau83 from "../../assets/tableaux/tableau83.jpeg";
+import tableau84 from "../../assets/tableaux/tableau84.jpeg";
+import tableau10 from "../../assets/tableaux/tableau10.jpeg";
+import tableau11 from "../../assets/tableaux/tableau11.jpeg";
+
 const images = [
-  "/tableaux/tableau55.jpeg",
-  "/tableaux/tableau1.jpeg",
-  "/tableaux/tableau78.jpeg",
-  "/tableaux/tableau2.jpeg",
-  "/tableaux/tableau67.jpeg",
-  "/tableaux/tableau3.jpeg",
-  "/tableaux/tableau45.jpeg",
-  "/tableaux/tableau4.jpeg",
-  "/tableaux/tableau85.jpeg",
-  "/tableaux/tableau5.jpeg",
-  "/tableaux/tableau55.jpeg",
-  "/tableaux/tableau6.jpeg",
-  "/tableaux/tableau68.jpeg",
-  "/tableaux/tableau7.jpeg",
-  "/tableaux/tableau80.jpeg",
-  "/tableaux/tableau9.jpeg",
-  "/tableaux/tableau83.jpeg",
-  "/tableaux/tableau10.jpeg",
-  "/tableaux/tableau11.jpeg",
+  tableau55,
+  tableau1,
+  tableau78,
+  tableau2,
+  tableau67,
+  tableau3,
+  tableau45,
+  tableau4,
+  tableau85,
+  tableau5,
+  tableau56,
+  tableau6,
+  tableau68,
+  tableau7,
+  tableau80,
+  tableau9,
+  tableau83,
+  tableau84,
+  tableau10,
+  tableau11,
 ];
 
 const sliderSettings = {
