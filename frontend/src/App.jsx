@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <Navbar />
       <Outlet />
       <Footer />
