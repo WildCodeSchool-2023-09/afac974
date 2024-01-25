@@ -23,6 +23,14 @@ function Navbar() {
     nav("/");
   };
 
+  const hAccountClick = () => {
+    if (user) {
+      nav("/moncompte");
+    } else {
+      setOpenLogin(true);
+    }
+  };
+
   return (
     <nav>
       <div className="navBar">
@@ -64,24 +72,23 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            {user !== null ? (
+            <button
+              type="button"
+              className="navButton"
+              data-description="Compte 👤"
+              onClick={hAccountClick}
+            >
+              <img src={Compte} alt="login" />
+            </button>
+          </li>
+          {user !== null && (
+            <li>
               <button type="button" className="navButton" onClick={hLogout}>
                 Se <br />
                 déconnecter
               </button>
-            ) : (
-              <button
-                type="button"
-                className="navButton"
-                data-description="Compte 👤"
-                onClick={() => {
-                  setOpenLogin(true);
-                }}
-              >
-                <img src={Compte} alt="login" />
-              </button>
-            )}
-          </li>
+            </li>
+          )}
           {openLogin && <Login closeLogin={setOpenLogin} />}
         </ul>
         <div className="diamondTop-container">
