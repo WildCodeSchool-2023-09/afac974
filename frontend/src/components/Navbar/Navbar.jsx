@@ -8,6 +8,7 @@ import Artiste from "../../assets/artiste.png";
 import Favori from "../../assets/favori.png";
 import Compte from "../../assets/compte.png";
 import LogoBlanc50 from "../../assets/logoBlanc50.png";
+import Logout from "../../assets/logout2.png";
 import DiamondTop from "../../assets/diamondTop.svg";
 import { useUser } from "../../Contexts/ContextUser";
 import Instance from "../../services/axios";
@@ -23,13 +24,45 @@ function Navbar() {
     nav("/");
   };
 
+  const hAccountClick = () => {
+    if (user) {
+      nav("/moncompte");
+    } else {
+      setOpenLogin(true);
+    }
+  };
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleKeyDown = (event, action) => {
+    if (event.key === "Enter" || event.key === " ") {
+      action();
+    }
+  };
+
   return (
     <nav>
       <div className="navBar">
         <Link to="/">
           <img src={LogoBlanc50} alt="logo" className="logoAfac" />
         </Link>
-        <ul className="iconListe">
+        <div
+          className={`burger-menu ${isMenuOpen ? "open" : ""}`}
+          onClick={toggleMenu}
+          onKeyDown={(e) => handleKeyDown(e, toggleMenu)}
+          role="button"
+          aria-label="Menu"
+          tabIndex="0"
+        >
+          <div> </div>
+          <div> </div>
+          <div> </div>
+        </div>
+        <ul className={`iconListe ${isMenuOpen ? "show" : ""}`}>
           <li>
             <NavLink to="/artiste">
               <button
@@ -64,24 +97,27 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            {user !== null ? (
-              <button type="button" className="navButton" onClick={hLogout}>
-                Se <br />
-                déconnecter
-              </button>
-            ) : (
+            <button
+              type="button"
+              className="navButton"
+              data-description="Compte 👤"
+              onClick={hAccountClick}
+            >
+              <img src={Compte} alt="login" />
+            </button>
+          </li>
+          {user !== null && (
+            <li>
               <button
                 type="button"
                 className="navButton"
-                data-description="Compte 👤"
-                onClick={() => {
-                  setOpenLogin(true);
-                }}
+                data-description="Déconnexion 🚫"
+                onClick={hLogout}
               >
-                <img src={Compte} alt="login" />
+                <img src={Logout} alt="Se déconnecter" />
               </button>
-            )}
-          </li>
+            </li>
+          )}
           {openLogin && <Login closeLogin={setOpenLogin} />}
         </ul>
         <div className="diamondTop-container">

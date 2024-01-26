@@ -35,17 +35,28 @@ function Apropos() {
         </button>
       </div>
       <div>
+        <h2>Nos derniers évènements</h2>
+        <h3>Festival Culturel "Kréol Kiltir"</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat quas
-          ex delectus fuga a asperiores tempora iure, eos exercitationem
-          similique omnis natus perspiciatis? Quas nihil corporis aliquam soluta
-          placeat ut. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Debitis cum eius consequatur nisi voluptatem eos repellendus, dicta
-          sunt sit fugiat itaque commodi officiis odit consectetur assumenda
-          ipsam saepe nobis minima. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Enim, excepturi? Eum inventore et cupiditate,
-          quaerat quam ut molestias consequatur sequi illum corporis, voluptates
-          nulla assumenda, libero sed nobis quia deleniti?
+          L'édition annuelle de notre festival "Kréol Kiltir" a célébré la
+          richesse et la diversité de la culture réunionnaise. Les participants
+          ont pu s'immerger dans des ateliers artistiques, des performances
+          musicales envoûtantes et des démonstrations de cuisine créole.
+        </p>
+        <h3>Journée de Sensibilisation à l'Environnement</h3>
+        <p>
+          En partenariat avec des organisations locales, nous avons organisé une
+          journée dédiée à la sensibilisation environnementale. Les jeunes ont
+          participé à des nettoyages de plages, des ateliers de recyclage, et
+          des conférences éducatives sur la préservation de notre environnement
+          unique.
+        </p>
+        <h3>Programme de Tutorat Scolaire</h3>
+        <p>
+          Notre programme de tutorat a connu un grand succès, offrant un soutien
+          académique personnalisé aux élèves de la communauté. Les retours
+          positifs des parents et les progrès des élèves témoignent de l'impact
+          positif de cette initiative.
         </p>
       </div>
     </div>

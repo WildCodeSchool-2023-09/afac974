@@ -11,8 +11,7 @@ const verifyToken = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.APP_SECRET);
-    const user = await tables.user.readUserById(decoded.id);
-    console.info({ user });
+    req.user = await tables.user.readUserById(decoded.id);
     return next();
   } catch (err) {
     return res.status(401).json({ error: "Token invalide" });

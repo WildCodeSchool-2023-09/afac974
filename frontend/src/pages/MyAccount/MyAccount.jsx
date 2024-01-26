@@ -1,18 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../Contexts/ContextUser";
+
+import Admin from "../../components/Admin/Admin";
+import FoncArtiste from "../../components/FoncArtiste/FoncArtiste";
 import "./MyAccount.scss";
 
 function MyAccount() {
+  const { user } = useUser();
+  const navigate = useNavigate();
+  if (user === null) {
+    navigate("/");
+  }
+
   return (
     <div>
-      <div>
-        <h1>Mon Compte</h1>
-        <p className="myaccount-name">Bienvenue, NAME </p>
-      </div>
-      <div>
-        <p>Mes oeuvres préférées</p>
-        <p>Ajouter/Supprimer un utilisateur</p>
-        <p>Ajouter/Supprimer une oeuvre</p>
-      </div>
+      <h2> Bienvenue</h2>
+      {user.id_role === 1 ? <Admin /> : <FoncArtiste />}
     </div>
   );
 }
