@@ -1,88 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+
 import Instance from "../../services/axios";
+import { useUser } from "../../Contexts/ContextUser";
+
 import "../../pages/MyAccount/MyAccount.scss";
 
 function Admin() {
-  const [newArtist, setNewArtist] = useState([]);
-  const [newArtwork, setNewArtwork] = useState([]);
+  const { user } = useUser();
+  const [users, setUsers] = useState([]);
+  const [artworks, setArtworks] = useState([]);
 
-  /* ARTISTES */
-  const approveArtist = (artistId) => {
-    Instance.put(`/artist/${artistId}/approve`)
-      .then(() => {
-        setNewArtist(newArtist.filter((artist) => artist.id !== artistId));
-      })
-      .catch((error) => {
-        console.error("Erreur lors de l'acceptation de l'artiste", error);
-      });
-  };
+  useEffect(() => {
+    Instance.get("/users")
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.error(err));
+    Instance.get("/artworks")
+      .then((res) => setArtworks(res.data))
+      .catch((err) => console.error(err));
+  }, []);
 
-  const deleteArtist = (artistId) => {
-    Instance.delete(`/artist/${artistId}`)
-      .then(() => {
-        setNewArtist(newArtist.filter((artist) => artist.id !== artistId));
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la suppression de l'artiste", error);
-      });
-  };
-
-  /* OEUVRES  */
-  const approveArtwork = (artworkId) => {
-    Instance.put(`/artwork/${artworkId}`)
-      .then(() => {
-        setNewArtwork(newArtwork.filter((artwork) => artwork.id !== artworkId));
-      })
-      .catch((error) => {
-        console.error("Erreur lors de l'acceptation de l'oeuvre", error);
-      });
-  };
-
-  const deleteArtwork = (artworkId) => {
-    Instance.delete(`/artwork/${artworkId}`)
-      .then(() => {
-        setNewArtwork(newArtwork.filter((artwork) => artwork.id !== artworkId));
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la suppression de l'oeuvre", error);
-      });
-  };
+  /// const hDelete = () => {
+  /**
+   * La logique pour supprimer l'utilisateur ou l'artwork
+   */
 
   return (
     <div>
-      <div>
-        <h1>Mon Compte</h1>
-        <p className="myaccount-name">Bienvenue</p>
-      </div>
-      <div>
-        <h2>Dashboard des Artistes</h2>
-        {newArtist.map((artist) => (
-          <div key={artist.id}>
-            <span>{artist.name}</span>
-            <button type="button" onClick={() => approveArtist(artist.id)}>
-              Valider
+      <h1>Bonjour {user.firstname}</h1>
+      <hr />
+      <h2>Utilisateurs</h2>
+      {/* listes d'utilisateurs */}
+      <table>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Modifier</th>
+        </tr>
+        {users.map((personne) => (
+          <tr key={personne.id}>
+            <td>{personne.firstname}</td>
+            <td>{personne.lastname}</td>
+            <td>{personne.email}</td>
+            <td>{personne.id_role}</td>
+            <button type="button">
+              ✏️ Modifier la personne avec l'id {personne.id}
             </button>
-            <button type="button" onClick={() => deleteArtist(artist.id)}>
-              Supprimer
+            <button type="button">
+              ❌ Supprimer la personne avec l'id {personne.id}
             </button>
-          </div>
+          </tr>
         ))}
-      </div>
-      <div>
-        <h2>Dashboard des Oeuvres</h2>
-        {newArtwork.map((artwork) => (
-          <div key={artwork.id}>
-            <span>{artwork.name}</span>
-            <span>{artwork.img}</span>
-            <button type="button" onClick={() => approveArtwork(artwork.id)}>
-              Valider l'oeuvre
+      </table>
+      <hr />
+      <h2>Artwork</h2>
+      {/* Listes des artwork */}
+      <table>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Modifier</th>
+        </tr>
+        {artworks.map((artwork) => (
+          <tr key={artwork.id}>
+            <td>{artwork.firstname}</td>
+            <td>{artwork.lastname}</td>
+            <td>{artwork.email}</td>
+            <td>{artwork.id_role}</td>
+            <button type="button">
+              ✏️ Modifier l'artwork avec l'id {artwork.id}
             </button>
-            <button type="button" onClick={() => deleteArtwork(artwork.id)}>
-              Supprimer l'oeuvre
+            <button type="button">
+              ❌ Supprimer l'artwork avec l'id {artwork.id}
             </button>
-          </div>
+          </tr>
         ))}
-      </div>
+      </table>
     </div>
   );
 }
