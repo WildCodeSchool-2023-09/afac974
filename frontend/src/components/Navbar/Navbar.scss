@@ -104,7 +104,7 @@
       rgba(36, 38, 36, 0.565) 50%,
       rgba(77, 80, 78, 0.427) 100%
     );
-    padding: 0 1vw;
+    padding: 0 2vw;
   }
 
   .logoAfac {
@@ -168,5 +168,65 @@
     box-shadow: 0px -3px 10px 4px #f4f1d6;
     border-radius: 50%;
     transform: translateY(7px);
+  }
+}
+
+.burger-menu {
+  position: absolute;
+  right: 10px;
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  z-index: 100000000;
+}
+
+.burger-menu div {
+  display: block;
+  margin-right: 5rem;
+  width: 2rem;
+  height: 0.25rem;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.burger-menu.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 767px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .iconListe {
+    margin-top: 21rem;
+    display: none;
+    flex-direction: column;
+    z-index: 10000;
+  }
+
+  .iconListe.show {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.703);
+    width: auto;
+    margin-right: 1px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 32px;
   }
 }
