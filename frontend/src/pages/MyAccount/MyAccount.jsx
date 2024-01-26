@@ -16,7 +16,7 @@ function MyAccount() {
   return (
     <div>
       <h2> Bienvenue</h2>
-      {user.id_role === 1 ? <FoncArtiste /> : <Admin />}
+      {user.id_role === 1 ? <Admin /> : <FoncArtiste />}
     </div>
   );
 }
