@@ -20,10 +20,16 @@ function Admin() {
       .catch((err) => console.error(err));
   }, []);
 
-  /// const hDelete = () => {
-  /**
-   * La logique pour supprimer l'utilisateur ou l'artwork
-   */
+  const hDelete = (id, theme) => {
+    // etape 1 récuperer l'id de l'utilisateur a delete ✅
+    console.info("id to delete: ", id);
+    console.info("theme to delete: ", theme);
+    // etape 2 envoi une requete vers le backend qui va supprimer l'utilisateur
+    Instance.delete(`/users/${id}`).then((res) => {
+      console.info(res).catch((err) => console.error(err));
+    });
+    // etape 3 faire un message comme quoi l'utilisateur est bien delete
+  };
 
   return (
     <div>
@@ -48,7 +54,7 @@ function Admin() {
             <button type="button">
               ✏️ Modifier la personne avec l'id {personne.id}
             </button>
-            <button type="button">
+            <button type="button" onClick={() => hDelete(personne.id, "users")}>
               ❌ Supprimer la personne avec l'id {personne.id}
             </button>
           </tr>
