@@ -22,13 +22,14 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided ID
-    const user = await tables.user.readAll(req.params.id);
+    const user = await tables.user.readUserById(req.params.id);
 
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
     if (user == null) {
       res.sendStatus(404);
     } else {
+      delete user.password;
       res.json(user);
     }
   } catch (err) {
@@ -45,6 +46,23 @@ const edit = async (req, res, next) => {
 
     const result = await tables.user.update(id, req.body);
     console.info(result);
+
+    if (result == null) {
+      res.sendStatus(404);
+    } else {
+      res.json({ message: "User updated successfully" });
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const editRole = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const result = await tables.user.updateRole(id, req.body);
 
     if (result == null) {
       res.sendStatus(404);
@@ -168,6 +186,7 @@ module.exports = {
   browse,
   read,
   edit,
+  editRole,
   add,
   destroy,
   createUser,

@@ -58,16 +58,19 @@ class UserManager extends AbstractManager {
   async update(id, user) {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [result] = await this.database.query(
-      `update ${this.table} set firstname=?, lastname=?, email=?, password=?, image=?, id_role=? where id=?`,
-      [
-        user.firstname,
-        user.lastname,
-        user.email,
-        user.password,
-        user.image,
-        user.id_role,
-        id,
-      ]
+      `update ${this.table} set firstname=?, lastname=?, email=?, image=?, id_role=? where id=?`,
+      [user.firstname, user.lastname, user.email, user.image, user.id_role, id]
+    );
+
+    // Return the array of items
+    return result;
+  }
+
+  async updateRole(id, user) {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [result] = await this.database.query(
+      `update ${this.table} set id_role=? where id=?`,
+      [user.id_role, id]
     );
 
     // Return the array of items

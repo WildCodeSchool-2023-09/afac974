@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 import { UserProvider } from "./Contexts/ContextUser";
 import ErrorPage from "./pages/Page404/ErrorPage";
 import Accueil from "./pages/Accueil/Accueil";
@@ -10,7 +12,10 @@ import Mentions from "./pages/Mentions_legales/Mentions";
 import Rgpd from "./pages/Rgpd/Rgpd";
 import Artiste from "./pages/Artiste/Artiste";
 import MyAccount from "./pages/MyAccount/MyAccount";
+import ModifyUser from "./components/Admin/ModifyUser";
 import App from "./App";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +50,10 @@ const router = createBrowserRouter([
         path: "/moncompte",
         element: <MyAccount />,
       },
+      {
+        path: "/admin/users/update/:id",
+        element: <ModifyUser />,
+      },
     ],
   },
 ]);
@@ -55,6 +64,7 @@ root.render(
   <React.StrictMode>
     <UserProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </UserProvider>
   </React.StrictMode>
 );

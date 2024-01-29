@@ -19,6 +19,7 @@ function FoncArtiste() {
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
   };
+
   return (
     <div>
       <div>
