@@ -34,7 +34,31 @@ function Admin() {
       .catch((err) => console.error(err));
   };
   // etape 3 faire un message comme quoi l'utilisateur est bien delete
+  const [addArtwork, setAddArtwork] = useState({
+    name: "",
+    date: "",
+    style: "",
+    format: "",
+    certified: "",
+  });
 
+  const hChange = (e) => {
+    setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+  };
+
+  const hSubmit = (e) => {
+    e.preventDefault();
+
+    Instance.post("/artworks", addArtwork)
+      .then((res) => {
+        if (res.status === 200) {
+          addArtwork(true);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   return (
     <div>
       <h1>Bonjour {user.firstname}</h1>
@@ -55,9 +79,14 @@ function Admin() {
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
             <td>{personne.id_role}</td>
-            <button type="button">
-              ✏️ Modifier la personne avec l'id {personne.id}
-            </button>
+            <h4>✏️ Modifier la personne avec l'id {personne.id}</h4>
+            <div>
+              <select onChange={hChange}>
+                <option value="3">utilisateur</option>
+                <option value="2">artiste</option>
+                <option value="1">admin</option>
+              </select>
+            </div>
             <button type="button" onClick={() => hDelete(personne.id, "users")}>
               ❌ Supprimer la personne avec l'id {personne.id}
             </button>
@@ -92,7 +121,7 @@ function Admin() {
         ))}
       </table>
       <h3>Ajouter une oeuvre</h3>
-      <form>
+      <form onSubmit={hSubmit}>
         <div>
           <input
             name="name"
@@ -100,6 +129,7 @@ function Admin() {
             placeholder="NOM"
             className=""
             type="text"
+            onChange={hChange}
           />
         </div>
         <div>
@@ -108,7 +138,8 @@ function Admin() {
             autoComplete="off"
             placeholder="date de création"
             className=""
-            type="text"
+            type="date"
+            onChange={hChange}
           />
         </div>
         <div>
@@ -118,22 +149,27 @@ function Admin() {
             placeholder="Style"
             className=""
             type="text"
+            onChange={hChange}
           />
-        </div>
-        <div>
-          <input name="format" placeholder="Format" className="" type="text" />
         </div>
         <div>
           <input
-            name="certified"
-            placeholder="certifier"
+            name="format"
+            placeholder="Format"
             className=""
-            type="password"
+            type="text"
+            onChange={hChange}
           />
+        </div>
+        <div>
+          <select onChange={hChange}>
+            <option value="true">conforme</option>
+            <option value="false">non conforme</option>
+          </select>
         </div>
 
         <div className="">
-          <button type="button" className="">
+          <button type="submit" className="">
             Ajouter
           </button>
         </div>
