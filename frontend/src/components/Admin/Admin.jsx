@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-
 import Instance from "../../services/axios";
 import { useUser } from "../../Contexts/ContextUser";
 
@@ -10,6 +8,7 @@ function Admin() {
   const { user } = useUser();
   const [users, setUsers] = useState([]);
   const [artworks, setArtworks] = useState([]);
+  const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
     Instance.get("/users")
@@ -19,6 +18,10 @@ function Admin() {
       .then((res) => setArtworks(res.data))
       .catch((err) => console.error(err));
   }, []);
+
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  };
 
   const hDelete = (id, theme) => {
     if (theme === "users") {
@@ -65,12 +68,12 @@ function Admin() {
   };
   return (
     <div>
-      <h1>Bonjour {user.firstname}</h1>
+      <h1 className="h1-myAccount">Bonjour {user.firstname}</h1>
       <hr />
-      <h2>Utilisateurs</h2>
+      <h2 className="h2-myAccount">Utilisateurs</h2>
       {/* listes d'utilisateurs */}
-      <table>
-        <tr>
+      <table className="table-myAccount">
+        <tr className="tr-myAccount">
           <th>Nom</th>
           <th>Prenom</th>
           <th>Email</th>
@@ -82,6 +85,7 @@ function Admin() {
             <td>{personne.firstname}</td>
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
+
             <select onChange={hChangeSelect}>
               <option value="3" selected={personne.id_role === 3}>
                 Utilisateur
@@ -109,33 +113,34 @@ function Admin() {
         ))}
       </table>
       <hr />
-      <h2>Artwork</h2>
+      <h2 className="h2-myAccount">Oeuvres</h2>
       {/* Listes des artwork */}
-      <table>
+      <table className="table-myAccount">
         <tr>
           <th>Nom</th>
           <th>Date</th>
           <th>Style</th>
           <th>Format</th>
-          <th>certifier</th>
+          <th>Certifier</th>
         </tr>
         {artworks.map((artwork) => (
           <tr key={artwork.id}>
-            <td>{artwork.name}</td>
-            <td>{artwork.date}</td>
-            <td>{artwork.style}</td>
-            <td>{artwork.format}</td>
-            <td>{artwork.certified}</td>
-            <button type="button">
-              ✏️ Modifier l'artwork avec l'id {artwork.id}
-            </button>
-            <button type="button">
-              ❌ Supprimer l'artwork avec l'id {artwork.id}
-            </button>
+            <td>{artwork.firstname}</td>
+            <td>{artwork.lastname}</td>
+            <td>{artwork.email}</td>
+            <td>{artwork.id_role}</td>
+            <div className="button-container">
+              <button type="button" className="button-myAccount">
+                ✏️ Modifier la personne avec l'id {artwork.id}
+              </button>
+              <button type="button" className="button-myAccount">
+                ❌ Supprimer la personne avec l'id {artwork.id}
+              </button>
+            </div>
           </tr>
         ))}
       </table>
-      <h3>Ajouter une oeuvre</h3>
+      <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
       <form onSubmit={hSubmit}>
         <div>
           <input
@@ -152,9 +157,9 @@ function Admin() {
             name="date"
             autoComplete="off"
             placeholder="date de création"
-            className=""
+            value={selectedDate}
+            onChange={handleDateChange}
             type="date"
-            onChange={hChange}
           />
         </div>
         <div>
@@ -184,7 +189,7 @@ function Admin() {
         </div>
 
         <div className="">
-          <button type="submit" className="">
+          <button type="submit" className="button-add">
             Ajouter
           </button>
         </div>
