@@ -72,12 +72,12 @@ function Admin() {
       <hr />
       <h2 className="h2-myAccount">Utilisateurs</h2>
       {/* listes d'utilisateurs */}
-      <table className="table-myAccount">
+      <table className="table-myAccount-users">
         <tr className="tr-myAccount">
+          <th>Prénom</th>
           <th>Nom</th>
-          <th>Prenom</th>
           <th>Email</th>
-          <th>Role</th>
+          <th>Rôle</th>
           <th>Actions</th>
         </tr>
         {users.map((personne) => (
@@ -85,29 +85,32 @@ function Admin() {
             <td>{personne.firstname}</td>
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
-
-            <select onChange={hChangeSelect}>
-              <option value="3" selected={personne.id_role === 3}>
-                Utilisateur
-              </option>
-              <option value="2" selected={personne.id_role === 2}>
-                Artiste
-              </option>
-              <option value="1" selected={personne.id_role === 1}>
-                Admin
-              </option>
-            </select>
+            <div className="button-container">
+              <select className="button-role" onChange={hChangeSelect}>
+                <option value="3" selected={personne.id_role === 3}>
+                  Utilisateur
+                </option>
+                <option value="2" selected={personne.id_role === 2}>
+                  Artiste
+                </option>
+                <option value="1" selected={personne.id_role === 1}>
+                  Admin
+                </option>
+              </select>
+            </div>
             <td>
-              <button type="button" style={{ margin: "0 5px" }}>
-                ✏️{" "}
-              </button>
-              <button
-                type="button"
-                style={{ margin: "0 5px" }}
-                onClick={() => hDelete(personne.id, "users")}
-              >
-                ❌
-              </button>
+              <div className="button-container">
+                <button type="button" className="button-myAccount">
+                  ✏️{" "}
+                </button>
+                <button
+                  type="button"
+                  className="button-myAccount"
+                  onClick={() => hDelete(personne.id, "users")}
+                >
+                  ❌
+                </button>
+              </div>
             </td>
           </tr>
         ))}
@@ -141,7 +144,7 @@ function Admin() {
         ))}
       </table>
       <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
-      <form onSubmit={hSubmit}>
+      <form className="form-myAccount" onSubmit={hSubmit}>
         <div>
           <input
             name="name"
@@ -190,7 +193,7 @@ function Admin() {
 
         <div className="">
           <button type="submit" className="button-add">
-            Ajouter
+            Ajouter 🖼️
           </button>
         </div>
       </form>
