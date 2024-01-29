@@ -141,7 +141,7 @@ function Admin() {
         ))}
       </table>
       <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
-      <form onSubmit={hSubmit}>
+      <form className="form-myAccount" onSubmit={hSubmit}>
         <div>
           <input
             name="name"
@@ -190,7 +190,7 @@ function Admin() {
 
         <div className="">
           <button type="submit" className="button-add">
-            Ajouter
+            Ajouter 🖼️
           </button>
         </div>
       </form>
