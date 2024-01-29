@@ -20,10 +20,20 @@ function Admin() {
       .catch((err) => console.error(err));
   }, []);
 
-  /// const hDelete = () => {
-  /**
-   * La logique pour supprimer l'utilisateur ou l'artwork
-   */
+  const hDelete = (id, theme) => {
+    // etape 1 récuperer l'id de l'utilisateur a delete ✅
+    console.info("id to delete: ", id);
+    console.info("theme to delete: ", theme);
+    // etape 2 envoi une requete vers le backend qui va supprimer l'utilisateur
+    Instance.delete(`/users/${id}`)
+      .then(() => {
+        Instance.get("/users")
+          .then((res) => setUsers(res.data))
+          .catch((err) => console.error(err));
+      })
+      .catch((err) => console.error(err));
+  };
+  // etape 3 faire un message comme quoi l'utilisateur est bien delete
 
   return (
     <div>
@@ -48,7 +58,7 @@ function Admin() {
             <button type="button">
               ✏️ Modifier la personne avec l'id {personne.id}
             </button>
-            <button type="button">
+            <button type="button" onClick={() => hDelete(personne.id, "users")}>
               ❌ Supprimer la personne avec l'id {personne.id}
             </button>
           </tr>
@@ -60,17 +70,18 @@ function Admin() {
       <table>
         <tr>
           <th>Nom</th>
-          <th>Prenom</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Modifier</th>
+          <th>Date</th>
+          <th>Style</th>
+          <th>Format</th>
+          <th>certifier</th>
         </tr>
         {artworks.map((artwork) => (
           <tr key={artwork.id}>
-            <td>{artwork.firstname}</td>
-            <td>{artwork.lastname}</td>
-            <td>{artwork.email}</td>
-            <td>{artwork.id_role}</td>
+            <td>{artwork.name}</td>
+            <td>{artwork.date}</td>
+            <td>{artwork.style}</td>
+            <td>{artwork.format}</td>
+            <td>{artwork.certified}</td>
             <button type="button">
               ✏️ Modifier l'artwork avec l'id {artwork.id}
             </button>
