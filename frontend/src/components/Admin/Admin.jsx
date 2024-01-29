@@ -8,6 +8,7 @@ function Admin() {
   const { user } = useUser();
   const [users, setUsers] = useState([]);
   const [artworks, setArtworks] = useState([]);
+  const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
     Instance.get("/users")
@@ -17,6 +18,10 @@ function Admin() {
       .then((res) => setArtworks(res.data))
       .catch((err) => console.error(err));
   }, []);
+
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  };
 
   const hDelete = (id, theme) => {
     // etape 1 récuperer l'id de l'utilisateur a delete ✅
@@ -69,7 +74,7 @@ function Admin() {
         ))}
       </table>
       <hr />
-      <h2 className="h2-myAccount">Artwork</h2>
+      <h2 className="h2-myAccount">Oeuvres</h2>
       {/* Listes des artwork */}
       <table className="table-myAccount">
         <tr>
@@ -77,7 +82,7 @@ function Admin() {
           <th>Date</th>
           <th>Style</th>
           <th>Format</th>
-          <th>certifier</th>
+          <th>Certifier</th>
         </tr>
         {artworks.map((artwork) => (
           <tr key={artwork.id}>
@@ -96,8 +101,8 @@ function Admin() {
           </tr>
         ))}
       </table>
-      <h3>Ajouter une oeuvre</h3>
-      <form>
+      <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
+      <form className="form-myAccount">
         <div>
           <input
             name="name"
@@ -112,8 +117,9 @@ function Admin() {
             name="date"
             autoComplete="off"
             placeholder="date de création"
-            className=""
-            type="text"
+            value={selectedDate}
+            onChange={handleDateChange}
+            type="date"
           />
         </div>
         <div>
@@ -131,15 +137,15 @@ function Admin() {
         <div>
           <input
             name="certified"
-            placeholder="certifier"
+            placeholder="Certifier"
             className=""
             type="password"
           />
         </div>
 
         <div className="">
-          <button type="button" className="">
-            Ajouter
+          <button type="button" className="button-add">
+            Ajouter 🖼️
           </button>
         </div>
       </form>
