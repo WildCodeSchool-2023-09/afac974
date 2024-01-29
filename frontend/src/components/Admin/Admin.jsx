@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-
 import Instance from "../../services/axios";
 import { useUser } from "../../Contexts/ContextUser";
 
@@ -19,11 +17,6 @@ function Admin() {
       .then((res) => setArtworks(res.data))
       .catch((err) => console.error(err));
   }, []);
-
-  /// const hDelete = () => {
-  /**
-   * La logique pour supprimer l'utilisateur ou l'artwork
-   */
 
   return (
     <div>
