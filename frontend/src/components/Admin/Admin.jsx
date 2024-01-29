@@ -91,6 +91,53 @@ function Admin() {
           </tr>
         ))}
       </table>
+      <h3>Ajouter une oeuvre</h3>
+      <form>
+        <div>
+          <input
+            name="name"
+            autoComplete="off"
+            placeholder="NOM"
+            className=""
+            type="text"
+          />
+        </div>
+        <div>
+          <input
+            name="date"
+            autoComplete="off"
+            placeholder="date de création"
+            className=""
+            type="text"
+          />
+        </div>
+        <div>
+          <input
+            name="style"
+            autoComplete="off"
+            placeholder="Style"
+            className=""
+            type="text"
+          />
+        </div>
+        <div>
+          <input name="format" placeholder="Format" className="" type="text" />
+        </div>
+        <div>
+          <input
+            name="certified"
+            placeholder="certifier"
+            className=""
+            type="password"
+          />
+        </div>
+
+        <div className="">
+          <button type="button" className="">
+            Ajouter
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
