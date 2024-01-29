@@ -20,10 +20,20 @@ function Admin() {
       .catch((err) => console.error(err));
   }, []);
 
-  /// const hDelete = () => {
-  /**
-   * La logique pour supprimer l'utilisateur ou l'artwork
-   */
+  const hDelete = (id, theme) => {
+    // etape 1 récuperer l'id de l'utilisateur a delete ✅
+    console.info("id to delete: ", id);
+    console.info("theme to delete: ", theme);
+    // etape 2 envoi une requete vers le backend qui va supprimer l'utilisateur
+    Instance.delete(`/users/${id}`)
+      .then(() => {
+        Instance.get("/users")
+          .then((res) => setUsers(res.data))
+          .catch((err) => console.error(err));
+      })
+      .catch((err) => console.error(err));
+  };
+  // etape 3 faire un message comme quoi l'utilisateur est bien delete
 
   return (
     <div>
@@ -62,10 +72,10 @@ function Admin() {
       <table className="table-myAccount">
         <tr>
           <th>Nom</th>
-          <th>Prenom</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Modifier</th>
+          <th>Date</th>
+          <th>Style</th>
+          <th>Format</th>
+          <th>certifier</th>
         </tr>
         {artworks.map((artwork) => (
           <tr key={artwork.id}>
