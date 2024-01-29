@@ -24,20 +24,48 @@ function Admin() {
   };
 
   const hDelete = (id, theme) => {
-    // etape 1 récuperer l'id de l'utilisateur a delete ✅
-    console.info("id to delete: ", id);
-    console.info("theme to delete: ", theme);
-    // etape 2 envoi une requete vers le backend qui va supprimer l'utilisateur
-    Instance.delete(`/users/${id}`)
-      .then(() => {
-        Instance.get("/users")
-          .then((res) => setUsers(res.data))
-          .catch((err) => console.error(err));
-      })
-      .catch((err) => console.error(err));
+    if (theme === "users") {
+      Instance.delete(`/users/${id}`)
+        .then(() => {
+          Instance.get("/users")
+            .then((res) => setUsers(res.data))
+            .catch((err) => console.error(err));
+        })
+        .catch((err) => console.error(err));
+    } else {
+      console.info("Work In Progress: Artwork");
+    }
   };
-  // etape 3 faire un message comme quoi l'utilisateur est bien delete
 
+  const [addArtwork, setAddArtwork] = useState({
+    name: "",
+    date: "",
+    style: "",
+    format: "",
+    certified: "",
+  });
+
+  const hChange = (e) => {
+    setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+  };
+
+  const hChangeSelect = (e) => {
+    console.info(e.target.value);
+  };
+
+  const hSubmit = (e) => {
+    e.preventDefault();
+
+    Instance.post("/artworks", addArtwork)
+      .then((res) => {
+        if (res.status === 200) {
+          addArtwork(true);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   return (
     <div>
       <h1 className="h1-myAccount">Bonjour {user.firstname}</h1>
@@ -50,26 +78,37 @@ function Admin() {
           <th>Prenom</th>
           <th>Email</th>
           <th>Role</th>
-          <th>Modifier</th>
+          <th>Actions</th>
         </tr>
         {users.map((personne) => (
           <tr key={personne.id}>
             <td>{personne.firstname}</td>
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
-            <td>{personne.id_role}</td>
-            <div className="button-container">
-              <button type="button" className="button-myAccount">
-                ✏️ Modifier la personne avec l'id {personne.id}
+
+            <select onChange={hChangeSelect}>
+              <option value="3" selected={personne.id_role === 3}>
+                Utilisateur
+              </option>
+              <option value="2" selected={personne.id_role === 2}>
+                Artiste
+              </option>
+              <option value="1" selected={personne.id_role === 1}>
+                Admin
+              </option>
+            </select>
+            <td>
+              <button type="button" style={{ margin: "0 5px" }}>
+                ✏️{" "}
               </button>
               <button
-                className="button-myAccount"
                 type="button"
+                style={{ margin: "0 5px" }}
                 onClick={() => hDelete(personne.id, "users")}
               >
-                ❌ Supprimer la personne avec l'id {personne.id}
+                ❌
               </button>
-            </div>
+            </td>
           </tr>
         ))}
       </table>
@@ -102,7 +141,7 @@ function Admin() {
         ))}
       </table>
       <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
-      <form className="form-myAccount">
+      <form onSubmit={hSubmit}>
         <div>
           <input
             name="name"
@@ -110,6 +149,7 @@ function Admin() {
             placeholder="NOM"
             className=""
             type="text"
+            onChange={hChange}
           />
         </div>
         <div>
@@ -129,23 +169,28 @@ function Admin() {
             placeholder="Style"
             className=""
             type="text"
+            onChange={hChange}
           />
-        </div>
-        <div>
-          <input name="format" placeholder="Format" className="" type="text" />
         </div>
         <div>
           <input
-            name="certified"
-            placeholder="Certifier"
+            name="format"
+            placeholder="Format"
             className=""
-            type="password"
+            type="text"
+            onChange={hChange}
           />
+        </div>
+        <div>
+          <select onChange={hChange} name="certified">
+            <option value="true">conforme</option>
+            <option value="false">non conforme</option>
+          </select>
         </div>
 
         <div className="">
-          <button type="button" className="button-add">
-            Ajouter 🖼️
+          <button type="submit" className="button-add">
+            Ajouter
           </button>
         </div>
       </form>
