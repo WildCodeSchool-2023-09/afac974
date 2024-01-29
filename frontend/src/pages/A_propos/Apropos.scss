@@ -11,6 +11,25 @@
     padding: 5%;
   }
 
+  h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin-top: 4rem;
+    color: rgb(255, 255, 255);
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 3rem;
+    margin-left: 6rem;
+    margin-top: 6rem;
+    color: rgb(255, 255, 255);
+  }
+
   p {
     display: block;
     color: rgb(0, 0, 0);

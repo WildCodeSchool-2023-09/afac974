@@ -23,19 +23,20 @@ function Apropos() {
           dessins, chacun reflétant la richesse de notre héritage artistique.
         </p>
       </div>
+      <h2>Nos évènements à venir</h2>
       <div className="event">
         <button className="event-block1" type="button">
-          Event 1
+          Concours Artistique Inter-Écoles
         </button>
         <button className="event-block2" type="button">
-          Event 2
+          Semaine de la Diversité Culturelle
         </button>
         <button className="event-block3" type="button">
-          Event 3
+          Forum Éducatif et Professionnel
         </button>
       </div>
       <div>
-        <h2>Nos derniers évènements</h2>
+        <h2>Nos précédents évènements</h2>
         <h3>Festival Culturel "Kréol Kiltir"</h3>
         <p>
           L'édition annuelle de notre festival "Kréol Kiltir" a célébré la
