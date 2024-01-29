@@ -88,12 +88,12 @@ function Admin() {
       <hr />
       <h2 className="h2-myAccount">Utilisateurs</h2>
       {/* listes d'utilisateurs */}
-      <table className="table-myAccount">
+      <table className="table-myAccount-users">
         <tr className="tr-myAccount">
+          <th>Prénom</th>
           <th>Nom</th>
-          <th>Prenom</th>
           <th>Email</th>
-          <th>Role</th>
+          <th>Rôle</th>
           <th>Actions</th>
         </tr>
         {users.map((personne) => (
@@ -165,7 +165,7 @@ function Admin() {
         ))}
       </table>
       <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
-      <form onSubmit={hSubmit}>
+      <form className="form-myAccount" onSubmit={hSubmit}>
         <div>
           <input
             name="name"
@@ -214,7 +214,7 @@ function Admin() {
 
         <div className="">
           <button type="submit" className="button-add" onClick={() => hChange}>
-            Ajouter
+            Ajouter 🖼️
           </button>
         </div>
       </form>
