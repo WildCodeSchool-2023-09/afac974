@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Instance from "../../services/axios";
 import { useUser } from "../../Contexts/ContextUser";
+import { success } from "../../services/toast";
 
 import "../../pages/MyAccount/MyAccount.scss";
 
@@ -23,6 +25,17 @@ function Admin() {
     setSelectedDate(e.target.value);
   };
 
+  const hChangeSelect = (e, id) => {
+    const newRoleId = e.target.value;
+    Instance.put(`/users/${id}/role`, { id_role: newRoleId })
+      .then(() => {
+        Instance.get("/users")
+          .then(() => success("L'utilisateur a bien son rôle modifié"))
+          .catch((err) => console.error(err));
+      })
+      .catch((err) => console.error(err));
+  };
+
   const hDelete = (id, theme) => {
     if (theme === "users") {
       Instance.delete(`/users/${id}`)
@@ -33,7 +46,13 @@ function Admin() {
         })
         .catch((err) => console.error(err));
     } else {
-      console.info("Work In Progress: Artwork");
+      Instance.delete(`/artworks/${id}`)
+        .then(() => {
+          Instance.get("/artwoks")
+            .then((res) => setArtworks(res.data))
+            .catch((err) => console.error(err));
+        })
+        .catch((err) => console.error(err));
     }
   };
 
@@ -49,10 +68,6 @@ function Admin() {
     setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
   };
 
-  const hChangeSelect = (e) => {
-    console.info(e.target.value);
-  };
-
   const hSubmit = (e) => {
     e.preventDefault();
 
@@ -66,6 +81,7 @@ function Admin() {
         console.error(err);
       });
   };
+
   return (
     <div>
       <h1 className="h1-myAccount">Bonjour {user.firstname}</h1>
@@ -85,8 +101,8 @@ function Admin() {
             <td>{personne.firstname}</td>
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
-            <div className="button-container">
-              <select className="button-role" onChange={hChangeSelect}>
+            <td>
+              <select onChange={(e) => hChangeSelect(e, personne.id)}>
                 <option value="3" selected={personne.id_role === 3}>
                   Utilisateur
                 </option>
@@ -97,20 +113,21 @@ function Admin() {
                   Admin
                 </option>
               </select>
-            </div>
+            </td>
             <td>
-              <div className="button-container">
-                <button type="button" className="button-myAccount">
-                  ✏️{" "}
-                </button>
-                <button
-                  type="button"
-                  className="button-myAccount"
-                  onClick={() => hDelete(personne.id, "users")}
-                >
-                  ❌
-                </button>
-              </div>
+              <Link
+                to={`/admin/users/update/${personne.id}`}
+                style={{ margin: "0 5px" }}
+              >
+                ✏️{" "}
+              </Link>
+              <button
+                type="button"
+                style={{ margin: "0 5px" }}
+                onClick={() => hDelete(personne.id, "users")}
+              >
+                ❌
+              </button>
             </td>
           </tr>
         ))}
@@ -133,10 +150,14 @@ function Admin() {
             <td>{artwork.email}</td>
             <td>{artwork.id_role}</td>
             <div className="button-container">
-              <button type="button" className="button-myAccount">
+              <button type="submit" className="button-myAccount">
                 ✏️ Modifier la personne avec l'id {artwork.id}
               </button>
-              <button type="button" className="button-myAccount">
+              <button
+                type="button"
+                className="button-myAccount"
+                onClick={() => hDelete(artwork.id, "artworks")}
+              >
                 ❌ Supprimer la personne avec l'id {artwork.id}
               </button>
             </div>
@@ -192,7 +213,7 @@ function Admin() {
         </div>
 
         <div className="">
-          <button type="submit" className="button-add">
+          <button type="submit" className="button-add" onClick={() => hChange}>
             Ajouter 🖼️
           </button>
         </div>

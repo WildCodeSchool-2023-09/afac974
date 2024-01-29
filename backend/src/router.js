@@ -57,6 +57,7 @@ router.get("/users/:id", userController.read);
 router.post("/users", upload.single("avatar"), userController.add);
 
 router.put("/users/:id", upload.single("avatar"), userController.edit);
+router.put("/users/:id/role", userController.editRole);
 router.delete("/users/:id", userController.destroy);
 
 router.get("/refresh", userController.refresh);
