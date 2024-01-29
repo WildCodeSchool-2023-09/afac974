@@ -27,12 +27,12 @@ function Admin() {
 
   return (
     <div>
-      <h1>Bonjour {user.firstname}</h1>
+      <h1 className="h1-myAccount">Bonjour {user.firstname}</h1>
       <hr />
-      <h2>Utilisateurs</h2>
+      <h2 className="h2-myAccount">Utilisateurs</h2>
       {/* listes d'utilisateurs */}
-      <table>
-        <tr>
+      <table className="table-myAccount">
+        <tr className="tr-myAccount">
           <th>Nom</th>
           <th>Prenom</th>
           <th>Email</th>
@@ -45,19 +45,21 @@ function Admin() {
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
             <td>{personne.id_role}</td>
-            <button type="button">
-              ✏️ Modifier la personne avec l'id {personne.id}
-            </button>
-            <button type="button">
-              ❌ Supprimer la personne avec l'id {personne.id}
-            </button>
+            <div className="button-container">
+              <button type="button" className="button-myAccount">
+                ✏️ Modifier la personne avec l'id {personne.id}
+              </button>
+              <button type="button" className="button-myAccount">
+                ❌ Supprimer la personne avec l'id {personne.id}
+              </button>
+            </div>
           </tr>
         ))}
       </table>
       <hr />
-      <h2>Artwork</h2>
+      <h2 className="h2-myAccount">Artwork</h2>
       {/* Listes des artwork */}
-      <table>
+      <table className="table-myAccount">
         <tr>
           <th>Nom</th>
           <th>Prenom</th>
@@ -71,12 +73,14 @@ function Admin() {
             <td>{artwork.lastname}</td>
             <td>{artwork.email}</td>
             <td>{artwork.id_role}</td>
-            <button type="button">
-              ✏️ Modifier l'artwork avec l'id {artwork.id}
-            </button>
-            <button type="button">
-              ❌ Supprimer l'artwork avec l'id {artwork.id}
-            </button>
+            <div className="button-container">
+              <button type="button" className="button-myAccount">
+                ✏️ Modifier la personne avec l'id {artwork.id}
+              </button>
+              <button type="button" className="button-myAccount">
+                ❌ Supprimer la personne avec l'id {artwork.id}
+              </button>
+            </div>
           </tr>
         ))}
       </table>

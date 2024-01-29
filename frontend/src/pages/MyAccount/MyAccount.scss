@@ -1,5 +1,79 @@
-h1 {
+@import url("https://fonts.google.com/specimen/Montserrat");
+
+.h1-myAccount {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2em;
+  color: #333;
+  margin: 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.h2-myAccount {
+  font-size: 1.5em;
+  color: #333;
+  margin-left: 1rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f4f1d68a;
+    z-index: -1;
+  }
+}
+
+.table-myAccount {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  background-color: #333;
+
+  th,
+  td {
+    border: 1px solid #f4f1d6;
+    padding: 8px;
+    color: #f4f1d6;
+  }
+
+  tr:nth-child(even) {
+    background-color: #333;
+  }
+}
+
+.button-myAccount {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1%;
+
+  &:hover {
+    background-color: #f4f1d6;
+    color: rgb(0, 0, 0);
+  }
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .table-myAccount {
+    width: 100%;
+  }
+
+  .h1-myAccount,
+  .h2-myAccount {
+    font-size: smaller;
+  }
 }
