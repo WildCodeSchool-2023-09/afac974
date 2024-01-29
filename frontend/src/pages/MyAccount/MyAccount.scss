@@ -1,22 +1,32 @@
 @import url("https://fonts.google.com/specimen/Montserrat");
 
-.h1-myAccount {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2em;
+.h1-myAccount,
+.h2-myAccount,
+.h3-myAccount {
   color: #333;
   margin: 1rem;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.h1-myAccount {
+  font-size: 2rem;
+}
 .h2-myAccount {
-  font-size: 1.5em;
-  color: #333;
-  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+.h3-myAccount {
+  font-size: 1rem;
+}
+.h2-myAccount,
+.h3-myAccount {
   position: relative;
   display: inline-block;
   padding: 0 5px;
+  border: thick double #333;
+  border-radius: 8px;
 
   &::before {
     content: "";
@@ -32,9 +42,9 @@
 
 .table-myAccount {
   width: 100%;
-  height: auto;
   border-collapse: collapse;
   background-color: #333;
+  overflow-x: auto;
 
   th,
   td {
@@ -67,13 +77,69 @@
   justify-content: center;
 }
 
+.form-myAccount {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #f4f1d68a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: thick double #333;
+  border-radius: 8px;
+
+  div {
+    margin-bottom: 0.2rem;
+  }
+
+  input {
+    width: 50%;
+    padding: 2px;
+    border: 1px solid #333;
+    font-size: 1rem;
+    color: #333;
+    background-color: white;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+      border-color: #f4f1d6;
+      box-shadow: 0 0 8px rgba(244, 241, 214, 0.6);
+    }
+  }
+
+  .button-add-container {
+    margin-left: 10rem;
+    align-items: center;
+  }
+
+  .button-add {
+    width: 30%;
+    padding: 5px;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #f4f1d6;
+      color: rgb(0, 0, 0);
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
-  .table-myAccount {
+  .h1-myAccount,
+  .h2-myAccount,
+  .h3-myAccount {
+    font-size: smaller;
+  }
+
+  .form-myAccount input,
+  .button-add {
     width: 100%;
   }
 
-  .h1-myAccount,
-  .h2-myAccount {
-    font-size: smaller;
+  .table-myAccount,
+  .button-container,
+  .button-myAccount,
+  .form-myAccount {
+    width: 100%;
   }
 }

@@ -13,12 +13,7 @@ function MyAccount() {
     navigate("/");
   }
 
-  return (
-    <div>
-      <h2> Bienvenue</h2>
-      {user.id_role === 1 ? <Admin /> : <FoncArtiste />}
-    </div>
-  );
+  return <div>{user.id_role === 1 ? <Admin /> : <FoncArtiste />}</div>;
 }
 
 export default MyAccount;
