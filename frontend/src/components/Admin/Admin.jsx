@@ -74,10 +74,10 @@ function Admin() {
       {/* listes d'utilisateurs */}
       <table className="table-myAccount-users">
         <tr className="tr-myAccount">
-          <th>Prenom</th>
+          <th>Prénom</th>
           <th>Nom</th>
           <th>Email</th>
-          <th>Role</th>
+          <th>Rôle</th>
           <th>Actions</th>
         </tr>
         {users.map((personne) => (
