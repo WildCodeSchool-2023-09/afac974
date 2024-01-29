@@ -21,19 +21,19 @@ function Admin() {
   }, []);
 
   const hDelete = (id, theme) => {
-    // etape 1 récuperer l'id de l'utilisateur a delete ✅
-    console.info("id to delete: ", id);
-    console.info("theme to delete: ", theme);
-    // etape 2 envoi une requete vers le backend qui va supprimer l'utilisateur
-    Instance.delete(`/users/${id}`)
-      .then(() => {
-        Instance.get("/users")
-          .then((res) => setUsers(res.data))
-          .catch((err) => console.error(err));
-      })
-      .catch((err) => console.error(err));
+    if (theme === "users") {
+      Instance.delete(`/users/${id}`)
+        .then(() => {
+          Instance.get("/users")
+            .then((res) => setUsers(res.data))
+            .catch((err) => console.error(err));
+        })
+        .catch((err) => console.error(err));
+    } else {
+      console.info("Work In Progress: Artwork");
+    }
   };
-  // etape 3 faire un message comme quoi l'utilisateur est bien delete
+
   const [addArtwork, setAddArtwork] = useState({
     name: "",
     date: "",
@@ -44,6 +44,10 @@ function Admin() {
 
   const hChange = (e) => {
     setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+  };
+
+  const hChangeSelect = (e) => {
+    console.info(e.target.value);
   };
 
   const hSubmit = (e) => {
@@ -71,25 +75,36 @@ function Admin() {
           <th>Prenom</th>
           <th>Email</th>
           <th>Role</th>
-          <th>Modifier</th>
+          <th>Actions</th>
         </tr>
         {users.map((personne) => (
           <tr key={personne.id}>
             <td>{personne.firstname}</td>
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
-            <td>{personne.id_role}</td>
-            <h4>✏️ Modifier la personne avec l'id {personne.id}</h4>
-            <div>
-              <select onChange={hChange}>
-                <option value="3">utilisateur</option>
-                <option value="2">artiste</option>
-                <option value="1">admin</option>
-              </select>
-            </div>
-            <button type="button" onClick={() => hDelete(personne.id, "users")}>
-              ❌ Supprimer la personne avec l'id {personne.id}
-            </button>
+            <select onChange={hChangeSelect}>
+              <option value="3" selected={personne.id_role === 3}>
+                Utilisateur
+              </option>
+              <option value="2" selected={personne.id_role === 2}>
+                Artiste
+              </option>
+              <option value="1" selected={personne.id_role === 1}>
+                Admin
+              </option>
+            </select>
+            <td>
+              <button type="button" style={{ margin: "0 5px" }}>
+                ✏️{" "}
+              </button>
+              <button
+                type="button"
+                style={{ margin: "0 5px" }}
+                onClick={() => hDelete(personne.id, "users")}
+              >
+                ❌
+              </button>
+            </td>
           </tr>
         ))}
       </table>
@@ -162,7 +177,7 @@ function Admin() {
           />
         </div>
         <div>
-          <select onChange={hChange}>
+          <select onChange={hChange} name="certified">
             <option value="true">conforme</option>
             <option value="false">non conforme</option>
           </select>
