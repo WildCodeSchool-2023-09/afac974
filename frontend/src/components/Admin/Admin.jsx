@@ -89,7 +89,7 @@ function Admin() {
       <h2 className="h2-myAccount">Utilisateurs</h2>
       {/* listes d'utilisateurs */}
       <table className="table-myAccount-users">
-        <tr className="tr-myAccount">
+        <tr>
           <th>Prénom</th>
           <th>Nom</th>
           <th>Email</th>
@@ -101,7 +101,7 @@ function Admin() {
             <td>{personne.firstname}</td>
             <td>{personne.lastname}</td>
             <td>{personne.email}</td>
-            <td>
+            <td className="button-role">
               <select onChange={(e) => hChangeSelect(e, personne.id)}>
                 <option value="3" selected={personne.id_role === 3}>
                   Utilisateur
@@ -212,7 +212,7 @@ function Admin() {
           </select>
         </div>
 
-        <div className="">
+        <div className="button-add-container">
           <button type="submit" className="button-add" onClick={() => hChange}>
             Ajouter 🖼️
           </button>

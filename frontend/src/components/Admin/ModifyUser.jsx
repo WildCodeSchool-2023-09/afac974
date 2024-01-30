@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Instance from "../../services/axios";
 import { success, error } from "../../services/toast";
 
+import "./ModifyUser.scss";
+
 function ModifyUser() {
   const { id } = useParams();
   const [user, setUser] = useState({});
@@ -33,10 +35,12 @@ function ModifyUser() {
 
   return (
     <>
-      <h1>Modifier l'utilisateur : {id}</h1>
-      <form onSubmit={hSubmit}>
+      <h1 className="h1-modify">Modifier l'utilisateur : {id}</h1>
+      <form className="form-modify" onSubmit={hSubmit}>
         <div>
-          <label htmlFor="firstname">Prénom</label>
+          <label className="label-modify" htmlFor="firstname">
+            Prénom
+          </label>
           <input
             type="text"
             name="firstname"
@@ -45,7 +49,9 @@ function ModifyUser() {
           />
         </div>
         <div>
-          <label htmlFor="lastname">Nom</label>
+          <label className="label-modify" htmlFor="lastname">
+            Nom
+          </label>
           <input
             type="text"
             name="lastname"
@@ -54,7 +60,9 @@ function ModifyUser() {
           />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <label className="label-modify" htmlFor="email">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -63,11 +71,15 @@ function ModifyUser() {
           />
         </div>
         <div>
-          <label htmlFor="password">Mot de passe</label>
+          <label className="label-modify" htmlFor="password">
+            Mot de passe
+          </label>
           <input type="password" name="password" onChange={hChange} />
         </div>
-        <div>
-          <button type="submit">Envoyer le formulaire</button>
+        <div className="button-modify-container">
+          <button type="submit" className="button-modify">
+            Envoyer le formulaire
+          </button>
         </div>
       </form>
     </>
