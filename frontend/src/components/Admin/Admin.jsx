@@ -211,7 +211,14 @@ function Admin() {
             <option value="false">non conforme</option>
           </select>
         </div>
-
+        <div>
+          <input
+            type="file"
+            name="artworkImage"
+            accept="image/*"
+            onChange={hChange}
+          />
+        </div>
         <div className="button-add-container">
           <button type="submit" className="button-add" onClick={() => hChange}>
             Ajouter 🖼️
