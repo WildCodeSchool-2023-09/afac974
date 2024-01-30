@@ -56,6 +56,7 @@ const edit = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the artwork data from the request body
   const artwork = req.body;
+  artwork.idUser = req.user.id;
 
   try {
     // Insert the artwork into the database
