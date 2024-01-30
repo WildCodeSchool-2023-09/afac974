@@ -32,7 +32,7 @@ function Apropos() {
           </div>
 
           <div className="second-content1">
-            <span>Le 10 janvier 2024</span>
+            <span>Le 15 mai 2024</span>
             <span>Exprimez votre créativité sur le thème du voyage.</span>
           </div>
         </div>
@@ -41,18 +41,19 @@ function Apropos() {
             <span>Semaine de la Diversité Culturelle</span>
           </div>
           <div className="second-content2">
-            <span>Le 15 mai 2024</span>
+            <span>Le 14 décembre 2024</span>
             <span>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
             </span>
           </div>
         </div>
+
         <div className="card-3">
-          <div className="fisrt-content3">
+          <div className="first-content3">
             <span>Forum Éducatif et Professionnel</span>
           </div>
           <div className="second-content3">
-            <span>Le 14 décembre 2024</span>
+            <span>Le 10 janvier 2025</span>
             <span>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
             </span>
