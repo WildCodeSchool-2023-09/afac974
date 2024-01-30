@@ -33,14 +33,13 @@ function FoncArtiste() {
             <th>Date</th>
             <th>Style</th>
             <th>Format</th>
-            <th>certifier</th>
           </tr>
           {artworks.map((artwork) => (
-            <tr key={artwork.id}>
-              <td>{artwork.firstname}</td>
-              <td>{artwork.lastname}</td>
-              <td>{artwork.email}</td>
-              <td>{artwork.id_role}</td>
+            <tr key={artwork.id_user}>
+              <td>{artwork.name}</td>
+              <td>{artwork.date}</td>
+              <td>{artwork.style}</td>
+              <td>{artwork.format}</td>
               <div className="button-container">
                 <button type="button" className="button-myAccount">
                   ❌ Supprimer la peinture' {artwork.id}
