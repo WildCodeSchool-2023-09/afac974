@@ -1,0 +1,78 @@
+@import url("https://fonts.google.com/specimen/Montserrat");
+
+.h1-modify {
+  color: #333;
+  margin: 1rem;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.form-modify {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #f4f1d68a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: thick double #333;
+  border-radius: 8px;
+
+  div {
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    display: flex;
+    width: 50%;
+    padding: 2px;
+    border: 1px solid #333;
+    font-size: 1rem;
+    color: #333;
+    background-color: white;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+      border-color: #f4f1d6;
+      box-shadow: 0 0 8px rgba(244, 241, 214, 0.6);
+    }
+  }
+
+  .button-modify-container {
+    margin-left: 10rem;
+    align-items: center;
+  }
+
+  .button-modify {
+    width: 30%;
+    padding: 5px;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #f4f1d6;
+      color: rgb(0, 0, 0);
+    }
+  }
+}
+
+.label-modify {
+  padding-right: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .h1-modify {
+    font-size: smaller;
+  }
+
+  .form-modify input,
+  .button-add {
+    width: 100%;
+  }
+
+  .form-modify {
+    width: 82%;
+  }
+}

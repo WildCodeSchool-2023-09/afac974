@@ -90,19 +90,6 @@
 }
 
 .button-role {
-  padding: 5px 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 3%;
-
-  &:hover {
-    background-color: #f4f1d6;
-    color: rgb(0, 0, 0);
-  }
-}
-
-.button-container {
   display: flex;
   align-items: center;
   justify-content: center;
