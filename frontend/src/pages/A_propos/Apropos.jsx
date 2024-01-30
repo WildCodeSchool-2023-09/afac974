@@ -31,14 +31,14 @@ function Apropos() {
             <span>Concours Artistique Inter-Écoles</span>
           </div>
           <div className="second-content1">
-            <span>Le 15 mai 2024</span>
-            <span>
+            <h4>Le 15 mai 2024</h4>
+            <p className="second-text">
               Exprimez votre créativité sur le thème "Voyage à travers notre
               Héritage". Chaque classe, chaque école a sa chance de briller.
               Exprimez votre créativité sur le thème "Voyage à travers notre
               Héritage". Chaque classe aura son gagnant, chaque école son
               champion.
-            </span>
+            </p>
           </div>
         </div>
 
@@ -47,13 +47,13 @@ function Apropos() {
             <span>Festival de la Diversité Culturelle</span>
           </div>
           <div className="second-content2">
-            <span>Le 14 décembre 2024</span>
-            <span>
+            <h4>Le 14 décembre 2024</h4>
+            <p className="second-text">
               Plongez dans un kaléidoscope culturel mettant la richesse de
               l'Océan Indien l'honneur ! unique. Joignez-vous à nous pour un
               voyage captivant au cœur de la diversité qui nous unit. Save the
-              date, partagez l'amour de la culture ! #DiversitéEnFête
-            </span>
+              date, partagez l'amour de la culture !
+            </p>
           </div>
         </div>
 
@@ -62,13 +62,13 @@ function Apropos() {
             <span>Street Art itinérant</span>
           </div>
           <div className="second-content3">
-            <span>Le 10 janvier 2025</span>
-            <span>
+            <h4>Le 10 janvier 2025</h4>
+            <p className="second-text">
               Suivez-nous d'un quartier à l'autre au travers de fresques
               captivantes alors que nous transportons la richesse de notre
               patrimoine à travers les siècles. Ne manquez pas cette aventure
               culturelle en mouvement !
-            </span>
+            </p>
           </div>
         </div>
       </div>
