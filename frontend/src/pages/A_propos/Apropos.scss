@@ -44,13 +44,19 @@
   }
 }
 
+.bgh1 {
+  width: 20%;
+}
+
 /*HOVER CARD*/
 
 .card {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 6rem;
   gap: 10rem;
+  color: rgb(255, 255, 255);
 }
 
 .card-1,
@@ -59,6 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   width: 400px;
   height: 400px;
   background: #5984d2;
@@ -80,20 +87,20 @@
   cursor: pointer;
 }
 
-/* EACH CONTAINER ITEM */
+/* EACH CONTENT CARD */
 
 .first-content1,
 .first-content2,
 .first-content3 {
-  height: 100%;
-  width: 100%;
-  transition: all 0.4s;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s;
   opacity: 1;
   border-radius: 15px;
-  margin-left: 8rem;
 }
 
 .card-1:hover .first-content1,
@@ -106,16 +113,24 @@
 .second-content1,
 .second-content2,
 .second-content3 {
-  height: 0%;
-  width: 100%;
-  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  flex-direction: column;
+  font-size: 10px;
+  gap: 3rem;
+  height: 0%;
+  width: 100%;
+  opacity: 0;
   border-radius: 15px;
   transition: all 0.4s;
   font-size: 0px;
   transform: rotate(90deg) scale(-1);
+}
+
+.second-content3:first-child {
+  font-weight: bold;
 }
 
 .card-1:hover .second-content1,
@@ -141,6 +156,7 @@
       font-size: 1.2rem;
     }
   }
+
   .event-block1 {
     font-size: 1.2rem;
     display: flex;
