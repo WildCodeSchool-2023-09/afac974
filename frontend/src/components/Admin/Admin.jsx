@@ -8,6 +8,7 @@ import "../../pages/MyAccount/MyAccount.scss";
 
 function Admin() {
   const { user } = useUser();
+  const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
   const [artworks, setArtworks] = useState([]);
   const [selectedDate, setSelectedDate] = useState("");
@@ -19,7 +20,7 @@ function Admin() {
     Instance.get("/artworks")
       .then((res) => setArtworks(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [loading]);
 
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
@@ -29,30 +30,27 @@ function Admin() {
     const newRoleId = e.target.value;
     Instance.put(`/users/${id}/role`, { id_role: newRoleId })
       .then(() => {
-        Instance.get("/users")
-          .then(() => success("L'utilisateur a bien son rôle modifié"))
-          .catch((err) => console.error(err));
+        success("Le rôle de l'utilisateur est bien à jour");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading((prev) => !prev));
   };
 
   const hDelete = (id, theme) => {
     if (theme === "users") {
       Instance.delete(`/users/${id}`)
         .then(() => {
-          Instance.get("/users")
-            .then((res) => setUsers(res.data))
-            .catch((err) => console.error(err));
+          success("L'utilisateur est bien supprimé");
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => setLoading((prev) => !prev));
     } else {
       Instance.delete(`/artworks/${id}`)
         .then(() => {
-          Instance.get("/artwoks")
-            .then((res) => setArtworks(res.data))
-            .catch((err) => console.error(err));
+          success("L'artwork est bien supprimé");
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => setLoading((prev) => !prev));
     }
   };
 
@@ -61,25 +59,27 @@ function Admin() {
     date: "",
     style: "",
     format: "",
-    certified: "",
+    certified: false,
   });
 
   const hChange = (e) => {
     setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
   };
 
+  const hCheckbox = (e) => {
+    setAddArtwork({ ...addArtwork, certified: e.target.checked });
+  };
+
   const hSubmit = (e) => {
     e.preventDefault();
+    const artworkModifie = { ...addArtwork, date: selectedDate };
 
-    Instance.post("/artworks", addArtwork)
-      .then((res) => {
-        if (res.status === 200) {
-          addArtwork(true);
-        }
+    Instance.post("/artworks", artworkModifie)
+      .then(() => {
+        success("L'artwork est bien ajouté en DB ma raaaaace !");
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch((err) => console.error(err))
+      .finally(() => setLoading((prev) => !prev));
   };
 
   return (
@@ -142,13 +142,15 @@ function Admin() {
           <th>Style</th>
           <th>Format</th>
           <th>Certifier</th>
+          <th>Actions</th>
         </tr>
         {artworks.map((artwork) => (
           <tr key={artwork.id}>
-            <td>{artwork.firstname}</td>
-            <td>{artwork.lastname}</td>
-            <td>{artwork.email}</td>
-            <td>{artwork.id_role}</td>
+            <td>{artwork.name}</td>
+            <td>{artwork.date}</td>
+            <td>{artwork.style}</td>
+            <td>{artwork.format}</td>
+            <td>{artwork.certified}</td>
             <div className="button-container">
               <button type="submit" className="button-myAccount">
                 ✏️ Modifier la personne avec l'id {artwork.id}
@@ -158,12 +160,14 @@ function Admin() {
                 className="button-myAccount"
                 onClick={() => hDelete(artwork.id, "artworks")}
               >
-                ❌ Supprimer la personne avec l'id {artwork.id}
+                ❌ Supprimer l'oeuvre avec l'id {artwork.id}
               </button>
             </div>
           </tr>
         ))}
       </table>
+
+      {/* Partie Oeuvres */}
       <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
       <form className="form-myAccount" onSubmit={hSubmit}>
         <div>
@@ -206,10 +210,7 @@ function Admin() {
           />
         </div>
         <div>
-          <select onChange={hChange} name="certified">
-            <option value="true">conforme</option>
-            <option value="false">non conforme</option>
-          </select>
+          <input type="checkbox" name="certified" onChange={hCheckbox} />
         </div>
 
         <div className="">
