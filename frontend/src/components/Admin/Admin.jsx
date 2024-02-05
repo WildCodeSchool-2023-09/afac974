@@ -154,9 +154,9 @@ function Admin() {
             <td>{artwork.format}</td>
             <td>{artwork.certified}</td>
             <div className="button-container">
-              <button type="submit" className="button-myAccount-artwork">
-                ✏️ {artwork.id}
-              </button>
+              <Link to={`/admin/artwork/update/${artwork.id}`}>
+                ✏️ Modifier l'oeuvre avec l'id {artwork.id}
+              </Link>
               <button
                 type="button"
                 className="button-myAccount-artwork"

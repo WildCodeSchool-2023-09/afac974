@@ -13,6 +13,7 @@ import Rgpd from "./pages/Rgpd/Rgpd";
 import Artiste from "./pages/Artiste/Artiste";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import ModifyUser from "./components/Admin/ModifyUser";
+import ModifyArtwork from "./components/Admin/ModifyArtwork";
 import App from "./App";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/users/update/:id",
         element: <ModifyUser />,
+      },
+      {
+        path: "/admin/artwork/update/:id",
+        element: <ModifyArtwork />,
       },
     ],
   },
