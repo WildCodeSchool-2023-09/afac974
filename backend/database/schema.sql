@@ -26,6 +26,7 @@ CREATE TABLE `artwork` (
   `date` date NOT NULL,
   `style` varchar(50) DEFAULT NULL,
   `format` varchar(50) NOT NULL,
+  `image` VARCHAR(255),
   `certified` BOOLEAN DEFAULT false,
   `id_user` INT,
   PRIMARY KEY (`id`),

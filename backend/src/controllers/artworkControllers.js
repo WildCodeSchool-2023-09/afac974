@@ -70,15 +70,16 @@ const add = async (req, res, next) => {
   // Extract the artwork data from the request body
   const artwork = req.body;
   artwork.idUser = req.user.id;
-
+  console.info(req.file);
+  res.json({ message: "ok" });
   try {
-    // Insert the artwork into the database
+    //   Insert the artwork into the database
     const insertId = await tables.artwork.create(artwork);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted artwork
+    //   Respond with HTTP 201 (Created) and the ID of the newly inserted artwork
     res.status(201).json({ ...req.body, id: insertId });
   } catch (err) {
-    // Pass any errors to the error-handling middleware
+    //   Pass any errors to the error-handling middleware
     next(err);
   }
 };
