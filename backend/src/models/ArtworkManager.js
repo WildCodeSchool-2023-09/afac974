@@ -34,6 +34,17 @@ class ArtworkManager extends AbstractManager {
     return rows[0];
   }
 
+  async readAllUser(idUser) {
+    // Execute the SQL SELECT query to retrieve a specific artwork by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id_user = ?`,
+      [idUser]
+    );
+
+    // Return the first row of the result, which represents the artwork
+    return rows[0];
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all artworks from the "artwork" table
     const [rows] = await this.database.query(`select * from ${this.table}`);

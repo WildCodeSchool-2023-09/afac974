@@ -37,7 +37,7 @@ function FoncArtiste() {
             <th>Actions</th>
           </tr>
           {artworks.map((artwork) => (
-            <tr key={artwork.id}>
+            <tr key={artwork.id_user}>
               <td>{artwork.name}</td>
               <td>{artwork.date}</td>
               <td>{artwork.style}</td>
