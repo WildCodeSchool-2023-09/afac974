@@ -85,6 +85,8 @@ app.use(cookieParser());
 
 /* ************************************************************************* */
 
+app.use("/public/", express.static(`${__dirname}/../public`));
+
 // Import the API routes from the router module
 const router = require("./router");
 

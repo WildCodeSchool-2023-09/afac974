@@ -11,6 +11,15 @@ function FoncArtiste() {
   const [artworks, setArtworks] = useState([]);
   const [selectedDate, setSelectedDate] = useState("");
 
+  const formatIsoDate = (dateString) => {
+    const date = new Date(dateString);
+
+    if (Number.isNaN(date.getTime())) {
+      return "";
+    }
+    return date.toISOString().split("T")[0];
+  };
+
   useEffect(() => {
     Instance.get("/users").catch((err) => console.error(err));
     Instance.get("/artworks")
@@ -69,7 +78,7 @@ function FoncArtiste() {
           {artworks.map((artwork) => (
             <tr key={artwork.id_user}>
               <td>{artwork.name}</td>
-              <td>{artwork.date}</td>
+              <td>{formatIsoDate(artwork.date)}</td>
               <td>{artwork.style}</td>
               <td>{artwork.format}</td>
               <td>{artwork.certified}</td>
@@ -101,7 +110,7 @@ function FoncArtiste() {
               name="date"
               autoComplete="off"
               placeholder="date de création"
-              value={selectedDate}
+              value={formatIsoDate(selectedDate)}
               onChange={handleDateChange}
               type="date"
             />
