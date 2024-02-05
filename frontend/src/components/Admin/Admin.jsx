@@ -76,7 +76,7 @@ function Admin() {
 
     Instance.post("/artworks", artworkModifie)
       .then(() => {
-        success("L'artwork est bien ajouté en DB ma raaaaace !");
+        success("L'artwork est bien ajouté en DB!");
       })
       .catch((err) => console.error(err))
       .finally(() => setLoading((prev) => !prev));

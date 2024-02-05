@@ -18,6 +18,7 @@ const artworkControllers = require("./controllers/artworkControllers");
 // const validateArtwork = require("./validators/validateArtwork");
 
 router.get("/artworks", artworkControllers.browse);
+router.get("/artworks/:idUser", artworkControllers.browseUser);
 router.get("/artworks/:id", artworkControllers.read);
 router.post("/artworks", verifyToken, artworkControllers.add);
 router.put("/artworks/:id", artworkControllers.edit);
