@@ -116,12 +116,14 @@ function Admin() {
             </td>
             <td>
               <Link
+                className="button-myAccount"
                 to={`/admin/users/update/${personne.id}`}
                 style={{ margin: "0 5px" }}
               >
                 ✏️{" "}
               </Link>
               <button
+                className="button-myAccount"
                 type="button"
                 style={{ margin: "0 5px" }}
                 onClick={() => hDelete(personne.id, "users")}
@@ -157,10 +159,10 @@ function Admin() {
               </Link>
               <button
                 type="button"
-                className="button-myAccount"
+                className="button-myAccount-artwork"
                 onClick={() => hDelete(artwork.id, "artworks")}
               >
-                ❌ Supprimer l'oeuvre avec l'id {artwork.id}
+                ❌ {artwork.id}
               </button>
             </div>
           </tr>
@@ -210,15 +212,15 @@ function Admin() {
           />
         </div>
         <div>
-          <input type="checkbox" name="certified" onChange={hCheckbox} />
-        </div>
-        <div>
           <input
             type="file"
             name="artworkImage"
             accept="image/*"
             onChange={hChange}
           />
+        </div>
+        <div>
+          <input type="checkbox" name="certified" onChange={hCheckbox} />
         </div>
         <div className="button-add-container">
           <button type="submit" className="button-add" onClick={() => hChange}>
