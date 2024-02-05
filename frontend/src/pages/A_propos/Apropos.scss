@@ -163,32 +163,36 @@
     h1 {
       font-size: 2.4rem;
     }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-left: 50px;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-bottom: 50px;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+    }
+
     img {
       width: 20%;
     }
-    .text {
+
+    .text,
+    .second-text {
       margin-left: 50px;
       margin-right: 50px;
       font-size: 1.2rem;
     }
   }
 
-  .event-block1 {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    margin: 0.7rem;
-  }
-  .event-block2 {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    margin: 0.7rem;
-  }
-  .event-block3 {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    margin: 0.7rem;
+  .card {
+    flex-direction: column;
   }
 }

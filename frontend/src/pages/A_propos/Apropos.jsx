@@ -28,7 +28,7 @@ function Apropos() {
       <div className="card">
         <div className="card-1">
           <div className="first-content1">
-            <span>Concours Artistique Inter-Écoles</span>
+            <h3>Concours Artistique Inter-Écoles</h3>
           </div>
           <div className="second-content1">
             <h4>Le 15 mai 2024</h4>
@@ -44,7 +44,7 @@ function Apropos() {
 
         <div className="card-2">
           <div className="first-content2">
-            <span>Festival de la Diversité Culturelle</span>
+            <h3>Festival de la Diversité Culturelle</h3>
           </div>
           <div className="second-content2">
             <h4>Le 14 décembre 2024</h4>
@@ -59,7 +59,7 @@ function Apropos() {
 
         <div className="card-3">
           <div className="first-content3">
-            <span>Street Art itinérant</span>
+            <h3>Street Art itinérant</h3>
           </div>
           <div className="second-content3">
             <h4>Le 10 janvier 2025</h4>
