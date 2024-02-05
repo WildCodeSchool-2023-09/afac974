@@ -53,6 +53,16 @@ class ArtworkManager extends AbstractManager {
     return rows;
   }
 
+  async readAllUserDetails() {
+    const query = `
+      SELECT artwork.*, user.firstname, user.lastname
+      FROM ${this.table}
+      JOIN user ON artwork.id_user = user.id;
+    `;
+    const [rows] = await this.database.query(query);
+    return rows;
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing artwork
 
