@@ -13,7 +13,6 @@ function ModifyArtwork() {
   useEffect(() => {
     Instance.get(`/artworks/${id}`)
       .then((res) => {
-        console.info(res.data);
         setArtwork(res.data);
       })
       .catch((err) => error(err));

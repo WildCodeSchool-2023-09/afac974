@@ -13,7 +13,6 @@ function ModifyUser() {
   useEffect(() => {
     Instance.get(`/users/${id}`)
       .then((res) => {
-        console.info(res.data);
         setUser(res.data);
       })
       .catch((err) => error(err));
