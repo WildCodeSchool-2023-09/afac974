@@ -11,8 +11,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   align-items: center;
-  gap: 2rem;
-  width: 100%;
+  gap: 1rem;
+  width: 50%;
 }
 
 .artwork-entry {
@@ -34,6 +34,32 @@
     div {
       text-align: center;
     }
+  }
+}
+
+.artwork-name-user {
+  font-size: 1.5rem;
+}
+
+.artwork-name {
+  font-size: 1.2rem;
+}
+
+.artwork-entry-names {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.artwork-entry-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+
+  div {
+    flex-basis: calc(50% - 10px);
   }
 }
 

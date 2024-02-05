@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Instance from "../../services/axios";
-import avatar from "../../assets/artiste1.png";
-
 import "./Artiste.scss";
 
 function Artiste() {
   const [artworks, setArtworks] = useState([]);
+
+  const formatIsoDate = (dateString) => {
+    const date = new Date(dateString);
+
+    if (Number.isNaN(date.getTime())) {
+      return "";
+    }
+    return date.toISOString().split("T")[0];
+  };
 
   useEffect(() => {
     Instance.get("/artworks")
@@ -19,20 +26,24 @@ function Artiste() {
       <div className="artworks-container">
         {artworks.map((artwork) => (
           <div className="artwork-entry" key={artwork.id}>
+            <div className="artwork-names">
+              <div className="artwork-name-user">{`${artwork.firstname} ${artwork.lastname}`}</div>
+              <div className="artwork-name">{artwork.name}</div>
+            </div>
             <div className="artwork-image">
               <img
-                src={avatar}
-                alt="Avatar"
-                style={{ width: "30px", height: "30px", borderRadius: "50%" }}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${artwork.image}`}
+                alt={artwork.name}
+                style={{ width: "100px", height: "auto" }}
               />
             </div>
-            <div className="artwork-info">
-              <div>{`${artwork.firstname} ${artwork.lastname}`}</div>
-              <div>{artwork.name}</div>
-              <div>{artwork.style}</div>
-              <div>{artwork.format}</div>
-              <div>{artwork.date}</div>
-              <div>{artwork.certified ? "Oui" : "Non"}</div>
+            <div className="artwork-details">
+              <div>style: {artwork.style}</div>
+              <div>Format: {artwork.format}</div>
+              <div>Date : {formatIsoDate(artwork.date)}</div>
+              <div>
+                {artwork.certified ? "Certifier: Oui" : "Certifier: Non"}
+              </div>
             </div>
           </div>
         ))}

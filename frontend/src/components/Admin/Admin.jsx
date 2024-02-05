@@ -13,6 +13,15 @@ function Admin() {
   const [artworks, setArtworks] = useState([]);
   const [selectedDate, setSelectedDate] = useState("");
 
+  const formatIsoDate = (dateString) => {
+    const date = new Date(dateString);
+
+    if (Number.isNaN(date.getTime())) {
+      return "";
+    }
+    return date.toISOString().split("T")[0];
+  };
+
   useEffect(() => {
     Instance.get("/users")
       .then((res) => setUsers(res.data))
@@ -59,11 +68,16 @@ function Admin() {
     date: "",
     style: "",
     format: "",
+    image: "",
     certified: false,
   });
 
   const hChange = (e) => {
-    setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+    if (e.target.name === "artworkImage") {
+      setAddArtwork({ ...addArtwork, image: e.target.files[0] });
+    } else {
+      setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+    }
   };
 
   const hCheckbox = (e) => {
@@ -74,7 +88,14 @@ function Admin() {
     e.preventDefault();
     const artworkModifie = { ...addArtwork, date: selectedDate };
 
-    Instance.post("/artworks", artworkModifie)
+    const fd = new FormData();
+    fd.append("name", artworkModifie.name);
+    fd.append("date", artworkModifie.date);
+    fd.append("style", artworkModifie.style);
+    fd.append("format", artworkModifie.format);
+    fd.append("artwork", artworkModifie.image);
+
+    Instance.post("/artworks", fd)
       .then(() => {
         success("L'artwork est bien ajouté en DB!");
       })
@@ -143,15 +164,23 @@ function Admin() {
           <th>Date</th>
           <th>Style</th>
           <th>Format</th>
+          <th>Image</th>
           <th>Certifier</th>
           <th>Actions</th>
         </tr>
         {artworks.map((artwork) => (
           <tr key={artwork.id}>
             <td>{artwork.name}</td>
-            <td>{artwork.date}</td>
+            <td>{formatIsoDate(artwork.date)}</td>
             <td>{artwork.style}</td>
             <td>{artwork.format}</td>
+            <td>
+              <img
+                src={`${import.meta.env.VITE_BACKEND_URL}/${artwork.image}`}
+                alt={artwork.name}
+                style={{ width: "100px", height: "auto" }}
+              />
+            </td>
             <td>{artwork.certified}</td>
             <div className="button-container">
               <Link to={`/admin/artwork/update/${artwork.id}`}>
@@ -187,7 +216,7 @@ function Admin() {
             name="date"
             autoComplete="off"
             placeholder="date de création"
-            value={selectedDate}
+            value={formatIsoDate(selectedDate)}
             onChange={handleDateChange}
             type="date"
           />

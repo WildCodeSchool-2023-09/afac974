@@ -1,14 +1,15 @@
 // Import access to database tables
+const fs = require("fs");
 const tables = require("../tables");
 
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    // Fetch all artworks from the database
-    const artworks = await tables.artwork.readAllUserDetails();
+    // Fetch all artwork from the database
+    const artwork = await tables.artwork.readAllUserDetails();
 
-    // Respond with the artworks in JSON format
-    res.status(200).json(artworks);
+    // Respond with the artwork in JSON format
+    res.status(200).json(artwork);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -17,11 +18,11 @@ const browse = async (req, res, next) => {
 
 const browseUser = async (req, res, next) => {
   try {
-    // Fetch all artworks from the database
-    const artworks = await tables.artwork.readAllUser();
+    // Fetch all artwork from the database
+    const artwork = await tables.artwork.readAllUser();
 
-    // Respond with the artworks in JSON format
-    res.status(200).json(artworks);
+    // Respond with the artwork in JSON format
+    res.status(200).json(artwork);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -68,13 +69,20 @@ const edit = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the artwork data from the request body
-  const artwork = req.body;
-  artwork.idUser = req.user.id;
-  console.info(req.file);
-  res.json({ message: "ok" });
+  const artwork = req.file;
+  let newArtwork = "";
+  if (artwork !== undefined) {
+    newArtwork = `${artwork.destination}/${artwork.filename}-${artwork.originalname}`;
+
+    fs.renameSync(`${artwork.destination}/${artwork.filename}`, newArtwork);
+  }
+
+  // Ajout de la key idUser qui vaut req.user.id
+  req.body.idUser = req.user.id;
+
   try {
     //   Insert the artwork into the database
-    const insertId = await tables.artwork.create(artwork);
+    const insertId = await tables.artwork.create(req.body, newArtwork);
 
     //   Respond with HTTP 201 (Created) and the ID of the newly inserted artwork
     res.status(201).json({ ...req.body, id: insertId });
