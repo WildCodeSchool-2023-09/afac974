@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Instance from "../../services/axios";
 import { useUser } from "../../Contexts/ContextUser";
+import { success } from "../../services/toast";
 
 import "../../pages/MyAccount/MyAccount.scss";
 
 function FoncArtiste() {
   const { user } = useUser();
+  const [loading, setLoading] = useState(false);
   const [artworks, setArtworks] = useState([]);
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -14,10 +16,38 @@ function FoncArtiste() {
     Instance.get("/artworks")
       .then((res) => setArtworks(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [loading]);
 
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
+  };
+
+  const [addArtwork, setAddArtwork] = useState({
+    name: "",
+    date: "",
+    style: "",
+    format: "",
+    certified: false,
+  });
+
+  const hChange = (e) => {
+    setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+  };
+
+  const hCheckbox = (e) => {
+    setAddArtwork({ ...addArtwork, certified: e.target.checked });
+  };
+
+  const hSubmit = (e) => {
+    e.preventDefault();
+    const artworkModifie = { ...addArtwork, date: selectedDate };
+
+    Instance.post("/artworks", artworkModifie)
+      .then(() => {
+        success("L'artwork est bien ajouté en DB!");
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setLoading((prev) => !prev));
   };
 
   return (
@@ -55,13 +85,15 @@ function FoncArtiste() {
           ))}
         </table>
         <h3 className="h3-myAccount">Ajouter une oeuvre</h3>
-        <form className="form-myAccount">
+        <form className="form-myAccount" onSubmit={hSubmit}>
           <div>
             <input
               name="name"
               autoComplete="off"
               placeholder="NOM"
+              className=""
               type="text"
+              onChange={hChange}
             />
           </div>
           <div>
@@ -79,14 +111,37 @@ function FoncArtiste() {
               name="style"
               autoComplete="off"
               placeholder="Style"
+              className=""
               type="text"
+              onChange={hChange}
             />
           </div>
           <div>
-            <input name="format" placeholder="Format" type="text" />
+            <input
+              name="format"
+              placeholder="Format"
+              className=""
+              type="text"
+              onChange={hChange}
+            />
+          </div>
+          <div>
+            <input
+              type="file"
+              name="artworkImage"
+              accept="image/*"
+              onChange={hChange}
+            />
+          </div>
+          <div>
+            <input type="checkbox" name="certified" onChange={hCheckbox} />
           </div>
           <div className="button-add-container">
-            <button type="button" className="button-add">
+            <button
+              type="submit"
+              className="button-add"
+              onClick={() => hChange}
+            >
               Ajouter 🖼️
             </button>
           </div>

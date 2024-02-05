@@ -5,7 +5,7 @@ const tables = require("../tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all artworks from the database
-    const artworks = await tables.artwork.readAll();
+    const artworks = await tables.artwork.readAllUserDetails();
 
     // Respond with the artworks in JSON format
     res.status(200).json(artworks);
