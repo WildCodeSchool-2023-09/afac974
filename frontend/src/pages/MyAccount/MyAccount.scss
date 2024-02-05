@@ -1,5 +1,229 @@
-h1 {
+@import url("https://fonts.google.com/specimen/Montserrat");
+
+.h1-myAccount,
+.h2-myAccount,
+.h3-myAccount {
+  color: #333;
+  margin: 1rem;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.h1-myAccount {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+.h2-myAccount {
+  font-size: 1.5rem;
+}
+.h3-myAccount {
+  font-size: 1rem;
+}
+.h2-myAccount,
+.h3-myAccount {
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+  border: thick double #333;
+  border-radius: 8px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f4f1d68a;
+    z-index: -1;
+  }
+}
+
+.table-myAccount-users {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  overflow-x: auto;
+
+  th,
+  td {
+    border: 1px solid #f4f1d6;
+    padding: 8px;
+    color: #f4f1d6;
+  }
+
+  tr:nth-child(even) {
+    background-color: #333;
+  }
+}
+
+.table-myAccount {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  overflow-x: auto;
+
+  th,
+  td {
+    border: 1px solid #f4f1d6;
+    padding: 8px;
+    color: #f4f1d6;
+  }
+
+  tr:nth-child(even) {
+    background-color: #333;
+  }
+}
+
+.button-myAccount {
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3%;
+
+  &:hover {
+    background-color: #f4f1d6;
+    color: rgb(0, 0, 0);
+  }
+}
+
+.button-myAccount-artwork {
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3%;
+
+  &:hover {
+    background-color: #f4f1d6;
+    color: rgb(0, 0, 0);
+  }
+}
+
+.button-role {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-myAccount {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #f4f1d68a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: thick double #333;
+  border-radius: 8px;
+
+  div {
+    margin-bottom: 0.2rem;
+  }
+
+  input,
+  select {
+    width: 50%;
+    padding: 2px;
+    border: 1px solid #333;
+    font-size: 1rem;
+    color: #333;
+    background-color: white;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+      border-color: #f4f1d6;
+      box-shadow: 0 0 8px rgba(244, 241, 214, 0.6);
+    }
+  }
+
+  .button-add-container {
+    margin-left: 10rem;
+    align-items: center;
+  }
+
+  .button-add {
+    width: 30%;
+    padding: 5px;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #f4f1d6;
+      color: rgb(0, 0, 0);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .h1-myAccount,
+  .h2-myAccount,
+  .h3-myAccount {
+    font-size: smaller;
+  }
+
+  .form-myAccount input {
+    width: 100%;
+  }
+
+  .form-myAccount {
+    width: 82%;
+  }
+
+  th,
+  td {
+    width: 100%;
+  }
+
+  .table-myAccount-users {
+    font-size: 10px;
+  }
+
+  .table-myAccount-users th,
+  .table-myAccount-users td {
+    padding: 5px;
+    font-size: 0.6rem;
+  }
+
+  .table-myAccount {
+    font-size: 10px;
+  }
+
+  .table-myAccount th,
+  .table-myAccount td {
+    padding: 5px;
+    font-size: 0.6rem;
+  }
+
+  .button-add {
+    width: 100%;
+    margin-left: -1.7rem;
+  }
+
+  .button-myAccount {
+    margin-left: 0.6rem;
+    padding: 3px 3px;
+  }
+
+  .button-myAccount-artwork {
+    margin-left: 0.8rem;
+    padding: 2px 2px;
+  }
+  .button-role {
+    width: 84%;
+    padding: 3px 3px;
+    margin: 1px;
+    margin-top: 7px;
+  }
+
+  .button-role select {
+    width: auto;
+    font-size: 0.6rem;
+  }
+
+  .button-add-container {
+    margin-right: -2rem;
+  }
 }

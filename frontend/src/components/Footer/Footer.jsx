@@ -4,27 +4,34 @@ import "./Footer.scss";
 import DiamondBottom from "../../assets/diamondBottom.svg";
 
 function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer>
       <div className="container">
-        <Link to="/apropos">
+        <Link to="/apropos" onClick={scrollToTop}>
           <button type="button" className="button-apropos">
             À propos
           </button>
         </Link>
 
-        <Link to="/mentionslegales">
+        <Link to="/mentionslegales" onClick={scrollToTop}>
           <button type="button" className="button-mentions">
             Mentions legales
           </button>
         </Link>
 
-        <Link to="/politiquedeconfidentialite">
+        <Link to="/politiquedeconfidentialite" onClick={scrollToTop}>
           <button type="button" className="button-rgpd">
             Politique de Confidentialité
           </button>
         </Link>
-        <Link to="/apropos">
+        <Link to="/apropos" onClick={scrollToTop}>
           <button type="button" className="button-vogue">
             © Vogue Merry
           </button>

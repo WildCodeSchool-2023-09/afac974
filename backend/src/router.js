@@ -6,6 +6,7 @@ const router = express.Router();
 
 const favoriteControllers = require("./controllers/favoriteControllers");
 const validateFavorite = require("./validators/validateFavorite");
+const { verifyToken } = require("./services/jwt");
 
 router.get("/favorites", favoriteControllers.browse);
 router.get("/favorites/:id", favoriteControllers.read);
@@ -17,10 +18,11 @@ const artworkControllers = require("./controllers/artworkControllers");
 // const validateArtwork = require("./validators/validateArtwork");
 
 router.get("/artworks", artworkControllers.browse);
+router.get("/artworks/:idUser", artworkControllers.browseUser);
 router.get("/artworks/:id", artworkControllers.read);
-router.post("/artworks", artworkControllers.add);
-// router.put("/artworks/:id", validateArtwork, artworkControllers.edit);
-// router.delete("/artworks/:id", artworkControllers.destroy);
+router.post("/artworks", verifyToken, artworkControllers.add);
+router.put("/artworks/:id", artworkControllers.edit);
+router.delete("/artworks/:id", artworkControllers.destroy);
 
 const roleControllers = require("./controllers/roleControllers");
 // const validateRole = require("./validators/validateRole");
@@ -39,7 +41,6 @@ const { hashPwd, verifyPwd } = require("./services/argon");
 
 // Import itemControllers module for handling item-related operations
 const userController = require("./controllers/userControllers");
-const { verifyToken } = require("./services/jwt");
 
 router.post("/register", hashPwd, userController.createUser);
 router.post("/login", verifyPwd, userController.login);
@@ -57,6 +58,7 @@ router.get("/users/:id", userController.read);
 router.post("/users", upload.single("avatar"), userController.add);
 
 router.put("/users/:id", upload.single("avatar"), userController.edit);
+router.put("/users/:id/role", userController.editRole);
 router.delete("/users/:id", userController.destroy);
 
 router.get("/refresh", userController.refresh);

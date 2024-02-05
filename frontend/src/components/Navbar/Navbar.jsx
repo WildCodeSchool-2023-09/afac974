@@ -17,11 +17,16 @@ function Navbar() {
   const { user, setUser } = useUser();
   const nav = useNavigate();
   const [openLogin, setOpenLogin] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   const hLogout = () => {
     Instance.delete("/logout");
     setUser(null);
     nav("/");
+    closeMenu();
   };
 
   const hAccountClick = () => {
@@ -30,9 +35,8 @@ function Navbar() {
     } else {
       setOpenLogin(true);
     }
+    closeMenu();
   };
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -47,7 +51,7 @@ function Navbar() {
   return (
     <nav>
       <div className="navBar">
-        <Link to="/">
+        <Link to="/" onClick={closeMenu}>
           <img src={LogoBlanc50} alt="logo" className="logoAfac" />
         </Link>
         <div
@@ -64,7 +68,7 @@ function Navbar() {
         </div>
         <ul className={`iconListe ${isMenuOpen ? "show" : ""}`}>
           <li>
-            <NavLink to="/artiste">
+            <NavLink to="/artiste" onClick={closeMenu}>
               <button
                 type="button"
                 className="navButton"
@@ -75,7 +79,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/galerie">
+            <NavLink to="/galerie" onClick={closeMenu}>
               <button
                 type="button"
                 className="navButton"
@@ -86,7 +90,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/favoris">
+            <NavLink to="/favoris" onClick={closeMenu}>
               <button
                 type="button"
                 className="navButton"
