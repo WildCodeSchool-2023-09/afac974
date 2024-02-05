@@ -13,6 +13,7 @@
 
 .h1-myAccount {
   font-size: 2rem;
+  color: rgb(255, 255, 255);
 }
 .h2-myAccount {
   font-size: 1.5rem;
@@ -89,6 +90,19 @@
   }
 }
 
+.button-myAccount-artwork {
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3%;
+
+  &:hover {
+    background-color: #f4f1d6;
+    color: rgb(0, 0, 0);
+  }
+}
+
 .button-role {
   display: flex;
   align-items: center;
@@ -150,8 +164,7 @@
     font-size: smaller;
   }
 
-  .form-myAccount input,
-  .button-add {
+  .form-myAccount input {
     width: 100%;
   }
 
@@ -168,10 +181,49 @@
     font-size: 10px;
   }
 
+  .table-myAccount-users th,
+  .table-myAccount-users td {
+    padding: 5px;
+    font-size: 0.6rem;
+  }
+
+  .table-myAccount {
+    font-size: 10px;
+  }
+
+  .table-myAccount th,
+  .table-myAccount td {
+    padding: 5px;
+    font-size: 0.6rem;
+  }
+
+  .button-add {
+    width: 100%;
+    margin-left: -1.7rem;
+  }
+
+  .button-myAccount {
+    margin-left: 0.6rem;
+    padding: 3px 3px;
+  }
+
+  .button-myAccount-artwork {
+    margin-left: 0.8rem;
+    padding: 2px 2px;
+  }
   .button-role {
-    width: 60%;
+    width: 84%;
     padding: 3px 3px;
     margin: 1px;
     margin-top: 7px;
+  }
+
+  .button-role select {
+    width: auto;
+    font-size: 0.6rem;
+  }
+
+  .button-add-container {
+    margin-right: -2rem;
   }
 }

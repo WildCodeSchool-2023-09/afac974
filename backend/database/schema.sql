@@ -38,3 +38,4 @@ CREATE TABLE `favorite` (
   FOREIGN KEY (`id_user`) REFERENCES user(id),
   FOREIGN KEY (`id_artwork`) REFERENCES artwork(id)
 );
+INSERT INTO `user` VALUES (1,'admin','admin','admin@admin.fr','$argon2id$v=19$m=19456,t=2,p=1$vm8CTYkebL/M9iqP72FfUg$Cxf8o3iAIwFrtbAoqbTf0TZKyS6QtcqUMOtd2Ravzic','/profile/default.png',1);
