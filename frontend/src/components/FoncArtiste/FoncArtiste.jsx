@@ -32,16 +32,38 @@ function FoncArtiste() {
     setSelectedDate(e.target.value);
   };
 
+  const hDelete = (id, theme) => {
+    if (theme === "users") {
+      Instance.delete(`/users/${id}`)
+        .then(() => {
+          success("L'utilisateur est bien supprimé");
+        })
+        .catch((err) => console.error(err))
+        .finally(() => setLoading((prev) => !prev));
+    } else {
+      Instance.delete(`/artworks/${id}`)
+        .then(() => {
+          success("L'artwork est bien supprimé");
+        })
+        .catch((err) => console.error(err))
+        .finally(() => setLoading((prev) => !prev));
+    }
+  };
   const [addArtwork, setAddArtwork] = useState({
     name: "",
     date: "",
     style: "",
     format: "",
+    image: "",
     certified: false,
   });
 
   const hChange = (e) => {
-    setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+    if (e.target.name === "artworkImage") {
+      setAddArtwork({ ...addArtwork, image: e.target.files[0] });
+    } else {
+      setAddArtwork({ ...addArtwork, [e.target.name]: e.target.value });
+    }
   };
 
   const hCheckbox = (e) => {
@@ -52,7 +74,14 @@ function FoncArtiste() {
     e.preventDefault();
     const artworkModifie = { ...addArtwork, date: selectedDate };
 
-    Instance.post("/artworks", artworkModifie)
+    const fd = new FormData();
+    fd.append("name", artworkModifie.name);
+    fd.append("date", artworkModifie.date);
+    fd.append("style", artworkModifie.style);
+    fd.append("format", artworkModifie.format);
+    fd.append("artwork", artworkModifie.image);
+
+    Instance.post("/artworks", fd)
       .then(() => {
         success("L'artwork est bien ajouté en DB!");
       })
@@ -73,24 +102,33 @@ function FoncArtiste() {
             <th>Date</th>
             <th>Style</th>
             <th>Format</th>
-            <th>certifier</th>
+            <th>Image</th>
+            <th>Certifier</th>
             <th>Actions</th>
           </tr>
           {artworks.map((artwork) => (
-            <tr key={artwork.id_user}>
+            <tr key={artwork.id}>
               <td>{artwork.name}</td>
               <td>{formatIsoDate(artwork.date)}</td>
               <td>{artwork.style}</td>
               <td>{artwork.format}</td>
+              <td>
+                <img
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${artwork.image}`}
+                  alt={artwork.name}
+                  style={{ width: "100px", height: "auto" }}
+                />
+              </td>
               <td>{artwork.certified}</td>
               <div className="button-container">
-                <Link
-                  className="button-myAccount-artwork"
-                  to={`/admin/artwork/update/${artwork.id}`}
-                >
+                <Link to={`/admin/artwork/update/${artwork.id}`}>
                   ✏️ {artwork.id}
                 </Link>
-                <button type="button" className="button-myAccount-artwork">
+                <button
+                  type="button"
+                  className="button-myAccount-artwork"
+                  onClick={() => hDelete(artwork.id, "artworks")}
+                >
                   ❌ {artwork.id}
                 </button>
               </div>
