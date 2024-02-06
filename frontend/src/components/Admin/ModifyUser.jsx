@@ -76,7 +76,11 @@ function ModifyUser() {
           <input type="password" name="password" onChange={hChange} />
         </div>
         <div className="button-modify-container">
-          <button type="submit" className="button-modify">
+          <button
+            type="submit"
+            className="button-modify"
+            onClick={() => hChange}
+          >
             Envoyer le formulaire
           </button>
         </div>
