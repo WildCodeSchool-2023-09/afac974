@@ -183,12 +183,15 @@ function Admin() {
             </td>
             <td>{artwork.certified}</td>
             <div className="button-container">
-              <Link to={`/admin/artwork/update/${artwork.id}`}>
+              <Link
+                className="button-myAccount"
+                to={`/admin/artwork/update/${artwork.id}`}
+              >
                 ✏️ {artwork.id}
               </Link>
               <button
                 type="button"
-                className="button-myAccount-artwork"
+                className="button-myAccount"
                 onClick={() => hDelete(artwork.id, "artworks")}
               >
                 ❌ {artwork.id}
