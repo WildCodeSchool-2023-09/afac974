@@ -1,9 +1,21 @@
+.titre-galerie {
+  display: flex;
+  justify-content: center;
+  font-size: 6rem;
+  color: rgb(255, 255, 255);
+  background-image: url("../../assets/tableaux/tableau20.jpeg");
+  background-size: cover;
+  padding: 5%;
+}
+
 .main-galerie {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem;
-  margin-top: 4rem;
+  flex-direction: column;
+  gap: 6rem;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 .frame {
@@ -19,7 +31,7 @@
 .box-galery {
   display: grid;
   grid-template-columns: repeat(13, 60px);
-  grid-gap: 40px;
+  grid-gap: 80px;
   width: 100%;
   height: 100%;
   position: relative;
@@ -28,18 +40,17 @@
 
 .gallery-item {
   height: auto;
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
   img {
     width: 130%;
     height: 130%;
-    object-fit: cover;
   }
 }
 .gallery-item.selected {
   grid-column: span 6;
   z-index: 10;
-  height: auto;
+  height: 70px;
   img {
     width: auto;
     height: 500px;
@@ -59,6 +70,7 @@
 @media (max-width: 768px) {
   .box-galery {
     grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .gallery-item {
@@ -74,5 +86,9 @@
       height: 330px;
       width: auto;
     }
+  }
+
+  .titre-galerie {
+    font-size: 2rem;
   }
 }
