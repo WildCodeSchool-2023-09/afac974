@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Instance from "../../services/axios";
 import { useUser } from "../../Contexts/ContextUser";
 import { success } from "../../services/toast";
@@ -83,9 +84,12 @@ function FoncArtiste() {
               <td>{artwork.format}</td>
               <td>{artwork.certified}</td>
               <div className="button-container">
-                <button type="submit" className="button-myAccount-artwork">
+                <Link
+                  className="button-myAccount-artwork"
+                  to={`/admin/artwork/update/${artwork.id}`}
+                >
                   ✏️ {artwork.id}
-                </button>
+                </Link>
                 <button type="button" className="button-myAccount-artwork">
                   ❌ {artwork.id}
                 </button>
