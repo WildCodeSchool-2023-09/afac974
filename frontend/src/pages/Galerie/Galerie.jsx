@@ -182,27 +182,32 @@ function Galerie() {
   };
 
   return (
-    <div className="main-galerie">
-      <div className="frame">
-        <div className="box-galery">
-          {images.map((image, index) => {
-            const imageId = `tableau${index + 1}`;
-            return (
-              <div
-                key={imageId}
-                className={`gallery-item ${
-                  selectedImage === imageId ? "selected" : ""
-                }`}
-                onClick={() => handleSelectImage(imageId)}
-                onKeyDown={(event) => handleKeyDown(event, imageId)}
-                tabIndex={0}
-                role="button"
-                aria-label={`Voir le tableau ${index + 1}`}
-              >
-                <img src={image} alt={`Tableau ${index + 1}`} />{" "}
-              </div>
-            );
-          })}
+    <div>
+      <div>
+        <h1 className="titre-galerie">Notre galerie d'art</h1>
+      </div>
+      <div className="main-galerie">
+        <div className="frame">
+          <div className="box-galery">
+            {images.map((image, index) => {
+              const imageId = `tableau${index + 1}`;
+              return (
+                <div
+                  key={imageId}
+                  className={`gallery-item ${
+                    selectedImage === imageId ? "selected" : ""
+                  }`}
+                  onClick={() => handleSelectImage(imageId)}
+                  onKeyDown={(event) => handleKeyDown(event, imageId)}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Voir le tableau ${index + 1}`}
+                >
+                  <img src={image} alt={`Tableau ${index + 1}`} />{" "}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

@@ -9,12 +9,12 @@ class ArtworkManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create(artwork) {
-    const { name, date, style, format, certified, idUser } = artwork;
+  async create(artwork, newName) {
+    const { name, date, style, format, idUser } = artwork;
     // Execute the SQL INSERT query to add a new artwork to the "artwork" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, date, style, format, certified, id_user) values (?, ?, ?, ?, ?, ?)`,
-      [name, date, style, format, certified, idUser]
+      `insert into ${this.table} (name, date, style, format, image, certified, id_user) values (?, ?, ?, ?, ?, ?, ?)`,
+      [name, date, style, format, newName, false, idUser]
     );
 
     // Return the ID of the newly inserted artwork
@@ -50,6 +50,16 @@ class ArtworkManager extends AbstractManager {
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
     // Return the array of artworks
+    return rows;
+  }
+
+  async readAllUserDetails() {
+    const query = `
+      SELECT artwork.*, user.firstname, user.lastname
+      FROM ${this.table}
+      JOIN user ON artwork.id_user = user.id;
+    `;
+    const [rows] = await this.database.query(query);
     return rows;
   }
 

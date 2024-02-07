@@ -20,7 +20,12 @@ const artworkControllers = require("./controllers/artworkControllers");
 router.get("/artworks", artworkControllers.browse);
 router.get("/artworks/:idUser", artworkControllers.browseUser);
 router.get("/artworks/:id", artworkControllers.read);
-router.post("/artworks", verifyToken, artworkControllers.add);
+router.post(
+  "/artworks",
+  verifyToken,
+  upload.single("artwork"),
+  artworkControllers.add
+);
 router.put("/artworks/:id", artworkControllers.edit);
 router.delete("/artworks/:id", artworkControllers.destroy);
 

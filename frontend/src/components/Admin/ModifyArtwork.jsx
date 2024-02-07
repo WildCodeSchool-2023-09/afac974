@@ -5,28 +5,28 @@ import { success, error } from "../../services/toast";
 
 import "./ModifyUser.scss";
 
-function ModifyUser() {
+function ModifyArtwork() {
   const { id } = useParams();
-  const [user, setUser] = useState({});
+  const [artwork, setArtwork] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
-    Instance.get(`/users/${id}`)
+    Instance.get(`/artworks/${id}`)
       .then((res) => {
-        setUser(res.data);
+        setArtwork(res.data);
       })
       .catch((err) => error(err));
   }, []);
 
   const hChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setArtwork({ ...artwork, [e.target.name]: e.target.value });
   };
 
   const hSubmit = (e) => {
     e.preventDefault();
-    Instance.put(`/users/${id}`, user)
+    Instance.put(`/artworks/${id}`, artwork)
       .then(() => {
-        success("L'utilisateur a bien été mis à jour");
+        success("L'oeuvre a bien été mis à jour");
         navigate("/moncompte ");
       })
       .catch((err) => error(err));
@@ -34,46 +34,59 @@ function ModifyUser() {
 
   return (
     <>
-      <h1 className="h1-modify">Modifier l'utilisateur : {id}</h1>
+      <h1 className="h1-modify">Modifier l'oeuvre : {id}</h1>
       <form className="form-modify" onSubmit={hSubmit}>
         <div>
-          <label className="label-modify" htmlFor="firstname">
-            Prénom
-          </label>
-          <input
-            type="text"
-            name="firstname"
-            value={user.firstname}
-            onChange={hChange}
-          />
-        </div>
-        <div>
-          <label className="label-modify" htmlFor="lastname">
+          <label className="label-modify" htmlFor="name">
             Nom
           </label>
           <input
             type="text"
-            name="lastname"
-            value={user.lastname}
+            name="name"
+            value={artwork.name}
             onChange={hChange}
           />
         </div>
         <div>
-          <label className="label-modify" htmlFor="email">
-            Email
+          <label className="label-modify" htmlFor="date">
+            Date
           </label>
           <input
-            type="email"
-            name="email"
-            value={user.email}
+            type="date"
+            name="date"
+            value={artwork.date}
             onChange={hChange}
           />
         </div>
         <div>
-          <label className="label-modify" htmlFor="password">
-            Mot de passe
+          <label className="label-modify" htmlFor="style">
+            Style
           </label>
-          <input type="password" name="password" onChange={hChange} />
+          <input
+            type="text"
+            name="style"
+            value={artwork.style}
+            onChange={hChange}
+          />
+        </div>
+        <div>
+          <label className="label-modify" htmlFor="format">
+            Format
+          </label>
+          <input
+            type="text"
+            name="format"
+            value={artwork.format}
+            onChange={hChange}
+          />
+        </div>
+        <div>
+          <input
+            type="file"
+            name="artworkImage"
+            accept="image/*"
+            onChange={hChange}
+          />
         </div>
         <div className="button-modify-container">
           <button
@@ -89,4 +102,4 @@ function ModifyUser() {
   );
 }
 
-export default ModifyUser;
+export default ModifyArtwork;

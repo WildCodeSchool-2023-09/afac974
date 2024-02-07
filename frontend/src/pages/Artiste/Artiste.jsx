@@ -1,69 +1,56 @@
+import React, { useState, useEffect } from "react";
+import Instance from "../../services/axios";
 import "./Artiste.scss";
 
-import Artiste1 from "../../assets/artiste1.png";
-
 function Artiste() {
+  const [artworks, setArtworks] = useState([]);
+
+  const formatIsoDate = (dateString) => {
+    const date = new Date(dateString);
+
+    if (Number.isNaN(date.getTime())) {
+      return "";
+    }
+    return date.toISOString().split("T")[0];
+  };
+
+  useEffect(() => {
+    Instance.get("/artworks")
+      .then((res) => setArtworks(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
-    <div className="global-artist">
-      <div className="artist-content">
-        <section className="artist-profile">
-          <img src={Artiste1} alt="Nom Artiste" className="profile-image" />{" "}
-          <br />
-          <h1>Nom Artiste</h1>
-          <br />
-          <h2>Biographie</h2>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
-            <br />
-            Integer gravida aliquam ultrices.{" "}
-          </p>
-        </section>
+    <div>
+      <div>
+        <h1 className="titre-artiste">Nos artistes</h1>
       </div>
-      <div className="artist-content">
-        <section className="artist-profile">
-          <img src={Artiste1} alt="Nom Artiste" className="profile-image" />{" "}
-          <br />
-          <h1>Nom Artiste</h1>
-          <br />
-          <h2>Biographie</h2>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
-            <br />
-            Integer gravida aliquam ultrices.{" "}
-          </p>
-        </section>
-      </div>
-      <div className="artist-content">
-        <section className="artist-profile">
-          <img src={Artiste1} alt="Nom Artiste" className="profile-image" />{" "}
-          <br />
-          <h1>Nom Artiste</h1>
-          <br />
-          <h2>Biographie</h2>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
-            <br />
-            Integer gravida aliquam ultrices.{" "}
-          </p>
-        </section>
-      </div>
-      <div className="artist-content">
-        <section className="artist-profile">
-          <img src={Artiste1} alt="Nom Artiste" className="profile-image" />{" "}
-          <br />
-          <h1>Nom Artiste</h1>
-          <br />
-          <h2>Biographie</h2>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
-            <br />
-            Integer gravida aliquam ultrices.{" "}
-          </p>
-        </section>
+      <div className="global-artiste">
+        <div className="artworks-container">
+          {artworks.map((artwork) => (
+            <div className="artwork-entry" key={artwork.id}>
+              <div className="artwork-names">
+                <div className="artwork-name-user">{`${artwork.firstname} ${artwork.lastname}`}</div>
+                <div className="artwork-name">{artwork.name}</div>
+              </div>
+              <div className="artwork-image">
+                <img
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${artwork.image}`}
+                  alt={artwork.name}
+                  style={{ width: "100px", height: "auto" }}
+                />
+              </div>
+              <div className="artwork-details">
+                <div>style: {artwork.style}</div>
+                <div>Format: {artwork.format}</div>
+                <div>Date : {formatIsoDate(artwork.date)}</div>
+                <div>
+                  {artwork.certified ? "Certifier: Oui" : "Certifier: Non"}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

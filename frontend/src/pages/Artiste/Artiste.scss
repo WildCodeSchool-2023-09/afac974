@@ -1,48 +1,86 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
-.global-artist {
+.titre-artiste {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 4rem;
-  height: 84vh;
+  justify-content: center;
+  font-size: 6rem;
+  color: rgb(255, 255, 255);
+  background-image: url("../../assets/tableaux/tableau45.jpeg");
+  background-size: cover;
+  padding: 5%;
 }
 
-.artist-content {
-  display: grid;
+.global-artist {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 2rem;
+}
 
-  .artist-profile {
+.artworks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  align-items: start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.artwork-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  border-radius: 8px;
+  height: 100%;
+
+  .artwork-info {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.25rem;
 
-    .profile-image {
-      width: 100px;
-      height: 100px;
-      background-color: #ccc;
-      border-radius: 50%;
-    }
-
-    h1 {
-      font-family: "Montserrat", sans-serif;
-      font-size: 2em;
-      font-weight: 700;
-    }
-
-    @media screen and (max-width: 768px) {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
+    div {
+      text-align: center;
     }
   }
+}
 
-  @media screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.artwork-name-user {
+  font-size: 1.1rem;
+}
+
+.artwork-name {
+  font-size: 1rem;
+}
+
+.artwork-entry-names {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.artwork-entry-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+
+  div {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .artworks-container {
+    grid-template-columns: 1fr;
+  }
+
+  .titre-artiste {
+    font-size: 2rem;
   }
 }
