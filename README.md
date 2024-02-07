@@ -25,6 +25,6 @@ Si vous souhaitez contribuer à ce projet, veuillez créer une issue ou une pull
 ## Auteur
 
 [Clément Féménias--noir](https://github.com/PinpinLaToupie)
-[Doriane Muller Leveque](https://github.com/Doriane23))
+[Doriane Muller Leveque](https://github.com/Doriane23)
 [Sébastien Lacour](https://github.com/sebztz)
 [Francois Creutzer](https://github.com/francoiscrtz)
