@@ -76,6 +76,15 @@ class ArtworkManager extends AbstractManager {
     return result;
   }
 
+  async isCertified(id, boolean) {
+    const result = await this.database.query(
+      `update ${this.table} set certified = ? where id = ?`,
+      [boolean, id]
+    );
+
+    return result;
+  }
+
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an artwork by its ID
   async delete(id) {

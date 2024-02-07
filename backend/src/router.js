@@ -26,7 +26,13 @@ router.post(
   upload.single("artwork"),
   artworkControllers.add
 );
-router.put("/artworks/:id", artworkControllers.edit);
+router.put("/artworks/valid/:id", artworkControllers.isCertified);
+router.put(
+  "/artworks/:id",
+  verifyToken,
+  upload.single("image"),
+  artworkControllers.edit
+);
 router.delete("/artworks/:id", artworkControllers.destroy);
 
 const roleControllers = require("./controllers/roleControllers");
