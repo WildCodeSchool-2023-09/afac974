@@ -1,12 +1,14 @@
 import React from "react";
 import "./Apropos.scss";
 
+import LogoBlanc50 from "../../assets/logoBlanc50.png";
+
 function Apropos() {
   return (
     <div className="global">
       <h1>
         À propos de l'
-        <img className="bgh1" src="./src/assets/logoBlanc.png" alt="logo" />
+        <img src={LogoBlanc50} alt="logo" className="bgh1" />
       </h1>
       <div>
         <p className="text">
