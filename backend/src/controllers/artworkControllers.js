@@ -52,9 +52,19 @@ const read = async (req, res, next) => {
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
   // Extract the artwork data from the request body
-  const artwork = req.body;
-
   try {
+    const artwork = req.body;
+    const setImage = req.file;
+
+    let newArtwork = "";
+
+    if (setImage !== undefined) {
+      newArtwork = `${setImage.destination}/${setImage.filename}-${setImage.originalname}`;
+
+      fs.renameSync(`${setImage.destination}/${setImage.filename}`, newArtwork);
+      artwork.image = newArtwork;
+    }
+
     // Insert the artwork into the database
     await tables.artwork.update(artwork, req.params.id);
 
@@ -108,6 +118,20 @@ const destroy = async (req, res, next) => {
   }
 };
 
+// eslint-disable-next-line consistent-return
+const isCertified = async (req, res, next) => {
+  const { id } = req.params;
+  const { isChecked } = req.body;
+
+  try {
+    await tables.artwork.isCertified(id, isChecked);
+
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -116,4 +140,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  isCertified,
 };

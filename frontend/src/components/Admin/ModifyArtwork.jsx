@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Instance from "../../services/axios";
 import { success, error } from "../../services/toast";
@@ -7,27 +7,39 @@ import "./ModifyUser.scss";
 
 function ModifyArtwork() {
   const { id } = useParams();
-  const [artwork, setArtwork] = useState({});
+
+  const [artwork, setArtwork] = useState({
+    name: "",
+    date: "",
+    format: "",
+    style: "",
+    image: null,
+  });
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    Instance.get(`/artworks/${id}`)
-      .then((res) => {
-        setArtwork(res.data);
-      })
-      .catch((err) => error(err));
-  }, []);
-
   const hChange = (e) => {
-    setArtwork({ ...artwork, [e.target.name]: e.target.value });
+    if (e.target.name === "artworkImage") {
+      setArtwork({ ...artwork, image: e.target.files[0] });
+    } else {
+      setArtwork({ ...artwork, [e.target.name]: e.target.value });
+    }
   };
 
   const hSubmit = (e) => {
     e.preventDefault();
-    Instance.put(`/artworks/${id}`, artwork)
+
+    const formData = new FormData();
+    formData.append("name", artwork.name);
+    formData.append("date", artwork.date);
+    formData.append("style", artwork.style);
+    formData.append("format", artwork.format);
+    formData.append("image", artwork.image);
+
+    Instance.put(`/artworks/${id}`, formData)
       .then(() => {
         success("L'oeuvre a bien été mis à jour");
-        navigate("/moncompte ");
+        navigate("/moncompte");
       })
       .catch((err) => error(err));
   };
