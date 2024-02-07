@@ -80,8 +80,20 @@ function Admin() {
     }
   };
 
-  const hCheckbox = (e) => {
-    setAddArtwork({ ...addArtwork, certified: e.target.checked });
+  const hCheckbox = (e, id) => {
+    const { checked } = e.target;
+    Instance.put(
+      `${import.meta.env.VITE_BACKEND_URL}/api/artworks/valid/${id}`,
+      {
+        isChecked: checked,
+      }
+    )
+      .then((res) => {
+        if (res.status === 204) {
+          success(`L'artwork à bien été ${checked ? "vérifié" : "supprimé"}`);
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   const hSubmit = (e) => {
@@ -181,20 +193,29 @@ function Admin() {
                 style={{ width: "100px", height: "auto" }}
               />
             </td>
-            <td>{artwork.certified}</td>
+            <td>
+              {/* // eslint-disable-next-line */}
+              <input
+                type="checkbox"
+                name="certified"
+                id="certified"
+                value={artwork.certified}
+                onChange={(e) => hCheckbox(e, artwork.id)}
+              />
+            </td>
             <div className="button-container">
               <Link
                 className="button-myAccount"
                 to={`/admin/artwork/update/${artwork.id}`}
               >
-                ✏️ {artwork.id}
+                ✏️
               </Link>
               <button
                 type="button"
                 className="button-myAccount"
                 onClick={() => hDelete(artwork.id, "artworks")}
               >
-                ❌ {artwork.id}
+                ❌
               </button>
             </div>
           </tr>
@@ -250,9 +271,6 @@ function Admin() {
             accept="image/*"
             onChange={hChange}
           />
-        </div>
-        <div>
-          <input type="checkbox" name="certified" onChange={hCheckbox} />
         </div>
         <div className="button-add-container">
           <button type="submit" className="button-add" onClick={() => hChange}>

@@ -8,7 +8,6 @@ class ArtworkManager extends AbstractManager {
   }
 
   // The C of CRUD - Create operation
-
   async create(artwork, newName) {
     const { name, date, style, format, idUser } = artwork;
     // Execute the SQL INSERT query to add a new artwork to the "artwork" table
@@ -16,20 +15,17 @@ class ArtworkManager extends AbstractManager {
       `insert into ${this.table} (name, date, style, format, image, certified, id_user) values (?, ?, ?, ?, ?, ?, ?)`,
       [name, date, style, format, newName, false, idUser]
     );
-
     // Return the ID of the newly inserted artwork
     return result.insertId;
   }
 
   // The Rs of CRUD - Read operations
-
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific artwork by its ID
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
     );
-
     // Return the first row of the result, which represents the artwork
     return rows[0];
   }
@@ -40,7 +36,6 @@ class ArtworkManager extends AbstractManager {
       `select * from ${this.table} where id_user = ?`,
       [idUser]
     );
-
     // Return the first row of the result, which represents the artwork
     return rows[0];
   }
@@ -48,7 +43,6 @@ class ArtworkManager extends AbstractManager {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all artworks from the "artwork" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
-
     // Return the array of artworks
     return rows;
   }
@@ -72,6 +66,14 @@ class ArtworkManager extends AbstractManager {
       `update ${this.table} set ? where id = ?`,
       [artwork, id]
     );
+    return result;
+  }
+
+  async isCertified(id, boolean) {
+    const result = await this.database.query(
+      `update ${this.table} set certified = ? where id = ?`,
+      [boolean, id]
+    );
 
     return result;
   }
@@ -83,9 +85,7 @@ class ArtworkManager extends AbstractManager {
       `delete from ${this.table} where id = ?`,
       [id]
     );
-
     return result;
   }
 }
-
 module.exports = ArtworkManager;
